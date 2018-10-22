@@ -1,3 +1,6 @@
+body {
+  margin: 0px; }
+
 .center {
   text-align: center; }
 
@@ -40,10 +43,13 @@
   height: 50px;
   border-bottom: solid 1px;
   border-color: #ccc;
+  display: grid;
+  grid-template-columns: 70% auto;
   position: fixed;
   z-index: 3;
   background: rgba(255, 255, 255, 0.95);
-  overflow: hidden; }
+  overflow: hidden;
+  width: 100%; }
   .nav #navLogo {
     height: 40px;
     margin-top: 5px; }
@@ -54,6 +60,8 @@
     font-weight: bolder;
     letter-spacing: 5px;
     margin-top: 8px; }
+  .nav .nav__section {
+    display: flex; }
   .nav h3 {
     font-size: 10pt;
     font-family: 'Oswald', sans-serif;
@@ -63,7 +71,8 @@
   .nav h3:hover {
     color: #007193;
     cursor: pointer; }
-  .nav .dlWrap, .nav .navEmail {
+  .nav .dlWrap,
+  .nav .navEmail {
     border: solid 4px;
     border-color: #00ACE1;
     padding: 0px;
@@ -72,15 +81,18 @@
     height: 40px;
     width: 40px;
     transition: all 0.3s ease; }
-    .nav .dlWrap img, .nav .navEmail img {
+    .nav .dlWrap svg,
+    .nav .navEmail svg {
       transition: all 0.3s ease; }
-  .nav .dlWrap:hover, .nav .navEmail:hover {
-    background-color: whitesmoke;
-    cursor: pointer;
-    border: solid 1px;
-    border-color: #00ACE1; }
-    .nav .dlWrap:hover img, .nav .navEmail:hover img {
-      transform: rotate(360deg); }
+    .nav .dlWrap:hover,
+    .nav .navEmail:hover {
+      background-color: whitesmoke;
+      cursor: pointer;
+      border: solid 1px;
+      border-color: #00ACE1; }
+      .nav .dlWrap:hover svg,
+      .nav .navEmail:hover svg {
+        transform: rotate(360deg); }
   .nav .navEmail {
     margin-right: 10px; }
 
@@ -182,14 +194,8 @@
     z-index: 5;
     cursor: pointer; }
     .banner .arrows img:first-child {
-      -moz-transform: scaleX(-1) rotate(80deg);
-      -o-transform: scaleX(-1) rotate(80deg);
-      -webkit-transform: scaleX(-1) rotate(80deg);
       transform: scaleX(-1) rotate(80deg); }
     .banner .arrows img:last-child {
-      -moz-transform: rotate(80deg);
-      -o-transform: rotate(80deg);
-      -webkit-transform: rotate(80deg);
       transform: rotate(80deg); }
   .banner #roller {
     width: 380px;
