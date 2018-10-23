@@ -258,8 +258,18 @@ body {
       bottom: 0px;
       transform: rotate(180deg); }
 
-.section__technologies {
-  height: 200px; }
+.section__technologies .section__title {
+  font-family: sans-serif;
+  font-weight: lighter; }
+
+.section__technologies .technologies {
+  width: 750px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto; }
+  .section__technologies .technologies .technologies__icon {
+    margin: 20px 30px;
+    width: 64px; }
 
 .sectionStats {
   padding: 20px;
