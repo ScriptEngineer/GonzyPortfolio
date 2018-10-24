@@ -2486,124 +2486,156 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __WEBPACK_IMPORTED_MODULE_2__fortawesome_fontawesome_svg_core__["b" /* library */].add(__WEBPACK_IMPORTED_MODULE_4__fortawesome_free_solid_svg_icons__["b" /* faFileDownload */], __WEBPACK_IMPORTED_MODULE_4__fortawesome_free_solid_svg_icons__["a" /* faEnvelope */]);
 __WEBPACK_IMPORTED_MODULE_2__fortawesome_fontawesome_svg_core__["b" /* library */].add(__WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["a" /* faCss3 */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["b" /* faFontAwesome */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["c" /* faGit */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["d" /* faGithub */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["e" /* faGulp */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["f" /* faHtml5 */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["g" /* faJava */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["h" /* faJs */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["i" /* faJsfiddle */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["k" /* faNodeJs */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["l" /* faNpm */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["j" /* faMailchimp */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["m" /* faPhp */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_brands_svg_icons__["n" /* faReact */]);
 
-const app = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-		'div',
-		{ className: 'wrapper' },
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'div',
-				{ className: 'nav' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'nav__section' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'left', id: 'navLogo', src: 'img/logo.svg' }),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'h1',
-								{ id: 'navTitle', className: 'left' },
-								'GONZY DESIGNS'
-						)
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'nav__section' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'a',
-								{ href: 'img/gonzyResume.pdf', type: 'application/octet-stream', download: 'gonzyResume.pdf' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'dlWrap' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: 'file-download' })
-								)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'a',
-								{ href: 'img/gonzyResume.pdf', type: 'application/octet-stream', download: 'gonzyResume.pdf' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'h3',
-										{ className: 'right' },
-										'resume'
-								)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'navEmail' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: 'envelope' })
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'h3',
-								{ className: 'right navMailName' },
-								'gonzydesigns@gmail.com'
-						)
-				)
-		),
-		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'div',
-				{ className: 'mainBody' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'hero__banner' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'hero__img' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'img/devices.png' })
-						)
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'section__technologies' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'h2',
-								{ className: 'section__title center' },
-								'Advanced Experience with Industry Leading Technologies'
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'technologies' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'icon__row' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'css3'], className: 'technologies__icon', size: '4x' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'font-awesome'], className: 'technologies__icon', size: '4x' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'git'], className: 'technologies__icon', size: '4x' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'github'], className: 'technologies__icon', size: '4x' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'gulp'], className: 'technologies__icon', size: '4x' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'html5'], className: 'technologies__icon', size: '4x' })
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'icon__row' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'java'], className: 'technologies__icon', size: '4x' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'js'], className: 'technologies__icon', size: '4x' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'jsfiddle'], className: 'technologies__icon', size: '4x' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'node-js'], className: 'technologies__icon', size: '4x' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'npm'], className: 'technologies__icon', size: '4x' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'php'], className: 'technologies__icon', size: '4x' })
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'icon__row' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'react'], className: 'technologies__icon', size: '4x' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'mailchimp'], className: 'technologies__icon', size: '4x' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', src: 'img/alfresco.png' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', src: 'img/jQuery.png' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', src: 'img/leaflet.png' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', src: 'img/foundationLogo.png' })
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'icon__row' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', src: 'img/bootstrap.png' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', src: 'img/webpack.png' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', src: 'img/mysql.png' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', src: 'img/analytics.svg' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', src: 'img/logo-localist.svg' }),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', src: 'img/heroku.svg' })
-								)
-						)
-				)
-		)
-);
+class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
-__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(app, document.getElementById('root'));
+		constructor(props) {
+				super(props);
+				this.technologyReveal = this.technologyReveal.bind(this);
+		}
+
+		technologyReveal(e) {
+
+				let leftOvers = document.querySelectorAll('.technologies__icon.reveal');
+
+				if (leftOvers.length > 0) {
+						leftOvers.forEach(el => {
+								el.classList.remove('reveal');
+						});
+				}
+
+				e.target.classList.add('reveal');
+				document.querySelector('.technologies').classList.add('blur');
+		}
+
+		technologyReset(e) {
+				e.target.classList.remove('reveal');
+				document.querySelector('.technologies').classList.remove('blur');
+		}
+
+		render() {
+				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'wrapper' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'nav' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'nav__section' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'left', id: 'navLogo', src: 'img/logo.svg' }),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'h1',
+												{ id: 'navTitle', className: 'left' },
+												'GONZY DESIGNS'
+										)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'nav__section' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'a',
+												{ href: 'img/gonzyResume.pdf', type: 'application/octet-stream', download: 'gonzyResume.pdf' },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'dlWrap' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: 'file-download' })
+												)
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'a',
+												{ href: 'img/gonzyResume.pdf', type: 'application/octet-stream', download: 'gonzyResume.pdf' },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'h3',
+														{ className: 'right' },
+														'resume'
+												)
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'div',
+												{ className: 'navEmail' },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: 'envelope' })
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'h3',
+												{ className: 'right navMailName' },
+												'gonzydesigns@gmail.com'
+										)
+								)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'mainBody' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'hero__banner' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'div',
+												{ className: 'hero__img' },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'img/devices.png' })
+										)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'section__technologies' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'h2',
+												{ className: 'section__title center' },
+												'Advanced Experience with Industry Leading Technologies'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'div',
+												{ className: 'technologies' },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'icon__row' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'css3'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'font-awesome'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'git'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'github'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'gulp'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'html5'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' })
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'icon__row' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'java'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'js'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'jsfiddle'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'node-js'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'npm'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'php'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' })
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'icon__row' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'react'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'mailchimp'], className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), size: '4x' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), src: 'img/alfresco.png' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), src: 'img/jQuery.png' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), src: 'img/leaflet.png' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), src: 'img/foundationLogo.png' })
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'icon__row' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), src: 'img/bootstrap.png' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), src: 'img/webpack.png' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), src: 'img/mysql.png' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), src: 'img/analytics.svg' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), src: 'img/logo-localist.svg' }),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'technologies__icon', onMouseEnter: e => this.technologyReveal(e), onMouseLeave: e => this.technologyReset(e), src: 'img/heroku.svg' })
+												)
+										)
+								)
+						)
+				);
+		}
+
+}
+/* harmony export (immutable) */ __webpack_exports__["default"] = App;
+
+
+__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(App, null), document.getElementById('root'));
 
 /***/ }),
 /* 10 */

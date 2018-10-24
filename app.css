@@ -273,7 +273,14 @@ body {
     align-items: center; }
     .section__technologies .technologies .icon__row .technologies__icon {
       margin: 20px 30px;
-      width: 64px; }
+      width: 64px;
+      color: #666;
+      filter: grayscale(100%);
+      transition: all 0.3s ease; }
+      .section__technologies .technologies .icon__row .technologies__icon.reveal {
+        filter: grayscale(100%); }
+  .section__technologies .technologies.blur .technologies__icon {
+    filter: blur(5px) grayscale(100%); }
 
 .sectionStats {
   padding: 20px;
