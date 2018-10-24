@@ -267,9 +267,13 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto; }
-  .section__technologies .technologies .technologies__icon {
-    margin: 20px 30px;
-    width: 64px; }
+  .section__technologies .technologies .icon__row {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .section__technologies .technologies .icon__row .technologies__icon {
+      margin: 20px 30px;
+      width: 64px; }
 
 .sectionStats {
   padding: 20px;
