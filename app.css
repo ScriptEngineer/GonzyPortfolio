@@ -266,10 +266,13 @@ body {
   display: flex;
   justify-content: center;
   overflow: hidden;
+  pointer-events: none;
   position: absolute;
   text-align: center;
   width: 100%;
   z-index: -1; }
+  .section__technologies #technologyDetail.reveal {
+    z-index: 1; }
   .section__technologies #technologyDetail .technology {
     align-items: center;
     background-image: radial-gradient(circle, white, rgba(255, 255, 255, 0));
@@ -304,7 +307,7 @@ body {
       transition: all 0.3s ease; }
       .section__technologies .technologies .icon__row .technologies__icon.reveal {
         filter: grayscale(100%); }
-  .section__technologies .technologies.blur .technologies__icon {
+  .section__technologies .technologies.blur .technologies__icon, .section__technologies .technologies.blur--alt .technologies__icon {
     filter: blur(5px) grayscale(100%); }
 
 .sectionStats {
