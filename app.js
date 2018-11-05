@@ -2943,6 +2943,99 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
+										{ className: 'section__history' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'div',
+												{ className: 'entry' },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'entry__content' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'p',
+																null,
+																'Sep. 2016 - Present'
+														),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'h2',
+																null,
+																'Front End Web Developer'
+														),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'h3',
+																null,
+																'UTSouthwestern'
+														)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'entry__link' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'triangle' })
+												)
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'div',
+												{ className: 'entry' },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'entry__content' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'p',
+																null,
+																'2013 - 2016'
+														),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'h2',
+																null,
+																'Freelance Web Designer/Developer'
+														),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'h3',
+																null,
+																'Maxitransfers inc.'
+														),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'h3',
+																null,
+																'Llantec inc.'
+														)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'entry__link' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'triangle' })
+												)
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'div',
+												{ className: 'entry' },
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'entry__content' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'p',
+																null,
+																'Aug. 2011 - July 2015'
+														),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'h2',
+																null,
+																'B.A. Communication Technologies'
+														),
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+																'h3',
+																null,
+																'University of Texas at Arlington'
+														)
+												),
+												__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+														'div',
+														{ className: 'entry__link' },
+														__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'triangle' })
+												)
+										)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
 										{ className: 'section__technologies' },
 										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 												'h2',

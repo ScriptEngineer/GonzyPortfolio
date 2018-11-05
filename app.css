@@ -258,6 +258,22 @@ body {
       bottom: 0px;
       transform: rotate(180deg); }
 
+.section__history .entry {
+  display: flex;
+  border-bottom: solid 1px #474747;
+  position: relative;
+  overflow: hidden; }
+  .section__history .entry__content h2 {
+    margin-top: 0px; }
+  .section__history .entry__link .triangle {
+    border: solid 120px #f00;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    height: 0px;
+    position: absolute;
+    width: 0px; }
+
 .section__technologies {
   margin-bottom: 50px; }
   .section__technologies .section__title {
