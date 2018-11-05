@@ -277,12 +277,13 @@ body {
       z-index: 1; }
     .section__technologies #technologyDetail .technology {
       align-items: center;
-      background-image: radial-gradient(circle, white, rgba(255, 255, 255, 0));
       border-radius: 400px;
       display: flex;
       height: 325px;
       justify-content: center;
       width: 800px; }
+      .section__technologies #technologyDetail .technology.reveal {
+        background-image: radial-gradient(circle, white, rgba(255, 255, 255, 0)); }
       .section__technologies #technologyDetail .technology .technologies__icon {
         animation-fill-mode: forwards;
         animation-name: reveal;
@@ -295,9 +296,13 @@ body {
     .section__technologies #technologyDetail .technologyTitle {
       background-color: #00ACE1;
       border-radius: 15px;
-      color: #fff;
       font-family: sans-serif;
       padding: 0px 20px; }
+      .section__technologies #technologyDetail .technologyTitle:hover a {
+        text-shadow: 2px 2px 8px #fff; }
+      .section__technologies #technologyDetail .technologyTitle a {
+        color: #fff;
+        text-decoration: none; }
   .section__technologies .technologies {
     width: 750px;
     position: relative;
