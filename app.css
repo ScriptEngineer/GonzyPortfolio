@@ -259,20 +259,43 @@ body {
       transform: rotate(180deg); }
 
 .section__history .entry {
+  background-color: #e6f9ff;
+  border-bottom: solid 1px #ccc;
   display: flex;
-  border-bottom: solid 1px #474747;
-  position: relative;
-  overflow: hidden; }
-  .section__history .entry__content h2 {
-    margin-top: 0px; }
-  .section__history .entry__link .triangle {
-    border: solid 120px #f00;
-    border-left-color: transparent;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    height: 0px;
-    position: absolute;
-    width: 0px; }
+  height: 140px;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative; }
+  .section__history .entry__content {
+    padding-left: 20px; }
+    .section__history .entry__content h2, .section__history .entry__content p {
+      color: #474747;
+      font-family: sans-serif; }
+    .section__history .entry__content h2 {
+      margin-top: 0px; }
+    .section__history .entry__content p {
+      font-weight: lighter;
+      margin-bottom: 0px; }
+  .section__history .entry__link {
+    align-items: center;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 400px; }
+    .section__history .entry__link a {
+      position: relative;
+      z-index: 2; }
+    .section__history .entry__link .triangle {
+      border: solid 140px #fff;
+      border-left-color: transparent;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      height: 0px;
+      left: -140px;
+      position: absolute;
+      top: -140px;
+      width: 0px; }
 
 .section__technologies {
   margin-bottom: 50px; }
