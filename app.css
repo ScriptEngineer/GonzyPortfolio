@@ -52,6 +52,11 @@ body {
   background: rgba(255, 255, 255, 0.95);
   overflow: hidden;
   width: 100%; }
+  .nav .github__link .dlWrap {
+    background-color: #00ACE1; }
+    .nav .github__link .dlWrap svg {
+      color: #fff;
+      font-size: 44px; }
   .nav #navLogo {
     height: 40px;
     margin-top: 5px; }
@@ -273,9 +278,9 @@ body {
       font-family: sans-serif; }
     .section__history .entry__content h2 {
       margin-top: 0px; }
-    .section__history .entry__content p {
-      font-weight: lighter;
-      margin-bottom: 0px; }
+  .section__history .entry__time {
+    font-weight: lighter;
+    margin-bottom: 0px; }
   .section__history .entry__link {
     align-items: center;
     background-color: #fff;
