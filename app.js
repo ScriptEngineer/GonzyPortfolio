@@ -2568,7 +2568,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_svg_core__["b" /* library */].add(__WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["a" /* faDesktop */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["c" /* faFileDownload */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["b" /* faEnvelope */]);
+__WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_svg_core__["b" /* library */].add(__WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["a" /* faDesktop */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["d" /* faMobileAlt */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["c" /* faFileDownload */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["b" /* faEnvelope */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["e" /* faTabletAlt */]);
 __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_svg_core__["b" /* library */].add(__WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["a" /* faCss3 */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["b" /* faFontAwesome */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["c" /* faGit */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["d" /* faGithub */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["e" /* faGulp */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["f" /* faHtml5 */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["g" /* faJava */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["h" /* faJs */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["i" /* faJsfiddle */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["k" /* faNodeJs */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["l" /* faNpm */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["j" /* faMailchimp */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["m" /* faPhp */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["n" /* faReact */]);
 
 class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
@@ -2580,7 +2580,9 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 	}
 
 	componentDidMount() {
+
 		let icons = document.querySelectorAll('.technologies__icon');
+
 		icons.forEach(el => {
 			//el.addEventListener('mouseenter', this.toggleTechnology);
 			//el.addEventListener('mouseleave', this.toggleTechnology);
@@ -2604,10 +2606,24 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 			});
 		});
 
-		var mySwiper = new __WEBPACK_IMPORTED_MODULE_2_swiper__["a" /* default */]('.swiper-container', {
-			speed: 400,
-			spaceBetween: 100
+		let sliders = document.querySelectorAll('.swiper-container');
+
+		sliders.forEach(el => {
+			let mySwiper = new __WEBPACK_IMPORTED_MODULE_2_swiper__["a" /* default */](el, {
+				speed: 400,
+				spaceBetween: 100
+			});
 		});
+
+		/*
+  window.addEventListener('scroll', () => {
+  		let sTop = window.scrollY;
+  	let sHeight = window.innerHeight;
+  		if (sTop > 1000) {
+  		alert('grid reached');
+  	}
+  		});
+  */
 	}
 
 	technologyDetail() {}
@@ -2708,7 +2724,33 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'h3',
 									null,
-									'Unparralleled extensive use of accessibility'
+									'Full Project Management Means'
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'swiper-container' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'swiper-wrapper' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'swiper-slide' },
+											'Quicker Deployments'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'swiper-slide' },
+											'Better Page Ranking'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'swiper-slide' },
+											'Improved Accessibility'
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-pagination' }),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-button-prev' }),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-button-next' })
 								)
 							)
 						),
@@ -2721,9 +2763,34 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'h3',
 									null,
-									'Any Screen, at Any Size'
+									'Fully Responsive'
 								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fas', 'desktop'], className: 'technologies__icon', size: '4x', 'data-title': 'CSS3', 'data-link': 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3' })
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'swiper-container' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'swiper-wrapper' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'swiper-slide' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fas', 'desktop'], className: 'technologies__icon', size: '4x' })
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'swiper-slide' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fas', 'tablet-alt'], className: 'technologies__icon', size: '4x' })
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'swiper-slide' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fas', 'mobile-alt'], className: 'technologies__icon', size: '4x' })
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-pagination' }),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-button-prev' }),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-button-next' })
+								)
 							)
 						),
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -2737,9 +2804,32 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 									null,
 									'Full stack ready'
 								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'node-js'], className: 'technologies__icon', size: '4x', 'data-title': 'NodeJS', 'data-link': 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3' }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'react'], className: 'technologies__icon', size: '4x', 'data-title': 'React', 'data-link': 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3' }),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'css3'], className: 'technologies__icon', size: '4x', 'data-title': 'CSS3', 'data-link': 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3' })
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'swiper-container' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'swiper-wrapper' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'swiper-slide' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'node-js'], className: 'technologies__icon', size: '4x', 'data-title': 'NodeJS', 'data-link': 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3' })
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'swiper-slide' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'react'], className: 'technologies__icon', size: '4x', 'data-title': 'React', 'data-link': 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3' })
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'swiper-slide' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'css3'], className: 'technologies__icon', size: '4x', 'data-title': 'CSS3', 'data-link': 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3' })
+										)
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-pagination' }),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-button-prev' }),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-button-next' })
+								)
 							)
 						)
 					)
@@ -34201,7 +34291,7 @@ module.exports = function() {
 /* unused harmony export faMinusCircle */
 /* unused harmony export faMinusSquare */
 /* unused harmony export faMobile */
-/* unused harmony export faMobileAlt */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return faMobileAlt; });
 /* unused harmony export faMoneyBill */
 /* unused harmony export faMoneyBillAlt */
 /* unused harmony export faMoneyBillWave */
@@ -34419,7 +34509,7 @@ module.exports = function() {
 /* unused harmony export faTable */
 /* unused harmony export faTableTennis */
 /* unused harmony export faTablet */
-/* unused harmony export faTabletAlt */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return faTabletAlt; });
 /* unused harmony export faTablets */
 /* unused harmony export faTachometerAlt */
 /* unused harmony export faTag */
