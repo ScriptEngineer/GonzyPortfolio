@@ -2568,7 +2568,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_svg_core__["b" /* library */].add(__WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["a" /* faDesktop */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["d" /* faMobileAlt */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["c" /* faFileDownload */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["b" /* faEnvelope */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["e" /* faTabletAlt */]);
+__WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_svg_core__["b" /* library */].add(__WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["a" /* faDesktop */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["e" /* faMobileAlt */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["c" /* faFileDownload */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["b" /* faEnvelope */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["d" /* faListOl */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["f" /* faPaperPlane */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["g" /* faTabletAlt */], __WEBPACK_IMPORTED_MODULE_5__fortawesome_free_solid_svg_icons__["h" /* faUniversalAccess */]);
 __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_svg_core__["b" /* library */].add(__WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["a" /* faCss3 */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["b" /* faFontAwesome */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["c" /* faGit */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["d" /* faGithub */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["e" /* faGulp */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["f" /* faHtml5 */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["g" /* faJava */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["h" /* faJs */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["i" /* faJsfiddle */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["k" /* faNodeJs */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["l" /* faNpm */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["j" /* faMailchimp */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["m" /* faPhp */], __WEBPACK_IMPORTED_MODULE_6__fortawesome_free_brands_svg_icons__["n" /* faReact */]);
 
 class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
@@ -2611,19 +2611,28 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 		sliders.forEach(el => {
 			let mySwiper = new __WEBPACK_IMPORTED_MODULE_2_swiper__["a" /* default */](el, {
 				speed: 400,
-				spaceBetween: 100
+				spaceBetween: 100,
+				loop: true,
+				autoplay: {
+					delay: 5000
+				}
 			});
 		});
 
-		/*
-  window.addEventListener('scroll', () => {
-  		let sTop = window.scrollY;
-  	let sHeight = window.innerHeight;
-  		if (sTop > 1000) {
-  		alert('grid reached');
-  	}
-  		});
-  */
+		window.addEventListener('scroll', () => {
+
+			let sTop = window.scrollY;
+			let sHeight = window.innerHeight;
+
+			if (sTop > 1100) {
+				document.querySelector('.technologies').classList.add('present');
+			} else if (sTop > 580) {
+				document.querySelector('.section__history').classList.add('present');
+			}
+
+			console.log(sTop);
+			console.log(sHeight);
+		});
 	}
 
 	technologyDetail() {}
@@ -2724,45 +2733,6 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 									'h3',
 									null,
-									'Full Project Management Means'
-								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'div',
-									{ className: 'swiper-container' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'div',
-										{ className: 'swiper-wrapper' },
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'div',
-											{ className: 'swiper-slide' },
-											'Quicker Deployments'
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'div',
-											{ className: 'swiper-slide' },
-											'Better Page Ranking'
-										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-											'div',
-											{ className: 'swiper-slide' },
-											'Improved Accessibility'
-										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-pagination' }),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-button-prev' }),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-button-next' })
-								)
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'div',
-							{ className: 'feature' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'featured__content' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'h3',
-									null,
 									'Fully Responsive'
 								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -2786,10 +2756,53 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 											{ className: 'swiper-slide' },
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fas', 'mobile-alt'], className: 'technologies__icon', size: '4x' })
 										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-pagination' }),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-button-prev' }),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-button-next' })
+									)
+								)
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'feature' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'featured__content' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'swiper-container' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'swiper-wrapper' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'swiper-slide' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'h3',
+												null,
+												'Improved Accessibility'
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fas', 'universal-access'], className: 'technologies__icon', size: '4x' })
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'swiper-slide' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'h3',
+												null,
+												'Better Page Ranking'
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fas', 'list-ol'], className: 'technologies__icon', size: '4x' })
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+											'div',
+											{ className: 'swiper-slide' },
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'h3',
+												null,
+												'Faster Deployments'
+											),
+											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fas', 'paper-plane'], className: 'technologies__icon', size: '4x' })
+										)
+									)
 								)
 							)
 						),
@@ -2825,10 +2838,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 											{ className: 'swiper-slide' },
 											__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__fortawesome_react_fontawesome__["a" /* FontAwesomeIcon */], { icon: ['fab', 'css3'], className: 'technologies__icon', size: '4x', 'data-title': 'CSS3', 'data-link': 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3' })
 										)
-									),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-pagination' }),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-button-prev' }),
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'swiper-button-next' })
+									)
 								)
 							)
 						)
@@ -2837,6 +2847,11 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
 					{ className: 'section__history' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'h2',
+						{ className: 'section__title' },
+						'Striving for new heights in Coding Experience'
+					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'div',
 						{ className: 'entry' },
@@ -2889,12 +2904,12 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'a',
 								{ href: 'https://www.maxi-ms.com/', target: '_blank' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'img/maxi-logo.png', width: '180' })
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'img/maxi-logo.png', width: '120' })
 							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'a',
 								{ href: 'https://www.llantec.com/', target: '_blank' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'img/llantec-logo.png', width: '180' })
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'img/llantec-logo.png', width: '120' })
 							)
 						)
 					),
@@ -34244,7 +34259,7 @@ module.exports = function() {
 /* unused harmony export faLiraSign */
 /* unused harmony export faList */
 /* unused harmony export faListAlt */
-/* unused harmony export faListOl */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return faListOl; });
 /* unused harmony export faListUl */
 /* unused harmony export faLocationArrow */
 /* unused harmony export faLock */
@@ -34291,7 +34306,7 @@ module.exports = function() {
 /* unused harmony export faMinusCircle */
 /* unused harmony export faMinusSquare */
 /* unused harmony export faMobile */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return faMobileAlt; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return faMobileAlt; });
 /* unused harmony export faMoneyBill */
 /* unused harmony export faMoneyBillAlt */
 /* unused harmony export faMoneyBillWave */
@@ -34321,7 +34336,7 @@ module.exports = function() {
 /* unused harmony export faPaintRoller */
 /* unused harmony export faPalette */
 /* unused harmony export faPallet */
-/* unused harmony export faPaperPlane */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return faPaperPlane; });
 /* unused harmony export faPaperclip */
 /* unused harmony export faParachuteBox */
 /* unused harmony export faParagraph */
@@ -34509,7 +34524,7 @@ module.exports = function() {
 /* unused harmony export faTable */
 /* unused harmony export faTableTennis */
 /* unused harmony export faTablet */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return faTabletAlt; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return faTabletAlt; });
 /* unused harmony export faTablets */
 /* unused harmony export faTachometerAlt */
 /* unused harmony export faTag */
@@ -34571,7 +34586,7 @@ module.exports = function() {
 /* unused harmony export faUnderline */
 /* unused harmony export faUndo */
 /* unused harmony export faUndoAlt */
-/* unused harmony export faUniversalAccess */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return faUniversalAccess; });
 /* unused harmony export faUniversity */
 /* unused harmony export faUnlink */
 /* unused harmony export faUnlock */
