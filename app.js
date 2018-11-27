@@ -2584,8 +2584,6 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 		let icons = document.querySelectorAll('.technologies__icon');
 
 		icons.forEach(el => {
-			//el.addEventListener('mouseenter', this.toggleTechnology);
-			//el.addEventListener('mouseleave', this.toggleTechnology);
 			el.addEventListener('click', () => {
 				let technolgy = el.outerHTML;
 				document.querySelector('#technologyDetail .technology').classList.add('reveal');
@@ -2594,7 +2592,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 				document.querySelector('#technologyDetail').classList.add('reveal');
 				document.querySelector('.technologies').classList.add('blur--alt');
 				document.addEventListener('click', e => {
-					if (e.target.classList.contains('technology')) {
+					if (!e.target.classList.contains('technologies__icon') && !e.target.classList.contains('technologyTitle')) {
 						document.querySelector('#technologyDetail .technology').classList.remove('reveal');
 						document.querySelector('#technologyDetail').classList.remove('reveal');
 						document.querySelector('.technologies').classList.remove('blur--alt');
@@ -2602,7 +2600,6 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 						document.querySelector('#technologyDetail .technologyTitle').innerHTML = '';
 					}
 				});
-				//el.removeEventListener('mouseenter', this.toggleTechnology, true);
 			});
 		});
 
@@ -2629,9 +2626,6 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 			} else if (sTop > 580) {
 				document.querySelector('.section__history').classList.add('present');
 			}
-
-			console.log(sTop);
-			console.log(sHeight);
 		});
 	}
 
@@ -2670,10 +2664,10 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
-					{ className: 'nav__section' },
+					{ className: 'nav__section nav__links' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'a',
-						{ href: 'img/gonzyResume.pdf', className: 'github__link', type: 'application/octet-stream', download: 'gonzyResume.pdf' },
+						{ href: 'https://github.com/ScriptEngineer', className: 'github__link', target: '_blank' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 							'div',
 							{ className: 'dlWrap' },
@@ -2682,7 +2676,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'a',
-						{ href: 'img/gonzyResume.pdf', type: 'application/octet-stream', download: 'gonzyResume.pdf' },
+						{ href: 'gonzyResume.pdf', type: 'application/octet-stream', download: 'gonzyResume.pdf' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 							'div',
 							{ className: 'dlWrap' },
@@ -2691,7 +2685,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'a',
-						{ href: 'img/gonzyResume.pdf', type: 'application/octet-stream', download: 'gonzyResume.pdf' },
+						{ href: 'img/gonzyResume.pdf', className: 'resume__link', type: 'application/octet-stream', download: 'gonzyResume.pdf' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 							'h3',
 							{ className: 'right' },
