@@ -60,6 +60,8 @@ body {
   .nav__link {
     display: flex;
     align-items: center; }
+    .nav__link a {
+      text-decoration: none; }
     @media screen and (max-width: 500px) {
       .nav__link {
         width: 100%; } }
@@ -94,7 +96,8 @@ body {
         width: 20px; } }
   .nav__section {
     align-items: center;
-    display: flex; }
+    display: flex;
+    padding: 5px 0px; }
     @media screen and (max-width: 500px) {
       .nav__section {
         justify-content: center; } }
@@ -380,6 +383,7 @@ body {
         background-image: radial-gradient(circle, white, rgba(255, 255, 255, 0)); }
       .section__technologies #technologyDetail .technology .technologies__icon {
         color: #474747;
+        cursor: pointer;
         max-height: 300px;
         max-width: 700px;
         min-height: 200px;
