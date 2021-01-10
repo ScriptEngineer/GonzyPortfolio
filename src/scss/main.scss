@@ -196,14 +196,14 @@ $mobile: "screen and (max-width:500px)";
 }
 
 .section__hero {
-    background-image: url(img/triangleDesign.jpg);
+    background-image: url('../img/triangleDesign.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     border-bottom: solid 2px;  
     border-color: #ccc;
     position: relative;
     overflow: hidden;
-            
+    
     .hero__img {
         transition: all 0.2s ease;
         position: relative;
@@ -378,9 +378,9 @@ $mobile: "screen and (max-width:500px)";
 }
 
 .section__history {
-    background-image: url('img/back4.jpg');
-    //background-image: url('/~gerardogonzalez/GonzyPortfolio/img/back4.jpg');
-	background-size: cover;
+  background-image: url('../img/back4.jpg');
+  background-size: cover;
+  background-attachment: fixed;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -400,25 +400,21 @@ $mobile: "screen and (max-width:500px)";
 	}
 
 	.entry {
-		//background-color: #e6f9ff;
-		//background-color: rgba(230, 249, 255, 0.7);
 		background-image: linear-gradient(to right,rgba(230, 249, 255, 0.7),rgba(230, 249, 255, 0.1),rgba(230, 249, 255, 0.0));
-		//border: solid 1px #ccc;
 		border-radius: 7px;
 		display: flex;
 		height: 140px;
 		justify-content: space-between;
 		margin-bottom: 20px;
-		//overflow: hidden;
 		position: relative;
-        width: 800px;
+    width: 800px;
         
-        @media #{$mobile} {
-            flex-direction: column;
-            height: auto;
-            overflow: hidden;
-            width: 90%;
-        }
+    @media #{$mobile} {
+        flex-direction: column;
+        height: auto;
+        overflow: hidden;
+        width: 90%;
+    }
 
 		&__content {
 			padding-left: 20px;
@@ -437,13 +433,13 @@ $mobile: "screen and (max-width:500px)";
 		&__time {
 			font-weight: lighter;
 			margin-bottom: 0px;
-        }
+    }
         
-        &__title {      
-            @media #{$mobile} {
-                text-align: center;
-            }
+    &__title {      
+        @media #{$mobile} {
+            text-align: center;
         }
+    }
 
 		&__link {
 			align-items: center;

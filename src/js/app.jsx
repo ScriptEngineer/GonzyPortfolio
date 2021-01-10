@@ -5,6 +5,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faMobileAlt, faFileDownload, faEnvelope, faTabletAlt, faUniversalAccess, faListOl, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { 
+    faAws,
     faCss3,
     faFontAwesome,
     faGit,
@@ -16,27 +17,32 @@ import {
     faJsfiddle,
     faNodeJs,
     faNpm,
+    faPython,
     faPhp,
     faReact,
+    faSass,
     faMailchimp,
 } from '@fortawesome/free-brands-svg-icons';
 
 library.add(faDesktop, faMobileAlt, faFileDownload, faEnvelope, faListOl, faPaperPlane, faTabletAlt, faUniversalAccess);
 library.add(
-    faCss3,
-    faFontAwesome,
-    faGit,
-    faGithub,
-    faGulp,
-    faHtml5,
-    faJava,
-    faJs,
-    faJsfiddle,
-    faNodeJs,
-    faNpm,
-    faMailchimp,
-    faPhp,
-    faReact
+  faAws,
+  faCss3,
+  faFontAwesome,
+  faGit,
+  faGulp,
+  faGithub,
+  faHtml5,
+  faJava,
+  faJs,
+  faJsfiddle,
+  faNodeJs,
+  faNpm,
+  faPython,
+  faPhp,
+  faReact,
+  faSass,
+  faMailchimp,
 );
 
 export default class App extends React.Component {
@@ -293,40 +299,50 @@ export default class App extends React.Component {
                         <div className="technologies">
 
                             <div className="icon__row">
+                                <FontAwesomeIcon icon={['fab', 'html5']} className="technologies__icon" size="4x" data-title="HTML5" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <FontAwesomeIcon icon={['fab', 'js']} className="technologies__icon" size="4x" data-title="JS6" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <FontAwesomeIcon icon={['fab', 'sass']} className="technologies__icon" size="4x" data-title="MailChimp" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
                                 <FontAwesomeIcon icon={['fab', 'css3']} className="technologies__icon" size="4x" data-title="CSS3" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <FontAwesomeIcon icon={['fab', 'font-awesome']} className="technologies__icon" size="4x" data-title="FontAwesome" data-link="https://fontawesome.com/" />
                                 <FontAwesomeIcon icon={['fab', 'git']} className="technologies__icon" size="4x" data-title="Git" data-link="https://git-scm.com/" />
                                 <FontAwesomeIcon icon={['fab', 'github']} className="technologies__icon" size="4x" data-title="GitHub" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <FontAwesomeIcon icon={['fab', 'gulp']} className="technologies__icon" size="4x" data-title="Gulp" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <FontAwesomeIcon icon={['fab', 'html5']} className="technologies__icon" size="4x" data-title="HTML5" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                            </div>
+
+                            <div className="icon__row">
+                                <FontAwesomeIcon icon={['fab', 'react']} className="technologies__icon" size="4x" data-title="React" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <FontAwesomeIcon icon={['fab', 'python']} className="technologies__icon" size="4x" data-title="FontAwesome" data-link="https://fontawesome.com/" />
+                                <FontAwesomeIcon icon={['fab', 'aws']} className="technologies__icon" size="4x"  data-title="Amazon Web Services" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <FontAwesomeIcon icon={['fab', 'node-js']} className="technologies__icon" size="4x" data-title="NodeJS" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <FontAwesomeIcon icon={['fab', 'npm']} className="technologies__icon" size="4x" data-title="NPM" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <img className="technologies__icon" src="img/brands/apache.svg" data-title="Bootstrap" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
                             </div>
 
                             <div className="icon__row">
                                 <FontAwesomeIcon icon={['fab', 'java']} className="technologies__icon" size="4x" data-title="Java" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <FontAwesomeIcon icon={['fab', 'js']} className="technologies__icon" size="4x" data-title="JS6" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <FontAwesomeIcon icon={['fab', 'jsfiddle']} className="technologies__icon" size="4x"  data-title="JsFiddle" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <FontAwesomeIcon icon={['fab', 'node-js']} className="technologies__icon" size="4x" data-title="NodeJS" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <FontAwesomeIcon icon={['fab', 'npm']} className="technologies__icon" size="4x" data-title="NPM" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <FontAwesomeIcon icon={['fab', 'php']} className="technologies__icon" size="4x" data-title="PHP" data-link="htt ps://developer.mozilla.org/en-US/docs/Web/CSS/CSS3"/>
-                            </div>
-
-                            <div className="icon__row">
-                                <FontAwesomeIcon icon={['fab', 'react']} className="technologies__icon" size="4x" data-title="React" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3"/>
                                 <FontAwesomeIcon icon={['fab', 'mailchimp']} className="technologies__icon" size="4x" data-title="MailChimp" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3"/>
-                                <img className="technologies__icon" src="img/alfresco.png" data-title="Alfresco" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <img className="technologies__icon" src="img/jQuery.png" data-title="jQuery" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <img className="technologies__icon" src="img/leaflet.png" data-title="Leaflet" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <img className="technologies__icon" src="img/foundationLogo.png" data-title="Foundation" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <img className="technologies__icon" src="img/brands/alfresco.svg" data-title="Alfresco" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <img className="technologies__icon" src="img/brands/jQuery.png" data-title="jQuery" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <img className="technologies__icon" src="img/brands/foundationLogo.png" data-title="Foundation" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <FontAwesomeIcon icon={['fab', 'gulp']} className="technologies__icon" size="4x" data-title="Gulp" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
                             </div>
 
                             <div className="icon__row">
-                                <img className="technologies__icon" src="img/bootstrap.png" data-title="Bootstrap" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <img className="technologies__icon" src="img/webpack.png" data-title="Webpack" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <img className="technologies__icon" src="img/mysql.png" data-title="MySQL" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <img className="technologies__icon" src="img/analytics.svg" data-title="Google Analytics" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <img className="technologies__icon" src="img/logo-localist.svg" data-title="Localist" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <img className="technologies__icon" src="img/heroku.svg" data-title="Heroku" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <img className="technologies__icon" src="img/brands/bootstrap.png" data-title="Bootstrap" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <img className="technologies__icon" src="img/brands/webpack.png" data-title="Webpack" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <img className="technologies__icon" src="img/brands/mysql.png" data-title="MySQL" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <img className="technologies__icon" src="img/brands/analytics.svg" data-title="Google Analytics" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <img className="technologies__icon" src="img/brands/logo-localist.svg" data-title="Localist" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <img className="technologies__icon" src="img/brands/heroku.svg" data-title="Heroku" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
                             </div>
+
+                            <div className="icon__row">
+                              <img className="technologies__icon" src="img/brands/tinymce.svg" data-title="Bootstrap" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                              <img className="technologies__icon" src="img/brands/bluepay.svg" data-title="Bootstrap" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                              <img className="technologies__icon" src="img/brands/postgresql.svg" data-title="Bootstrap" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                              <img className="technologies__icon" src="img/brands/django.svg" data-title="Webpack" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                              <img className="technologies__icon" src="img/brands/wagtail.svg" data-title="MySQL" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                              <FontAwesomeIcon icon={['fab', 'php']} className="technologies__icon" size="4x" data-title="PHP" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                            </div>
+
 
                         </div>
                     </div>
