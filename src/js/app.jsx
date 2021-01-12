@@ -49,51 +49,26 @@ export default class App extends React.Component {
 
     constructor(props) {
         super(props);
+        this.brandModals = this.brandModals.bind(this);
         this.toggleTechnology = this.toggleTechnology.bind(this);
     }
 
     componentDidMount() {
 
-				let icons = document.querySelectorAll('.technologies__icon');
-				
-        icons.forEach(el => {
-            el.addEventListener('click', () => {
-                let technolgy = el.outerHTML;
-                document.querySelector('#technologyDetail .technology').classList.add('reveal');
-                document.querySelector('#technologyDetail .technology').innerHTML = technolgy;
-                document.querySelector('#technologyDetail .technologyTitle').innerHTML = `<h2><a target="_blank" href="${el.dataset.link}">${el.dataset.title}</a></h2>`;
-                document.querySelector('#technologyDetail').classList.add('reveal');
-                document.querySelector('.technologies').classList.add('blur--alt');
-                document.addEventListener('click', e => {
-                    if (!e.target.classList.contains('technologies__icon') && !e.target.classList.contains('technologyTitle')) {
-                        document.querySelector('#technologyDetail .technology').classList.remove('reveal');
-                        document.querySelector('#technologyDetail').classList.remove('reveal');
-                        document.querySelector('.technologies').classList.remove('blur--alt');
-                        document.querySelector('#technologyDetail .technology').innerHTML = '';
-                        document.querySelector('#technologyDetail .technologyTitle').innerHTML = '';
-                    }
-                });
-            });
-        });
+        let transformingSVG = Snap('#svgMorpher');
+        let squiggly = Snap.select('#squiggly');
 
-        let sliders = document.querySelectorAll('.swiper-container');
-
-        sliders.forEach(el => {
-            new Swiper(el, {
-                speed: 400,
-                spaceBetween: 100,
-                loop: true,
-                autoplay: {
-                    delay: 5000
-                },
-            });
-        });
+        setTimeout(function(){
+          transformingSVG.animate({ viewBox: `0 0 ${faAws.icon[0]} ${faAws.icon[1]}`}, 1000, mina.backout);
+          squiggly.animate({d: faAws.icon[4]}, 5000, mina.backout);  
+        },5000);
+          
+        this.brandModals();
 
         window.addEventListener('scroll', () => {
 
             let sTop = window.scrollY;
-            //let sHeight = window.innerHeight;
-
+     
             if (sTop > 1100) {
                 document.querySelector('.technologies').classList.add('present');
             } else if (sTop > 580) {
@@ -101,6 +76,32 @@ export default class App extends React.Component {
             }
             
         });
+
+    }
+
+    brandModals() {
+
+      let icons = document.querySelectorAll('.technologies__icon');
+
+      icons.forEach(el => {
+        el.addEventListener('click', () => {
+          let technolgy = el.outerHTML;
+          document.querySelector('#technologyDetail .technology').classList.add('reveal');
+          document.querySelector('#technologyDetail .technology').innerHTML = technolgy;
+          document.querySelector('#technologyDetail .technologyTitle').innerHTML = `<h2><a target="_blank" href="${el.dataset.link}">${el.dataset.title}</a></h2>`;
+          document.querySelector('#technologyDetail').classList.add('reveal');
+          document.querySelector('.technologies').classList.add('blur--alt');
+          document.addEventListener('click', e => {
+            if (!e.target.classList.contains('technologies__icon') && !e.target.classList.contains('technologyTitle')) {
+              document.querySelector('#technologyDetail .technology').classList.remove('reveal');
+              document.querySelector('#technologyDetail').classList.remove('reveal');
+              document.querySelector('.technologies').classList.remove('blur--alt');
+              document.querySelector('#technologyDetail .technology').innerHTML = '';
+              document.querySelector('#technologyDetail .technologyTitle').innerHTML = '';
+            }
+          });
+        });
+      });
 
     }
 
@@ -172,74 +173,20 @@ export default class App extends React.Component {
                 <div className="mainBody">
 
                     <div className="section__hero">
-
                         <div className="hero__img">
+                          <div className="row">
                             <img src="img/devices.png" />
-                        </div>
-
-                        <div className="section__featured">
-                        
-                            <div className="feature">
-                                <div className="featured__content">
-                                    <h3>Fully Responsive</h3>
-                                    <div className="swiper-container">
-                                        <div className="swiper-wrapper">
-
-                                            <div className="swiper-slide">
-                                                <FontAwesomeIcon icon={['fas', 'desktop']} className="technologies__icon" size="4x" />
-                                            </div>
-                                            <div className="swiper-slide">
-                                                <FontAwesomeIcon icon={['fas', 'tablet-alt']} className="technologies__icon" size="4x" />
-                                            </div>
-                                            <div className="swiper-slide">
-                                                <FontAwesomeIcon icon={['fas', 'mobile-alt']} className="technologies__icon" size="4x" />
-                                            </div>
+                            <div className="transformer">
                                         
-                                        </div>
-                                    </div>
-                                </div>
+                            <svg height='100px' id="svgMorpher" width='100px' fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                              <g>
+                                <path id="squiggly" d="M91.8,45c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7s-4.5-1.7-6.2-3.7C70,47.3,68,45,64,45c-3.9,0-5.9,2.3-7.7,4.3   c-1.7,2-3.2,3.7-6.2,3.7c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7   c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-0.6,0-1,0.4-1,1s0.4,1,1,1c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3   c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3   c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c0.6,0,1-0.4,1-1   S92.4,45,91.8,45z"></path>
+                              </g>
+                            </svg>
+
                             </div>
-
-                            <div className="feature">
-                                <div className="featured__content">
-                                    <div className="swiper-container">
-
-                                        <div className="swiper-wrapper">
-                                            <div className="swiper-slide">
-                                                <h3>Improved Accessibility</h3>
-                                                <FontAwesomeIcon icon={['fas', 'universal-access']} className="technologies__icon" size="4x" />
-                                            </div>
-                                            
-                                            <div className="swiper-slide">
-                                                <h3>Better Page Ranking</h3>
-                                                <FontAwesomeIcon icon={['fas', 'list-ol']} className="technologies__icon" size="4x" />
-                                            </div>
-
-                                            <div className="swiper-slide">
-                                                <h3>Faster Deployments</h3>
-                                                <FontAwesomeIcon icon={['fas', 'paper-plane']} className="technologies__icon" size="4x" />
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="feature">
-                                <div className="featured__content">
-                                    <h3>Full stack ready</h3>
-                                    <div className="swiper-container">
-                                        <div className="swiper-wrapper">
-                                            <div className="swiper-slide"><FontAwesomeIcon icon={['fab', 'node-js']} className="technologies__icon" size="4x" data-title="NodeJS" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" /></div>
-                                            <div className="swiper-slide"><FontAwesomeIcon icon={['fab', 'react']} className="technologies__icon" size="4x" data-title="React" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3"/></div>
-                                            <div className="swiper-slide"><FontAwesomeIcon icon={['fab', 'css3']} className="technologies__icon" size="4x" data-title="CSS3" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" /></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    
+                          </div>
                         </div>
-
                     </div>
 
                     <div className="section__history">
@@ -320,7 +267,7 @@ export default class App extends React.Component {
                                 <FontAwesomeIcon icon={['fab', 'java']} className="technologies__icon" size="4x" data-title="Java" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
                                 <FontAwesomeIcon icon={['fab', 'mailchimp']} className="technologies__icon" size="4x" data-title="MailChimp" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3"/>
                                 <img className="technologies__icon" src="img/brands/alfresco.svg" data-title="Alfresco" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
-                                <img className="technologies__icon" src="img/brands/jQuery.png" data-title="jQuery" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
+                                <img className="technologies__icon" src="img/brands/jQuery.svg" data-title="jQuery" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
                                 <img className="technologies__icon" src="img/brands/foundationLogo.png" data-title="Foundation" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
                                 <FontAwesomeIcon icon={['fab', 'gulp']} className="technologies__icon" size="4x" data-title="Gulp" data-link="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3" />
                             </div>

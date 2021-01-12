@@ -3,6 +3,13 @@ body {
 	margin: 0px;
 }
 
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 100px;
+  max-width: 1000px;
+}
+
 $mobile: "screen and (max-width:500px)";
 
 .center {
@@ -205,11 +212,19 @@ $mobile: "screen and (max-width:500px)";
     overflow: hidden;
     
     .hero__img {
+        //not bad
+        background: radial-gradient(#fff, #fff, rgba(255,255,255,0));
+        display: flex;
+        justify-content: center;
         transition: all 0.2s ease;
         position: relative;
         right: 0;
         opacity: 1;
         text-align: center;
+
+        .transformer {
+          width: 400px;
+        }
 
         img {
             margin-top: 120px;
@@ -221,158 +236,11 @@ $mobile: "screen and (max-width:500px)";
         }
     }
 
-    .iconRow {
-        position: relative;
-        top:-100px;
-        height:200px;
-        overflow: hidden;
-                
-        .mainIcon {
-            position: relative;
-            top: 200px;
-            height: 200px;
-            opacity: 0;
-            transition:all 0.2s ease;
-            height: inherit;
-            text-align: center;
-            
-            img {
-                    border: solid 1px;
-                    border-radius:100px;
-                    border-color: #00ACE1;
-            }
-
-            h2 {
-                    font-size:18pt; 
-                    font-weight: lighter;
-                    color: #333;
-            }	
-        }  
-    }
-
-    .skillRow {
-            position: absolute;
-            height:150px;
-            overflow: visible;
-            padding: 0;
-            right: 0;
-            left: 0;
-            margin-left: auto;
-            margin-right: auto;
-            bottom: 0;
-                    
-            @media screen and (min-width: 300px) {
-                    height: 150px;
-            }
-                    
-                    
-            @media screen and (min-width: 900px) {
-                    padding:0px 180px;
-            }
-            
-            .skillWrapper {
-                    position: relative;
-                    padding: 0;
-                            
-                    .skill {
-                            transition:all 0.3s ease;
-                            height: 300px;
-                            background:rgba(255,255,255,0.5);
-                            border-top: solid 1px;
-                            border-left: solid 1px;
-                            border-right: solid 1px;
-                            border-color:#ccc;
-                            border-top-left-radius:200px;
-                            border-top-right-radius:200px;
-                            position: relative;
-                            overflow: hidden;
-                            text-align: center;
-                            padding: 0;
-                        
-                            @media screen and (min-width: 900px) {
-                                    height: 300px;
-                            }
-                                            
-                            h2 {
-                                    background-color: whitesmoke;
-                                    text-align: center;
-                                    padding-top: 10px;
-                                    font-size: 16pt;
-                                    font-weight: 100;
-                                    color: #333;
-                                    border-bottom: solid 1px;
-                                    border-color: #ccc;
-                            }    
-                                            
-                            img {
-                                    margin: 0;
-                                            
-                                    @media screen and (min-width: 900px) 
-                                    {
-                                            width: 100px;
-                                    }    
-                            }
-                                    
-                    }				
-            }
-    }
-
-    .section__featured {
-        background-color: rgba(255,255,255,0.5);
-        display: flex;
-        justify-content: center;
-        margin-bottom: 50px;
-
-        .feature {
-            border-radius: 300px;
-            border: solid 5px #00ACE1;
-            height: 160px;
-            margin: 20px;
-            overflow: hidden;
-            width: 160px;
-        }
-
-        .featured__content {
-            display: flex;
-            flex-wrap: wrap;
-            align-content: center;
-            justify-content: center;
-            height: 160px;
-            width: 160px;
-
-            h3 {
-                color: #474747;
-                font-size: 10pt;
-                font-family: sans-serif;
-                padding: 0px 10px;
-                text-align: center;
-            }
-
-            .swiper-slide {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-
-                .technologies__icon {
-                    color: #80e1ff;
-                }
-            }
-
-        }
-
-        /*
-        @media screen and (max-width:500px) {
-            align-items: center;
-            flex-direction: column;
-        }
-        */
-
-        @media #{$mobile} {
-            align-items: center;
-            flex-direction: column;  
-        }
-
+    #svgMorpher {
+      transition: all 0.3s ease;
+      g, path {
+        transition: inherit;
+      }
     }
 
 }
