@@ -169,77 +169,10 @@ body {
       @media screen and (max-width: 500px) {
         .section__hero .hero__img img {
           width: 100%; } }
-  .section__hero .iconRow {
-    position: relative;
-    top: -100px;
-    height: 200px;
-    overflow: hidden; }
-    .section__hero .iconRow .mainIcon {
-      position: relative;
-      top: 200px;
-      height: 200px;
-      opacity: 0;
-      transition: all 0.2s ease;
-      height: inherit;
-      text-align: center; }
-      .section__hero .iconRow .mainIcon img {
-        border: solid 1px;
-        border-radius: 100px;
-        border-color: #00ACE1; }
-      .section__hero .iconRow .mainIcon h2 {
-        font-size: 18pt;
-        font-weight: lighter;
-        color: #333; }
-  .section__hero .skillRow {
-    position: absolute;
-    height: 150px;
-    overflow: visible;
-    padding: 0;
-    right: 0;
-    left: 0;
-    margin-left: auto;
-    margin-right: auto;
-    bottom: 0; }
-    @media screen and (min-width: 300px) {
-      .section__hero .skillRow {
-        height: 150px; } }
-    @media screen and (min-width: 900px) {
-      .section__hero .skillRow {
-        padding: 0px 180px; } }
-    .section__hero .skillRow .skillWrapper {
-      position: relative;
-      padding: 0; }
-      .section__hero .skillRow .skillWrapper .skill {
-        transition: all 0.3s ease;
-        height: 300px;
-        background: rgba(255, 255, 255, 0.5);
-        border-top: solid 1px;
-        border-left: solid 1px;
-        border-right: solid 1px;
-        border-color: #ccc;
-        border-top-left-radius: 200px;
-        border-top-right-radius: 200px;
-        position: relative;
-        overflow: hidden;
-        text-align: center;
-        padding: 0; }
-        @media screen and (min-width: 900px) {
-          .section__hero .skillRow .skillWrapper .skill {
-            height: 300px; } }
-        .section__hero .skillRow .skillWrapper .skill h2 {
-          background-color: whitesmoke;
-          text-align: center;
-          padding-top: 10px;
-          font-size: 16pt;
-          font-weight: 100;
-          color: #333;
-          border-bottom: solid 1px;
-          border-color: #ccc; }
-        .section__hero .skillRow .skillWrapper .skill img {
-          margin: 0; }
-          @media screen and (min-width: 900px) {
-            .section__hero .skillRow .skillWrapper .skill img {
-              width: 100px; } }
+  .section__hero #svgMorpher {
+    transition: all 0.3s ease; }
+    .section__hero #svgMorpher g, .section__hero #svgMorpher path {
+      transition: inherit; }
 
 .section__history {
   background-image: url("../img/back4.jpg");

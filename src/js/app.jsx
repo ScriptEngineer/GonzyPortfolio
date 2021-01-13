@@ -7,14 +7,12 @@ import { faDesktop, faMobileAlt, faFileDownload, faEnvelope, faTabletAlt, faUniv
 import { 
     faAws,
     faCss3,
-    faFontAwesome,
     faGit,
     faGulp,
     faGithub,
     faHtml5,
     faJava,
     faJs,
-    faJsfiddle,
     faNodeJs,
     faNpm,
     faPython,
@@ -24,58 +22,36 @@ import {
     faMailchimp,
 } from '@fortawesome/free-brands-svg-icons';
 
-library.add(faDesktop, faMobileAlt, faFileDownload, faEnvelope, faListOl, faPaperPlane, faTabletAlt, faUniversalAccess);
-library.add(
-  faAws,
-  faCss3,
-  faFontAwesome,
-  faGit,
-  faGulp,
-  faGithub,
-  faHtml5,
-  faJava,
-  faJs,
-  faJsfiddle,
-  faNodeJs,
-  faNpm,
-  faPython,
-  faPhp,
-  faReact,
-  faSass,
-  faMailchimp,
-);
+let standardIcons = [faDesktop, faMobileAlt, faFileDownload, faEnvelope, faListOl, faPaperPlane, faTabletAlt, faUniversalAccess];
+let brandIcons = [faAws,faCss3,faGit,faGulp,faGithub,faHtml5,faJava,faJs,faNodeJs,faNpm,faPython,faPhp,faReact,faSass,faMailchimp];
+
+library.add(standardIcons, brandIcons);
 
 export default class App extends React.Component {
 
     constructor(props) {
         super(props);
         this.brandModals = this.brandModals.bind(this);
-        this.toggleTechnology = this.toggleTechnology.bind(this);
+        this.morphCycle = this.morphCycle.bind(this);
+        this.morph = this.morph.bind(this);
     }
 
     componentDidMount() {
+   
+      this.brandModals();
+      this.morphCycle(0);
 
-        let transformingSVG = Snap('#svgMorpher');
-        let squiggly = Snap.select('#squiggly');
+      window.addEventListener('scroll', () => {
 
-        setTimeout(function(){
-          transformingSVG.animate({ viewBox: `0 0 ${faAws.icon[0]} ${faAws.icon[1]}`}, 1000, mina.backout);
-          squiggly.animate({d: faAws.icon[4]}, 5000, mina.backout);  
-        },5000);
+          let sTop = window.scrollY;
+    
+          if (sTop > 1100) {
+              document.querySelector('.technologies').classList.add('present');
+          } else if (sTop > 580) {
+              document.querySelector('.section__history').classList.add('present');
+          }
           
-        this.brandModals();
-
-        window.addEventListener('scroll', () => {
-
-            let sTop = window.scrollY;
-     
-            if (sTop > 1100) {
-                document.querySelector('.technologies').classList.add('present');
-            } else if (sTop > 580) {
-                document.querySelector('.section__history').classList.add('present');
-            }
-            
-        });
+      });
 
     }
 
@@ -105,18 +81,45 @@ export default class App extends React.Component {
 
     }
 
-    toggleTechnology(e) {
-        if (e.target.classList.contains('reveal')){
-            e.target.classList.remove('reveal');
+    morphCycle(counter) {
+
+      this.morph(brandIcons[counter]).then(() => {
+  
+        if (counter == brandIcons.length - 1) {
+          counter = 0;
         } else {
-            e.target.classList.add('reveal');
+          counter++;
         }
 
-        if (document.querySelector('.technologies').classList.contains('blur')) {
-            document.querySelector('.technologies').classList.remove('blur');
-        } else {
-            document.querySelector('.technologies').classList.add('blur');
-        }
+        this.morphCycle(counter);
+      });
+
+    }
+
+    morph(brand) {
+
+      return new Promise(function(resolve, reject) {
+
+        let originalPath = "M91.8,45c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7s-4.5-1.7-6.2-3.7C70,47.3,68,45,64,45c-3.9,0-5.9,2.3-7.7,4.3   c-1.7,2-3.2,3.7-6.2,3.7c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7   c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-0.6,0-1,0.4-1,1s0.4,1,1,1c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3   c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3   c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c0.6,0,1-0.4,1-1   S92.4,45,91.8,45z";
+        let transformingSVG = Snap('#svgMorpher');
+        let squiggly = Snap.select('#squiggly');
+
+        transformingSVG.animate({ viewBox: `0 0 ${brand.icon[0]} ${brand.icon[1]}` }, 1000, mina.easein);
+        squiggly.animate({ d: brand.icon[4] }, 2000, mina.easein, function () {
+
+          squiggly.animate({
+            d: originalPath
+          }, 300, mina.easein, function () {
+            document.querySelector('#squiggly').setAttribute('d', "M91.8,45c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7s-4.5-1.7-6.2-3.7C70,47.3,68,45,64,45c-3.9,0-5.9,2.3-7.7,4.3   c-1.7,2-3.2,3.7-6.2,3.7c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7   c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-0.6,0-1,0.4-1,1s0.4,1,1,1c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3   c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3   c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c0.6,0,1-0.4,1-1   S92.4,45,91.8,45z");
+            resolve();
+          });
+
+          transformingSVG.animate({ viewBox: `0 0 100 100` }, 300, mina.easein);
+
+        });
+
+      });
+
     }
 
     render() {
