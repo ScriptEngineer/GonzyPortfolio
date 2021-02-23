@@ -32,13 +32,39 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.brandModals = this.brandModals.bind(this);
+        this.compareLogos = this.compareLogos.bind(this);
         this.morphCycle = this.morphCycle.bind(this);
         this.morph = this.morph.bind(this);
+        this.brandPresent = this.brandPresent.bind(this);
+    }
+
+    compareLogos (logo1, logo2) {
+ 
+      let dLogo = Snap.select('#brand_D');
+      let gLogo = Snap.select('#brand_G');
+      let noseLogo = Snap.select('#brand_nose');
+
+      noseLogo.animate({
+        opacity: "1",
+        transform: "matrix(0.504261,-0.0012042,0.000960593,0.402248,-521.09,-8.88001)"
+      }, 1000, mina.easein);
+
+      gLogo.animate({
+        opacity:"1",
+        transform:"matrix(0.18,-0,-0,0.18,0,0)"
+      }, 600, mina.linear);
+
+      dLogo.animate({
+        opacity: "1",
+        transform:"matrix(0.18,-0,-0,0.18,0,0)"
+      }, 1000, mina.easein);
+
     }
 
     componentDidMount() {
    
       this.brandModals();
+      //this.brandPresent();
       this.morphCycle(0);
 
       window.addEventListener('scroll', () => {
@@ -81,6 +107,17 @@ export default class App extends React.Component {
 
     }
 
+    brandPresent() {
+
+      let brandLogo = Snap('#brand');
+  
+      let getLogo2 = Snap.ajax('./img/logo_v1.0.svg',{}, piece => {
+        this.compareLogos(brandLogo.node, piece.responseXML.rootElement);
+      });
+
+
+    }
+
     morphCycle(counter) {
 
       this.morph(brandIcons[counter]).then(() => {
@@ -105,6 +142,7 @@ export default class App extends React.Component {
         let squiggly = Snap.select('#squiggly');
 
         transformingSVG.animate({ viewBox: `0 0 ${brand.icon[0]} ${brand.icon[1]}` }, 1000, mina.easein);
+
         squiggly.animate({ d: brand.icon[4] }, 2000, mina.easein, function () {
 
           squiggly.animate({
@@ -113,6 +151,7 @@ export default class App extends React.Component {
             document.querySelector('#squiggly').setAttribute('d', "M91.8,45c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7s-4.5-1.7-6.2-3.7C70,47.3,68,45,64,45c-3.9,0-5.9,2.3-7.7,4.3   c-1.7,2-3.2,3.7-6.2,3.7c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7   c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-0.6,0-1,0.4-1,1s0.4,1,1,1c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3   c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3   c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c0.6,0,1-0.4,1-1   S92.4,45,91.8,45z");
             resolve();
           });
+
 
           transformingSVG.animate({ viewBox: `0 0 100 100` }, 300, mina.easein);
 
@@ -128,8 +167,7 @@ export default class App extends React.Component {
                 <div className="nav">
             
                     <div className="nav__section">
-                        <img className="left" id="navLogo" src="img/logo.svg"/>
-                        <h1 className="brand__title left">GONZY DESIGNS</h1>
+                        <img className="left" id="navLogo" src="img/logo_v2.0.svg"/>
                     </div>
 
                     <div className="nav__section nav__links">
@@ -176,20 +214,48 @@ export default class App extends React.Component {
                 <div className="mainBody">
 
                     <div className="section__hero">
-                        <div className="hero__img">
-                          <div className="row">
-                            <img src="img/devices.png" />
-                            <div className="transformer">
-                                        
+                      <div className="row">
+
+                        <div className="section__hero__presentation" style={{width:'75%'}}>
+                          
+                          <svg id="svgMorpher" height="100px" width="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlSpace="preserve" xmlnsSerif="http://www.serif.com/" style={{ fillRule: 'evenodd', clipRule: 'evenodd', strokeLinejoin: 'round', strokeMiterlimit: 2 }}>
+                            <g>
+                              <path id="squiggly" style={{ fill: '#00ACE1' }} d="M91.8,45c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7s-4.5-1.7-6.2-3.7C70,47.3,68,45,64,45c-3.9,0-5.9,2.3-7.7,4.3   c-1.7,2-3.2,3.7-6.2,3.7c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7   c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-0.6,0-1,0.4-1,1s0.4,1,1,1c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3   c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3   c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c0.6,0,1-0.4,1-1   S92.4,45,91.8,45z"></path>
+                            </g>
+                          </svg>
+                                    
+                          <svg width="100%" height="100%" viewBox="0 0 640 406" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlSpace="preserve" xmlnsSerif="http://www.serif.com/" style={{fillRule:'evenodd',clipRule:'evenodd',strokeLinejoin:'round',strokeMiterlimit:2}}>
+                              <g>
+                                <rect x="53.333" y="0" width="533.333" height="320" style={{fill:'#d1d1d1'}} />
+                                <rect x="63.774" y="10.691" width="512.453" height="293.783" style={{fill:'#333'}} />
+                              </g>
+                              <g>
+                                <path d="M586.667,320l-533.334,0l-53.333,80l640,-0l-53.333,-80Z" style={{fill:'#ebebeb'}} />
+                                <rect x="0" y="400" width="640" height="5.258" style={{fill:'#d1d1d1'}} />
+                                <path d="M600.76,371.14l-561.52,0l25.204,-37.807l511.112,0l25.204,37.807Z" style={{fill:'#d1d1d1'}} />
+                                <path d="M462.494,395.148l-284.988,0l12.792,-19.188l259.404,0l12.792,19.188Z" style={{fill:'#d1d1d1'}} />
+                              </g>
+                          </svg>
+
+                          {/*
+                          <div className="transformer">
+
                             <svg height='100px' id="svgMorpher" width='100px' fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                               <g>
                                 <path id="squiggly" d="M91.8,45c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7s-4.5-1.7-6.2-3.7C70,47.3,68,45,64,45c-3.9,0-5.9,2.3-7.7,4.3   c-1.7,2-3.2,3.7-6.2,3.7c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7   c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-0.6,0-1,0.4-1,1s0.4,1,1,1c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3   c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3   c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c0.6,0,1-0.4,1-1   S92.4,45,91.8,45z"></path>
                               </g>
                             </svg>
 
-                            </div>
                           </div>
+                          */}
+                        
                         </div>
+
+                        <div className="section__hero__branding">
+                          <h1>gonzy designs</h1>
+                        </div>
+
+                      </div>
                     </div>
 
                     <div className="section__history">
@@ -203,7 +269,7 @@ export default class App extends React.Component {
                             <div className="entry__link">
                                 <div className="triangle"></div>
                                 <a href="https://www.utsouthwestern.edu/" target="_blank">
-                                    <img src="img/utsw-logo.svg" width="240" />
+                                    <img src="img/logo_v10.svg" width="240" />
                                 </a>
                             </div>
                         </div>

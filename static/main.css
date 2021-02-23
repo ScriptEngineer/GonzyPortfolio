@@ -4,8 +4,12 @@ body {
 .row {
   display: flex;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 100px;
-  max-width: 1000px; }
+  max-width: 1000px;
+  position: relative;
+  z-index: 1; }
 
 .center {
   text-align: center; }
@@ -121,14 +125,6 @@ body {
     text-decoration: none; }
   .nav #navLogo {
     height: 40px; }
-  .nav .brand__title {
-    color: #00ACE1;
-    font-family: 'Oswald', sans-serif;
-    font-size: 18pt;
-    font-weight: bolder;
-    letter-spacing: 5px;
-    margin-bottom: 0px;
-    margin-top: 0px; }
   .nav h3 {
     color: #00ACE1;
     font-size: 10pt;
@@ -150,27 +146,32 @@ body {
   background-repeat: no-repeat;
   border-bottom: solid 2px;
   border-color: #ccc;
+  height: 700px;
   position: relative;
+  padding-top: 50px;
   overflow: hidden; }
-  .section__hero .hero__img {
-    background: radial-gradient(#fff, #fff, rgba(255, 255, 255, 0));
-    display: flex;
-    justify-content: center;
-    transition: all 0.2s ease;
-    position: relative;
-    right: 0;
-    opacity: 1;
-    text-align: center; }
-    .section__hero .hero__img .transformer {
-      width: 400px; }
-    .section__hero .hero__img img {
-      margin-top: 120px;
-      width: 600px; }
-      @media screen and (max-width: 500px) {
-        .section__hero .hero__img img {
-          width: 100%; } }
+  .section__hero::before {
+    background: radial-gradient(circle at center, #fff 0, #fff 75%, rgba(255, 255, 255, 0.1) 100%);
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0; }
+  .section__hero__presentation {
+    margin-top: 50px;
+    position: relative; }
+  .section__hero__branding h1 {
+    color: #00ACE1;
+    font-family: sans-serif;
+    text-transform: uppercase; }
   .section__hero #svgMorpher {
-    transition: all 0.3s ease; }
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 150px;
+    right: 0;
+    left: 0;
+    margin: auto; }
     .section__hero #svgMorpher g, .section__hero #svgMorpher path {
       transition: inherit; }
 

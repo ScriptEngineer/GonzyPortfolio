@@ -6,8 +6,12 @@ body {
 .row {
   display: flex;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 100px;
   max-width: 1000px;
+  position: relative;
+  z-index: 1;
 }
 
 $mobile: "screen and (max-width:500px)";
@@ -33,31 +37,31 @@ $mobile: "screen and (max-width:500px)";
     border-bottom-right-radius:80px;
 
     .contWrap {
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-                    
-            label {
-                    font-family:'Oswald',sans-serif;
-                    color:#00ACE1;
-            }    
-                    
-            #cancelEmail,
-            #submitEmail {
-                    padding:10px 20px;
-                    border: solid 2px;
-                    font-family:'Oswald',sans-serif;
-                    color:#00ACE1;
-                    border-color:#00ACE1;
-                    border-radius:30px;
-                    transition: all 0.3s ease;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+              
+      label {
+        font-family:'Oswald',sans-serif;
+        color:#00ACE1;
+      }    
+              
+      #cancelEmail,
+      #submitEmail {
+              padding:10px 20px;
+              border: solid 2px;
+              font-family:'Oswald',sans-serif;
+              color:#00ACE1;
+              border-color:#00ACE1;
+              border-radius:30px;
+              transition: all 0.3s ease;
 
-                    &:hover {
-                        color:#FFF;
-                        border-color:#CCC;
-                        background-color:#00ACE1;
-                    }
-            }
+              &:hover {
+                  color:#FFF;
+                  border-color:#CCC;
+                  background-color:#00ACE1;
+              }
+      }
                 
     }
 
@@ -72,7 +76,7 @@ $mobile: "screen and (max-width:500px)";
 	z-index: 3;
 	background: rgba(255,255,255,0.95);
 	overflow: hidden;
-    width: 100%;
+  width: 100%;
 
     @media #{$mobile} {
         grid-template-columns:auto auto;
@@ -110,13 +114,13 @@ $mobile: "screen and (max-width:500px)";
 		width: 40px; 
 
 		svg {
-            color: #00ACE1;
-            font-size: 24px;
-            transition: all 0.3s ease;
-            
-            @media #{$mobile} {
-                font-size: 14px;
-            }
+      color: #00ACE1;
+      font-size: 24px;
+      transition: all 0.3s ease;
+      
+      @media #{$mobile} {
+          font-size: 14px;
+      }
 		}    
 
 		&:hover {
@@ -127,14 +131,14 @@ $mobile: "screen and (max-width:500px)";
 			svg {
 				transform:rotate(360deg);
 			}    
-        }
-        
-        @media #{$mobile} {
-            border: none;
-            height: 20px;
-            width: 20px;
-        }
     }
+        
+    @media #{$mobile} {
+        border: none;
+        height: 20px;
+        width: 20px;
+    }
+  }
 
     &__section {
         align-items: center;
@@ -154,11 +158,11 @@ $mobile: "screen and (max-width:500px)";
 			}
 			svg {
 				color: #fff;
-                font-size: 42px;
-                
-                @media #{$mobile} {
-                    font-size: 22px;
-                }
+        font-size: 42px;
+        
+        @media #{$mobile} {
+            font-size: 22px;
+        }
 			}
 		}
 	}
@@ -171,23 +175,14 @@ $mobile: "screen and (max-width:500px)";
 		height: 40px;
     }
     
-    .brand__title	{
-        color:  #00ACE1;
-        font-family: 'Oswald', sans-serif;
-        font-size: 18pt; 
-		font-weight: bolder;
-        letter-spacing: 5px;
-        margin-bottom: 0px;
-        margin-top: 0px;
-	}
 
     h3 {
 		color:  #00ACE1;
 		font-size: 10pt;  
 		font-family: sans-serif;
-        font-weight: normal;
-        margin-bottom: 0px;
-        margin-top: 0px;
+    font-weight: normal;
+    margin-bottom: 0px;
+    margin-top: 0px;
 		padding-right:8px;
 
 		&:hover {
@@ -208,36 +203,46 @@ $mobile: "screen and (max-width:500px)";
     background-repeat: no-repeat;
     border-bottom: solid 2px;  
     border-color: #ccc;
+    height: 700px;
     position: relative;
+    padding-top: 50px;
     overflow: hidden;
     
-    .hero__img {
-        //not bad
-        background: radial-gradient(#fff, #fff, rgba(255,255,255,0));
-        display: flex;
-        justify-content: center;
-        transition: all 0.2s ease;
-        position: relative;
-        right: 0;
-        opacity: 1;
-        text-align: center;
+    &::before {
+      background:radial-gradient(circle at center, #fff 0, #fff 75%, rgba(255,255,255,0.1) 100%);
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+    
+    &__presentation {
+      margin-top: 50px;
+      position: relative;
+    }
 
-        .transformer {
-          width: 400px;
-        }
-
-        img {
-            margin-top: 120px;
-            width: 600px;
-
-            @media #{$mobile} {
-                width: 100%;
-            }
-        }
+    &__branding {
+      h1 {
+        color: #00ACE1;
+        font-family: sans-serif;
+        font-size: 17pt;
+        font-style: italic;
+        font-weight: lighter;
+        letter-spacing: 10px;
+        text-transform: uppercase;
+      }
     }
 
     #svgMorpher {
       transition: all 0.3s ease;
+      position: absolute;
+      top: 150px;
+      right: 0;
+      left: 0;
+      margin: auto;
+
       g, path {
         transition: inherit;
       }
@@ -259,11 +264,11 @@ $mobile: "screen and (max-width:500px)";
 		padding-bottom: 50px;
 		font-family: sans-serif;
 		color: #fff; 
-        letter-spacing: 8px;
+    letter-spacing: 8px;
 
-        @media #{$mobile} {
-            text-align: center;
-        }
+    @media #{$mobile} {
+        text-align: center;
+    }
 
 	}
 
