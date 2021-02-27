@@ -15,6 +15,8 @@ body {
 }
 
 $mobile: "screen and (max-width:500px)";
+$tablet: "screen and (min-width:501px) (max-width:1000px)";
+$desktop: "screen and (min-width:1001px)";
 
 .center {
 	text-align: center;   
@@ -48,19 +50,19 @@ $mobile: "screen and (max-width:500px)";
               
       #cancelEmail,
       #submitEmail {
-              padding:10px 20px;
-              border: solid 2px;
-              font-family:'Oswald',sans-serif;
-              color:#00ACE1;
-              border-color:#00ACE1;
-              border-radius:30px;
-              transition: all 0.3s ease;
+        padding:10px 20px;
+        border: solid 2px;
+        font-family:'Oswald',sans-serif;
+        color:#00ACE1;
+        border-color:#00ACE1;
+        border-radius:30px;
+        transition: all 0.3s ease;
 
-              &:hover {
-                  color:#FFF;
-                  border-color:#CCC;
-                  background-color:#00ACE1;
-              }
+        &:hover {
+            color:#FFF;
+            border-color:#CCC;
+            background-color:#00ACE1;
+        }
       }
                 
     }
@@ -92,8 +94,28 @@ $mobile: "screen and (max-width:500px)";
         display: flex;
         align-items: center;
 
+        &:hover {
+          cursor: pointer;
+
+          svg {
+            transform:rotate(360deg); 
+          }   
+
+          .nav__icon {
+            border: solid 1px #00ACE1;
+          }
+
+          h3 {
+            color: #007193;
+            cursor: pointer;
+          }
+
+        }
+
         a {
-            text-decoration: none;
+          display: flex;
+          align-items: center;
+          text-decoration: none;
         }
 
         @media #{$mobile} {
@@ -101,44 +123,35 @@ $mobile: "screen and (max-width:500px)";
         }
     }
     	
-	&__icon {
-		align-items: center;
-		border: solid 2px #00ACE1;
-		border-radius: 60px;
-		display: flex;
-		height: 40px;
-    justify-content: center;
-    margin-right: 10px;
-		padding: 0px;
-		transition: all 0.3s ease;
-		width: 40px; 
-
-		svg {
-      color: #00ACE1;
-      font-size: 24px;
+    &__icon {
+      align-items: center;
+      border: solid 2px #00ACE1;
+      border-radius: 60px;
+      display: flex;
+      height: 40px;
+      justify-content: center;
+      margin-right: 10px;
+      padding: 0px;
       transition: all 0.3s ease;
-      
-      @media #{$mobile} {
-          font-size: 14px;
-      }
-		}    
+      width: 40px; 
 
-		&:hover {
-			background-color: whitesmoke;
-			cursor: pointer;
-			border: solid 1px #00ACE1;
-
-			svg {
-				transform:rotate(360deg);
-			}    
-    }
+      svg {
+        color: #00ACE1;
+        font-size: 24px;
+        transition: all 0.3s ease;
         
-    @media #{$mobile} {
-        border: none;
-        height: 20px;
-        width: 20px;
+        @media #{$mobile} {
+            font-size: 14px;
+        }
+      }    
+
+          
+      @media #{$mobile} {
+          border: none;
+          height: 20px;
+          width: 20px;
+      }
     }
-  }
 
     &__section {
         align-items: center;
@@ -153,9 +166,7 @@ $mobile: "screen and (max-width:500px)";
 	.github__link {
 		.nav__icon {
 			background-color: #00ACE1;
-			&:hover {
-				background-color: #00ACE1;
-			}
+
 			svg {
 				color: #fff;
         font-size: 42px;
@@ -172,11 +183,12 @@ $mobile: "screen and (max-width:500px)";
 	}
 
 	#navLogo	{
-		height: 40px;
-    }
+    height: 40px;
+    margin-left: 20px;
+  }
     
 
-    h3 {
+  h3 {
 		color:  #00ACE1;
 		font-size: 10pt;  
 		font-family: sans-serif;
@@ -184,11 +196,6 @@ $mobile: "screen and (max-width:500px)";
     margin-bottom: 0px;
     margin-top: 0px;
 		padding-right:8px;
-
-		&:hover {
-			color: #007193;
-			cursor: pointer;
-		}
 	}
     
 }
@@ -219,29 +226,56 @@ $mobile: "screen and (max-width:500px)";
     }
     
     &__presentation {
+      background-image: url('../img/phone.svg');
       margin-top: 50px;
       position: relative;
+      width: 75%;
+      height: 500px;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media #{$desktop} {
+        background-image: url('../img/laptop.svg');
+      }
     }
 
     &__branding {
-      h1 {
+      width: 35%;
+      text-align: center;
+
+      @media #{$desktop} {
+        text-align: left;
+        width: 25%;
+      }
+
+      h1, p {
         color: #00ACE1;
         font-family: sans-serif;
-        font-size: 17pt;
         font-style: italic;
         font-weight: lighter;
         letter-spacing: 10px;
+      }
+
+      h1 {
+        font-size: 17pt;
         text-transform: uppercase;
       }
+
+    }
+
+    > .row {
+      flex-direction: column;
+
+        @media #{$desktop} {
+          flex-direction: row;
+        }
     }
 
     #svgMorpher {
       transition: all 0.3s ease;
-      position: absolute;
-      top: 150px;
-      right: 0;
-      left: 0;
-      margin: auto;
 
       g, path {
         transition: inherit;

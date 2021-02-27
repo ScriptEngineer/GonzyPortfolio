@@ -70,7 +70,18 @@ body {
   .nav__link {
     display: flex;
     align-items: center; }
+    .nav__link:hover {
+      cursor: pointer; }
+      .nav__link:hover svg {
+        transform: rotate(360deg); }
+      .nav__link:hover .nav__icon {
+        border: solid 1px #00ACE1; }
+      .nav__link:hover h3 {
+        color: #007193;
+        cursor: pointer; }
     .nav__link a {
+      display: flex;
+      align-items: center;
       text-decoration: none; }
     @media screen and (max-width: 500px) {
       .nav__link {
@@ -93,12 +104,6 @@ body {
       @media screen and (max-width: 500px) {
         .nav__icon svg {
           font-size: 14px; } }
-    .nav__icon:hover {
-      background-color: whitesmoke;
-      cursor: pointer;
-      border: solid 1px #00ACE1; }
-      .nav__icon:hover svg {
-        transform: rotate(360deg); }
     @media screen and (max-width: 500px) {
       .nav__icon {
         border: none;
@@ -113,8 +118,6 @@ body {
         justify-content: center; } }
   .nav .github__link .nav__icon {
     background-color: #00ACE1; }
-    .nav .github__link .nav__icon:hover {
-      background-color: #00ACE1; }
     .nav .github__link .nav__icon svg {
       color: #fff;
       font-size: 42px; }
@@ -124,7 +127,8 @@ body {
   .nav .resume__link {
     text-decoration: none; }
   .nav #navLogo {
-    height: 40px; }
+    height: 40px;
+    margin-left: 20px; }
   .nav h3 {
     color: #00ACE1;
     font-size: 10pt;
@@ -133,9 +137,6 @@ body {
     margin-bottom: 0px;
     margin-top: 0px;
     padding-right: 8px; }
-    .nav h3:hover {
-      color: #007193;
-      cursor: pointer; }
 
 .nopad {
   padding: 0; }
@@ -159,19 +160,42 @@ body {
     left: 0;
     top: 0; }
   .section__hero__presentation {
+    background-image: url("../img/phone.svg");
     margin-top: 50px;
-    position: relative; }
-  .section__hero__branding h1 {
-    color: #00ACE1;
-    font-family: sans-serif;
-    text-transform: uppercase; }
+    position: relative;
+    width: 75%;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    @media screen and (min-width: 1001px) {
+      .section__hero__presentation {
+        background-image: url("../img/laptop.svg"); } }
+  .section__hero__branding {
+    width: 35%;
+    text-align: center; }
+    @media screen and (min-width: 1001px) {
+      .section__hero__branding {
+        text-align: left;
+        width: 25%; } }
+    .section__hero__branding h1, .section__hero__branding p {
+      color: #00ACE1;
+      font-family: sans-serif;
+      font-style: italic;
+      font-weight: lighter;
+      letter-spacing: 10px; }
+    .section__hero__branding h1 {
+      font-size: 17pt;
+      text-transform: uppercase; }
+  .section__hero > .row {
+    flex-direction: column; }
+    @media screen and (min-width: 1001px) {
+      .section__hero > .row {
+        flex-direction: row; } }
   .section__hero #svgMorpher {
-    transition: all 0.3s ease;
-    position: absolute;
-    top: 150px;
-    right: 0;
-    left: 0;
-    margin: auto; }
+    transition: all 0.3s ease; }
     .section__hero #svgMorpher g, .section__hero #svgMorpher path {
       transition: inherit; }
 
