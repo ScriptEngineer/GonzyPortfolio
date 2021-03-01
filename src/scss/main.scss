@@ -1,4 +1,67 @@
 
+@keyframes bring-left {
+
+	0% {
+		opacity: 0;
+		right: 2000px;
+	}
+
+	100% {
+		opacity: 1;
+		right: 0px;
+	}
+
+}
+
+@keyframes bring-right {
+
+	0% {
+		opacity: 0;
+		left:2000px;
+	}
+
+	100% {
+		opacity: 1;
+		left: 0px;
+	}
+
+}
+    
+@keyframes reveal {
+
+	0% {
+		opacity: 0;
+		bottom: 100px;
+	}
+
+	50% {
+		bottom: -100px;
+		opacity: 0.5; 
+	}
+
+	100% {
+		opacity: 1;
+		bottom: 0px;
+	}
+
+}
+
+@keyframes revealHero {
+  0% {
+    opacity: 0;
+    margin-top: 0px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-top: 50px;
+  }
+}
+
+$mobile: "screen and (max-width:500px)";
+$tablet: "screen and (min-width:501px) (max-width:1000px)";
+$desktop: "screen and (min-width:1001px)";
+
 body {
 	margin: 0px;
 }
@@ -14,9 +77,10 @@ body {
   z-index: 1;
 }
 
-$mobile: "screen and (max-width:500px)";
-$tablet: "screen and (min-width:501px) (max-width:1000px)";
-$desktop: "screen and (min-width:1001px)";
+.wrapper {
+    position: relative;
+    overflow: hidden;
+}
 
 .center {
 	text-align: center;   
@@ -205,82 +269,88 @@ $desktop: "screen and (min-width:1001px)";
 }
 
 .section__hero {
-    background-image: url('../img/triangleDesign.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-bottom: solid 2px;  
-    border-color: #ccc;
-    height: 700px;
+  background-image: url('../img/triangleDesign.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom: solid 2px;  
+  border-color: #ccc;
+  height: 700px;
+  position: relative;
+  padding-top: 50px;
+  overflow: hidden;
+  animation-name: revealHero;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  
+  &::before {
+    background:radial-gradient(circle at center, #fff 0, #fff 75%, rgba(255,255,255,0.1) 100%);
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+  
+  &__presentation {
+    background-image: url('../img/phone.svg');
     position: relative;
-    padding-top: 50px;
-    overflow: hidden;
-    
-    &::before {
-      background:radial-gradient(circle at center, #fff 0, #fff 75%, rgba(255,255,255,0.1) 100%);
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
+    width: 75%;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media #{$desktop} {
+      background-image: url('../img/laptop.svg');
     }
-    
-    &__presentation {
-      background-image: url('../img/phone.svg');
-      margin-top: 50px;
-      position: relative;
-      width: 75%;
-      height: 500px;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  }
+
+  &__branding {
+    width: 35%;
+    text-align: center;
+
+    @media #{$desktop} {
+      text-align: left;
+      width: 25%;
+    }
+
+    h1, p {
+      color: #00ACE1;
+      font-family: sans-serif;
+      font-style: italic;
+      font-weight: lighter;
+      letter-spacing: 10px;
+    }
+
+    h1 {
+      font-size: 17pt;
+      text-transform: uppercase;
+    }
+
+  }
+
+  > .row {
+    flex-direction: column;
 
       @media #{$desktop} {
-        background-image: url('../img/laptop.svg');
+        flex-direction: row;
       }
+  }
+
+  #svgMorpher {
+    transition: all 0.3s ease;
+
+    @media #{$desktop} {
+      margin-bottom: 100px;
     }
 
-    &__branding {
-      width: 35%;
-      text-align: center;
-
-      @media #{$desktop} {
-        text-align: left;
-        width: 25%;
-      }
-
-      h1, p {
-        color: #00ACE1;
-        font-family: sans-serif;
-        font-style: italic;
-        font-weight: lighter;
-        letter-spacing: 10px;
-      }
-
-      h1 {
-        font-size: 17pt;
-        text-transform: uppercase;
-      }
-
+    g, path {
+      transition: inherit;
     }
-
-    > .row {
-      flex-direction: column;
-
-        @media #{$desktop} {
-          flex-direction: row;
-        }
-    }
-
-    #svgMorpher {
-      transition: all 0.3s ease;
-
-      g, path {
-        transition: inherit;
-      }
-    }
+  }
 
 }
 
@@ -392,11 +462,6 @@ $desktop: "screen and (min-width:1001px)";
 	}
 
 	&.present .entry{
-		//animation-name: bring-left;
-		//animation-duration: 8.3s;
-		//animation-fill-mode: forwards;
-		//left: 2000px;
-
 		.entry__link {
 			animation-name: bring-right;
 			animation-duration: 1.0s;
@@ -708,54 +773,3 @@ $desktop: "screen and (min-width:1001px)";
 			
 }
 
-.wrapper {
-    position: relative;
-    overflow: hidden;
-}
-
-@keyframes bring-left {
-
-	0% {
-		opacity: 0;
-		right: 2000px;
-	}
-
-	100% {
-		opacity: 1;
-		right: 0px;
-	}
-
-}
-
-@keyframes bring-right {
-
-	0% {
-		opacity: 0;
-		left:2000px;
-	}
-
-	100% {
-		opacity: 1;
-		left: 0px;
-	}
-
-}
-    
-@keyframes reveal {
-
-	0% {
-		opacity: 0;
-		bottom: 100px;
-	}
-
-	50% {
-		bottom: -100px;
-		opacity: 0.5; 
-	}
-
-	100% {
-		opacity: 1;
-		bottom: 0px;
-	}
-
-}

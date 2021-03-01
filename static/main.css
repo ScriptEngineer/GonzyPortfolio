@@ -1,3 +1,38 @@
+@keyframes bring-left {
+  0% {
+    opacity: 0;
+    right: 2000px; }
+  100% {
+    opacity: 1;
+    right: 0px; } }
+
+@keyframes bring-right {
+  0% {
+    opacity: 0;
+    left: 2000px; }
+  100% {
+    opacity: 1;
+    left: 0px; } }
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    bottom: 100px; }
+  50% {
+    bottom: -100px;
+    opacity: 0.5; }
+  100% {
+    opacity: 1;
+    bottom: 0px; } }
+
+@keyframes revealHero {
+  0% {
+    opacity: 0;
+    margin-top: 0px; }
+  100% {
+    opacity: 1;
+    margin-top: 50px; } }
+
 body {
   margin: 0px; }
 
@@ -10,6 +45,10 @@ body {
   max-width: 1000px;
   position: relative;
   z-index: 1; }
+
+.wrapper {
+  position: relative;
+  overflow: hidden; }
 
 .center {
   text-align: center; }
@@ -150,7 +189,10 @@ body {
   height: 700px;
   position: relative;
   padding-top: 50px;
-  overflow: hidden; }
+  overflow: hidden;
+  animation-name: revealHero;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
   .section__hero::before {
     background: radial-gradient(circle at center, #fff 0, #fff 75%, rgba(255, 255, 255, 0.1) 100%);
     content: '';
@@ -161,7 +203,6 @@ body {
     top: 0; }
   .section__hero__presentation {
     background-image: url("../img/phone.svg");
-    margin-top: 50px;
     position: relative;
     width: 75%;
     height: 500px;
@@ -472,34 +513,3 @@ body {
       height: 200px; }
       .secPortfolio .firstW .workWrap {
         top: 35px; } }
-
-.wrapper {
-  position: relative;
-  overflow: hidden; }
-
-@keyframes bring-left {
-  0% {
-    opacity: 0;
-    right: 2000px; }
-  100% {
-    opacity: 1;
-    right: 0px; } }
-
-@keyframes bring-right {
-  0% {
-    opacity: 0;
-    left: 2000px; }
-  100% {
-    opacity: 1;
-    left: 0px; } }
-
-@keyframes reveal {
-  0% {
-    opacity: 0;
-    bottom: 100px; }
-  50% {
-    bottom: -100px;
-    opacity: 0.5; }
-  100% {
-    opacity: 1;
-    bottom: 0px; } }
