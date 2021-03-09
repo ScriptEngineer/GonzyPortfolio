@@ -363,14 +363,30 @@ body {
         .section__technologies .technologies .icon__row .technologies__icon .darkGrey {
           color: #333; }
         .section__technologies .technologies .icon__row .technologies__icon .altGrey {
-          color: darkmagenta; }
+          color: #ccc; }
+        .section__technologies .technologies .icon__row .technologies__icon .altGrey2 {
+          color: #ddd; }
+        .section__technologies .technologies .icon__row .technologies__icon .altGrey3 {
+          color: #aaa; }
+        .section__technologies .technologies .icon__row .technologies__icon .altGrey4 {
+          color: #555; }
+        .section__technologies .technologies .icon__row .technologies__icon .altGrey5 {
+          color: #222; }
         .section__technologies .technologies .icon__row .technologies__icon:hover {
           cursor: pointer;
           color: #00ACE1; }
           .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey {
-            color: #f00; }
+            color: #bbb; }
+          .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey2 {
+            color: #999; }
+          .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey3 {
+            color: #bbb; }
+          .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey4 {
+            color: #444; }
+          .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey5 {
+            color: #111; }
           .section__technologies .technologies .icon__row .technologies__icon:hover .darkGrey {
-            color: #0185ad; }
+            color: #007193; }
     .section__technologies .technologies.blur .technologies__icon, .section__technologies .technologies.blur--alt .technologies__icon {
       filter: blur(5px) grayscale(100%); }
     .section__technologies .technologies.present .icon__row .technologies__icon {

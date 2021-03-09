@@ -529,7 +529,23 @@ body {
                 }
 
                 .altGrey {
-                  color: darkmagenta;
+                  color: #ccc;
+                }
+
+                .altGrey2 {
+                  color: #ddd;
+                }
+
+                .altGrey3 {
+                  color: #aaa;
+                }
+
+                .altGrey4 {
+                  color: #555;
+                }
+
+                .altGrey5 {
+                  color: #222;
                 }
 
                 &:hover {
@@ -537,11 +553,27 @@ body {
                   color:#00ACE1;
 
                   .altGrey {
-                    color: #f00;
+                    color: #bbb;
+                  }
+
+                  .altGrey2 {
+                    color: #999;
+                  }
+
+                  .altGrey3 {
+                    color: #bbb;
+                  }
+
+                  .altGrey4 {
+                    color: #444;
+                  }
+
+                  .altGrey5 {
+                    color: #111;
                   }
 
                   .darkGrey {
-                    color:#0185ad;
+                    color:#007193;
                   }
                 }
                 
