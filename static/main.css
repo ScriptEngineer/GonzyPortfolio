@@ -360,22 +360,17 @@ body {
         justify-content: center; }
         .section__technologies .technologies .icon__row .technologies__icon img {
           width: 3.5em; }
+        .section__technologies .technologies .icon__row .technologies__icon .darkGrey {
+          color: #333; }
+        .section__technologies .technologies .icon__row .technologies__icon .altGrey {
+          color: darkmagenta; }
         .section__technologies .technologies .icon__row .technologies__icon:hover {
           cursor: pointer;
           color: #00ACE1; }
-        .section__technologies .technologies .icon__row .technologies__icon:hover::before, .section__technologies .technologies .icon__row .technologies__icon:hover::after {
-          content: '';
-          width: 20px;
-          height: 20px;
-          display: block;
-          position: absolute;
-          background-color: #474747;
-          margin: auto;
-          top: -28px; }
-        .section__technologies .technologies .icon__row .technologies__icon:hover::before {
-          border-radius: 4px;
-          transform: rotate(45deg);
-          top: -20px; }
+          .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey {
+            color: #f00; }
+          .section__technologies .technologies .icon__row .technologies__icon:hover .darkGrey {
+            color: #0185ad; }
     .section__technologies .technologies.blur .technologies__icon, .section__technologies .technologies.blur--alt .technologies__icon {
       filter: blur(5px) grayscale(100%); }
     .section__technologies .technologies.present .icon__row .technologies__icon {

@@ -524,30 +524,27 @@ body {
                   width: 3.5em;
                 }
 
+                .darkGrey {
+                  color: #333;
+                }
+
+                .altGrey {
+                  color: darkmagenta;
+                }
+
                 &:hover {
                   cursor: pointer;
                   color:#00ACE1;
-                }
 
-                &:hover::before,
-                &:hover::after {
-                  content: '';
-                  width: 20px;
-                  height: 20px;
-                  display: block;
-                  position: absolute;
-                  background-color: #474747;
-                  margin: auto;
-                  top: -28px;
-                }
+                  .altGrey {
+                    color: #f00;
+                  }
 
-                &:hover::before {
-                  border-radius: 4px;
-                  transform: rotate(45deg);
-                  top: -20px;
+                  .darkGrey {
+                    color:#0185ad;
+                  }
                 }
                 
-
             }
 
         }
