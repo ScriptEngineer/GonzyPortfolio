@@ -141,7 +141,6 @@ body {
 	position: fixed;
 	z-index: 3;
 	background: rgba(255,255,255,0.95);
-	overflow: hidden;
   width: 100%;
 
     @media #{$mobile} {
@@ -149,29 +148,49 @@ body {
     }
 
     &__links {
-        @media #{$mobile} {
-            flex-direction: column;
-        }
+      @media #{$mobile} {
+          flex-direction: column;
+      }
     }
     
     &__link {
         display: flex;
         align-items: center;
+        padding: 25px 5px 5px 5px;
+        position: relative;
+        right: 0px;
+        transition: all 0.3s ease;
+
+        &::before {
+          border-radius: 10px;
+          border: solid 1px #ccc;
+          border-top: none;
+          content:'';
+          width: 120%;
+          height: 100px;
+          transform: skew(-20deg);
+          background: #fff;
+          position: absolute;
+          left: 0;
+          bottom: -1px;
+          z-index: -1;
+        }
+
+        &:first-child::before {
+          z-index: -2;
+        }
 
         &:hover {
           cursor: pointer;
+          padding-top: 60px;
+          right: 10px;
 
-          svg {
-            transform:rotate(360deg); 
-          }   
-
-          .nav__icon {
-            border: solid 1px #00ACE1;
+          .github__link .nav__icon {
+            background-color: #007193;
           }
 
-          h3 {
+          h3, svg {
             color: #007193;
-            cursor: pointer;
           }
 
         }
@@ -189,12 +208,10 @@ body {
     	
     &__icon {
       align-items: center;
-      border: solid 2px #00ACE1;
       border-radius: 60px;
       display: flex;
       height: 40px;
       justify-content: center;
-      margin-right: 10px;
       padding: 0px;
       transition: all 0.3s ease;
       width: 40px; 
@@ -220,7 +237,7 @@ body {
     &__section {
         align-items: center;
         display: flex;
-        padding: 5px 0px;
+        height: 70px;
              
         @media #{$mobile} {
             justify-content: center;
@@ -553,15 +570,15 @@ body {
                   color:#00ACE1;
 
                   .altGrey {
-                    color: #bbb;
+                    color: #a0d0df;
                   }
 
                   .altGrey2 {
-                    color: #999;
+                    color: #cae4ec;
                   }
 
                   .altGrey3 {
-                    color: #bbb;
+                    color: #005875;
                   }
 
                   .altGrey4 {
@@ -569,7 +586,7 @@ body {
                   }
 
                   .altGrey5 {
-                    color: #111;
+                    color: #003242;
                   }
 
                   .darkGrey {

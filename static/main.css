@@ -98,7 +98,6 @@ body {
   position: fixed;
   z-index: 3;
   background: rgba(255, 255, 255, 0.95);
-  overflow: hidden;
   width: 100%; }
   @media screen and (max-width: 500px) {
     .nav {
@@ -108,16 +107,34 @@ body {
       flex-direction: column; } }
   .nav__link {
     display: flex;
-    align-items: center; }
+    align-items: center;
+    padding: 25px 5px 5px 5px;
+    position: relative;
+    right: 0px;
+    transition: all 0.3s ease; }
+    .nav__link::before {
+      border-radius: 10px;
+      border: solid 1px #ccc;
+      border-top: none;
+      content: '';
+      width: 120%;
+      height: 100px;
+      transform: skew(-20deg);
+      background: #fff;
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      z-index: -1; }
+    .nav__link:first-child::before {
+      z-index: -2; }
     .nav__link:hover {
-      cursor: pointer; }
-      .nav__link:hover svg {
-        transform: rotate(360deg); }
-      .nav__link:hover .nav__icon {
-        border: solid 1px #00ACE1; }
-      .nav__link:hover h3 {
-        color: #007193;
-        cursor: pointer; }
+      cursor: pointer;
+      padding-top: 60px;
+      right: 10px; }
+      .nav__link:hover .github__link .nav__icon {
+        background-color: #007193; }
+      .nav__link:hover h3, .nav__link:hover svg {
+        color: #007193; }
     .nav__link a {
       display: flex;
       align-items: center;
@@ -127,12 +144,10 @@ body {
         width: 100%; } }
   .nav__icon {
     align-items: center;
-    border: solid 2px #00ACE1;
     border-radius: 60px;
     display: flex;
     height: 40px;
     justify-content: center;
-    margin-right: 10px;
     padding: 0px;
     transition: all 0.3s ease;
     width: 40px; }
@@ -151,7 +166,7 @@ body {
   .nav__section {
     align-items: center;
     display: flex;
-    padding: 5px 0px; }
+    height: 70px; }
     @media screen and (max-width: 500px) {
       .nav__section {
         justify-content: center; } }
@@ -376,15 +391,15 @@ body {
           cursor: pointer;
           color: #00ACE1; }
           .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey {
-            color: #bbb; }
+            color: #a0d0df; }
           .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey2 {
-            color: #999; }
+            color: #cae4ec; }
           .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey3 {
-            color: #bbb; }
+            color: #005875; }
           .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey4 {
             color: #444; }
           .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey5 {
-            color: #111; }
+            color: #003242; }
           .section__technologies .technologies .icon__row .technologies__icon:hover .darkGrey {
             color: #007193; }
     .section__technologies .technologies.blur .technologies__icon, .section__technologies .technologies.blur--alt .technologies__icon {
