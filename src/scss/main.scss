@@ -60,6 +60,7 @@
 
 $mobile: "screen and (max-width:500px)";
 $tablet: "screen and (min-width:501px) (max-width:1000px)";
+$tablet-up: "screen and (min-width:501px)";
 $desktop: "screen and (min-width:1001px)";
 
 body {
@@ -143,25 +144,20 @@ body {
 	background: rgba(255,255,255,0.95);
   width: 100%;
 
-    @media #{$mobile} {
-        grid-template-columns:auto auto;
-    }
+  @media #{$mobile} {
+      grid-template-columns:auto auto;
+  }
+  
+  &__link {
+      display: flex;
+      align-items: center;
+      padding: 25px 5px 5px 5px;
+      position: relative;
+      right: 0px;
+      transition: all 0.3s ease;
 
-    &__links {
-      @media #{$mobile} {
-          flex-direction: column;
-      }
-    }
-    
-    &__link {
-        display: flex;
-        align-items: center;
-        padding: 25px 5px 5px 5px;
-        position: relative;
-        right: 0px;
-        transition: all 0.3s ease;
-
-        &::before {
+      &::before {
+        @media #{$desktop}{
           border-radius: 10px;
           border: solid 1px #ccc;
           border-top: none;
@@ -175,74 +171,80 @@ body {
           bottom: -1px;
           z-index: -1;
         }
+      }
 
-        &:first-child::before {
-          z-index: -2;
+      &:first-child::before {
+        z-index: -2;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        .github__link .nav__icon {
+          background-color: #007193;
         }
 
+        h3, svg {
+          color: #007193;
+        }
+
+      }
+
+      @media #{$desktop} {
         &:hover {
-          cursor: pointer;
           padding-top: 60px;
           right: 10px;
-
-          .github__link .nav__icon {
-            background-color: #007193;
-          }
-
-          h3, svg {
-            color: #007193;
-          }
-
         }
-
-        a {
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-        }
-
-        @media #{$mobile} {
-            width: 100%;
-        }
-    }
-    	
-    &__icon {
-      align-items: center;
-      border-radius: 60px;
-      display: flex;
-      height: 40px;
-      justify-content: center;
-      padding: 0px;
-      transition: all 0.3s ease;
-      width: 40px; 
-
-      svg {
-        color: #00ACE1;
-        font-size: 24px;
-        transition: all 0.3s ease;
-        
-        @media #{$mobile} {
-            font-size: 14px;
-        }
-      }    
-
-          
-      @media #{$mobile} {
-          border: none;
-          height: 20px;
-          width: 20px;
       }
-    }
 
-    &__section {
-        align-items: center;
+      a {
         display: flex;
-        height: 70px;
-             
-        @media #{$mobile} {
-            justify-content: center;
-        }
+        align-items: center;
+        text-decoration: none;
+      }
+
+      @media #{$mobile} {
+          width: 100%;
+      }
+  }
+    
+  &__icon {
+    align-items: center;
+    border-radius: 60px;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    padding: 0px;
+    transition: all 0.3s ease;
+    width: 40px; 
+
+    svg {
+      color: #00ACE1;
+      font-size: 24px;
+      transition: all 0.3s ease;
+      
+      @media #{$mobile} {
+          font-size: 14px;
+      }
+    }    
+
+        
+    @media #{$mobile} {
+        border: none;
+        height: 20px;
+        width: 20px;
     }
+  }
+
+  &__section {
+      align-items: center;
+      display: flex;
+      height: 70px;
+            
+      @media #{$mobile} {
+          justify-content: center;
+      }
+  }
 
 	.github__link {
 		.nav__icon {
@@ -537,12 +539,28 @@ body {
                 display: flex;
                 justify-content: center;
 
+                > span {
+                  font-family: 'Helvetica', sans-serif;
+                }
+
                 img {
                   width: 3.5em;
                 }
 
                 .darkGrey {
                   color: #333;
+                }
+
+                .alfGrey {
+                  color: #555;
+                }
+
+                .alfGrey2 {
+                  color: #aaa;
+                }
+
+                .alfGrey3 {
+                  color: #777;
                 }
 
                 .altGrey {
@@ -579,6 +597,18 @@ body {
 
                   .altGrey3 {
                     color: #005875;
+                  }
+
+                  .alfGrey {
+                    color: #005875;
+                  }
+
+                  .alfGrey2 {
+                    color: #aaa;
+                  }
+
+                  .alfGrey3 {
+                    color: #0092c3;
                   }
 
                   .altGrey4 {

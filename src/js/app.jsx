@@ -373,25 +373,25 @@ export default class App extends React.Component {
                                             <path id="path692" d="M0,0L0,-7.55L0.006,-7.832C0.006,-12.163 -3.505,-15.684 -7.836,-15.684C-12.167,-15.684 -15.678,-12.173 -15.678,-7.842C-15.678,-7.366 -15.636,-6.9 -15.555,-6.448C-12.497,-8.571 -8.266,-8.271 -5.541,-5.546L-0.001,-0.005L0,0Z" style={{fill:'white',fillRule:'nonzero'}} />
                                           </g>
                                           <g id="g694" transform="matrix(1,0,0,1,350.495,680.948)">
-                                            <path className="altGrey3" id="path696" d="M0,0C-3.781,0 -6.846,-3.065 -6.846,-6.846C-6.846,-10.628 -3.781,-13.693 0,-13.693C3.781,-13.693 6.846,-10.628 6.846,-6.846L6.84,-6.555L6.84,0L0,0Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
+                                            <path className="alfGrey" id="path696" d="M0,0C-3.781,0 -6.846,-3.065 -6.846,-6.846C-6.846,-10.628 -3.781,-13.693 0,-13.693C3.781,-13.693 6.846,-10.628 6.846,-6.846L6.84,-6.555L6.84,0L0,0Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
                                           </g>
                                           <g id="g698" transform="matrix(1,0,0,1,358.331,681.945)">
                                             <path id="path700" d="M0,0L5.339,-5.339L5.542,-5.534C8.605,-8.596 8.612,-13.569 5.549,-16.631C2.487,-19.694 -2.478,-19.694 -5.541,-16.631C-8.603,-13.569 -8.603,-8.603 -5.54,-5.54L0,0Z" style={{fill:'white',fillRule:'nonzero'}} />
                                           </g>
                                           <g id="g702" transform="matrix(1,0,0,1,353.495,675.7)">
-                                            <path className="altGrey3" id="path704" d="M0,0C-2.674,-2.674 -2.674,-7.009 0,-9.682C2.674,-12.356 7.009,-12.356 9.682,-9.682C12.356,-7.009 12.356,-2.674 9.682,0L9.472,0.202L4.837,4.837L0.012,0.011L0,0Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
+                                            <path className="alfGrey" id="path704" d="M0,0C-2.674,-2.674 -2.674,-7.009 0,-9.682C2.674,-12.356 7.009,-12.356 9.682,-9.682C12.356,-7.009 12.356,-2.674 9.682,0L9.472,0.202L4.837,4.837L0.012,0.011L0,0Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
                                           </g>
                                           <g id="g706" transform="matrix(1,0,0,1,358.331,681.945)">
                                             <path id="path708" d="M0,0L7.55,0L7.832,0.006C12.163,0.006 15.684,-3.505 15.684,-7.836C15.684,-12.167 12.173,-15.678 7.842,-15.678C3.511,-15.678 0,-12.166 0,-7.835L0,0Z" style={{fill:'white',fillRule:'nonzero'}} />
                                           </g>
                                           <g id="g710" transform="matrix(1,0,0,1,359.327,674.109)">
-                                            <path className="altGrey3" id="path712" d="M0,0C0,-3.781 3.065,-6.846 6.846,-6.846C10.628,-6.846 13.693,-3.781 13.693,0C13.693,3.781 10.628,6.846 6.846,6.846L6.554,6.84L0,6.84L0,0Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
+                                            <path className="alfGrey" id="path712" d="M0,0C0,-3.781 3.065,-6.846 6.846,-6.846C10.628,-6.846 13.693,-3.781 13.693,0C13.693,3.781 10.628,6.846 6.846,6.846L6.554,6.84L0,6.84L0,0Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
                                           </g>
                                           <g id="g714" transform="matrix(1,0,0,1,358.33,681.946)">
                                             <path id="path716" d="M0,0L5.339,5.339L5.534,5.542C8.596,8.604 13.569,8.612 16.631,5.549C19.694,2.487 19.694,-2.478 16.631,-5.541C13.569,-8.603 8.603,-8.603 5.54,-5.54L0,0Z" style={{fill:'white',fillRule:'nonzero'}} />
                                           </g>
                                           <g id="g718" transform="matrix(1,0,0,1,364.575,677.109)">
-                                            <path className="altGrey3" id="path720" d="M0,0C2.674,-2.674 7.009,-2.674 9.682,0C12.356,2.674 12.356,7.009 9.682,9.682C7.009,12.356 2.674,12.356 0,9.682L-0.202,9.471L-4.837,4.837L0,0Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
+                                            <path className="alfGrey" id="path720" d="M0,0C2.674,-2.674 7.009,-2.674 9.682,0C12.356,2.674 12.356,7.009 9.682,9.682C7.009,12.356 2.674,12.356 0,9.682L-0.202,9.471L-4.837,4.837L0,0Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
                                           </g>
                                           <g id="g722" transform="matrix(1,0,0,1,358.329,681.945)">
                                             <path id="path724" d="M0,0L0,7.55L-0.006,7.832C-0.006,12.163 3.505,15.684 7.836,15.684C12.167,15.684 15.678,12.173 15.678,7.842C15.678,3.511 12.166,0 7.835,0L0,0Z" style={{fill:'white',fillRule:'nonzero'}} />
@@ -418,13 +418,13 @@ export default class App extends React.Component {
                                             <path id="path752" d="M0,0L4.837,-4.837L-1.59,-4.837C-5.071,-4.837 -8.023,-7.105 -9.047,-10.244C-9.267,-10.072 -9.48,-9.885 -9.682,-9.682C-12.356,-7.009 -12.356,-2.674 -9.682,0C-7.009,2.674 -2.674,2.674 0,0" style={{fill:'currentColor',fillRule:'nonzero'}} />
                                           </g>
                                           <g id="g754" transform="matrix(1,0,0,1,352.101,686.78)">
-                                            <path id="path756" className="altGrey3" d="M0,0L3.829,-3.829L-1.318,-3.829L-1.609,-3.835C-4.744,-3.835 -7.386,-1.729 -8.199,1.146C-5.591,2.608 -2.23,2.23 -0.011,0.012L0,0Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
+                                            <path id="path756" className="alfGrey3" d="M0,0L3.829,-3.829L-1.318,-3.829L-1.609,-3.835C-4.744,-3.835 -7.386,-1.729 -8.199,1.146C-5.591,2.608 -2.23,2.23 -0.011,0.012L0,0Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
                                           </g>
                                           <g id="g758" transform="matrix(1,0,0,1,357.331,689.781)">
-                                            <path id="path760" className="altGrey3" d="M0,0.016L0,-5.415L-3.639,-1.776L-3.85,-1.574C-6.066,0.642 -6.445,4 -4.987,6.607C-2.109,5.797 0,3.153 0,0.016Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
+                                            <path id="path760" className="alfGrey3" d="M0,0.016L0,-5.415L-3.639,-1.776L-3.85,-1.574C-6.066,0.642 -6.445,4 -4.987,6.607C-2.109,5.797 0,3.153 0,0.016Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
                                           </g>
                                           <g id="g762" transform="matrix(1,0,0,1,363.187,688.194)">
-                                            <path id="path764" className="altGrey3" d="M0,0L-3.829,-3.829L-3.829,1.318L-3.835,1.609C-3.835,4.744 -1.729,7.386 1.145,8.199C2.608,5.591 2.23,2.23 0.012,0.011L0,0Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
+                                            <path id="path764" className="alfGrey3" d="M0,0L-3.829,-3.829L-3.829,1.318L-3.835,1.609C-3.835,4.744 -1.729,7.386 1.145,8.199C2.608,5.591 2.23,2.23 0.012,0.011L0,0Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
                                           </g>
                                           <g id="g766" transform="matrix(1,0,0,1,366.161,682.955)">
                                             <path id="path768" className="altGrey" d="M0.016,0L-5.415,0L-1.776,3.639L-1.574,3.85C0.642,6.066 4,6.445 6.607,4.987C5.797,2.109 3.153,0 0.016,0Z" style={{fill:'currentColor',fillRule:'nonzero'}} />
@@ -462,7 +462,7 @@ export default class App extends React.Component {
                                 </div>
 
                                 <div className="technologies__icon" title="Foundation">
-                                  <span>ZURB Foundation</span>
+                                  <span>Foundation</span>
                                 </div>
 
                                 <div className="technologies__icon" title="Gulp">

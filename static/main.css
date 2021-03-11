@@ -102,9 +102,6 @@ body {
   @media screen and (max-width: 500px) {
     .nav {
       grid-template-columns: auto auto; } }
-  @media screen and (max-width: 500px) {
-    .nav__links {
-      flex-direction: column; } }
   .nav__link {
     display: flex;
     align-items: center;
@@ -112,29 +109,32 @@ body {
     position: relative;
     right: 0px;
     transition: all 0.3s ease; }
-    .nav__link::before {
-      border-radius: 10px;
-      border: solid 1px #ccc;
-      border-top: none;
-      content: '';
-      width: 120%;
-      height: 100px;
-      transform: skew(-20deg);
-      background: #fff;
-      position: absolute;
-      left: 0;
-      bottom: -1px;
-      z-index: -1; }
+    @media screen and (min-width: 1001px) {
+      .nav__link::before {
+        border-radius: 10px;
+        border: solid 1px #ccc;
+        border-top: none;
+        content: '';
+        width: 120%;
+        height: 100px;
+        transform: skew(-20deg);
+        background: #fff;
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        z-index: -1; } }
     .nav__link:first-child::before {
       z-index: -2; }
     .nav__link:hover {
-      cursor: pointer;
-      padding-top: 60px;
-      right: 10px; }
+      cursor: pointer; }
       .nav__link:hover .github__link .nav__icon {
         background-color: #007193; }
       .nav__link:hover h3, .nav__link:hover svg {
         color: #007193; }
+    @media screen and (min-width: 1001px) {
+      .nav__link:hover {
+        padding-top: 60px;
+        right: 10px; } }
     .nav__link a {
       display: flex;
       align-items: center;
@@ -373,10 +373,18 @@ body {
         width: 64px;
         display: flex;
         justify-content: center; }
+        .section__technologies .technologies .icon__row .technologies__icon > span {
+          font-family: 'Helvetica', sans-serif; }
         .section__technologies .technologies .icon__row .technologies__icon img {
           width: 3.5em; }
         .section__technologies .technologies .icon__row .technologies__icon .darkGrey {
           color: #333; }
+        .section__technologies .technologies .icon__row .technologies__icon .alfGrey {
+          color: #555; }
+        .section__technologies .technologies .icon__row .technologies__icon .alfGrey2 {
+          color: #aaa; }
+        .section__technologies .technologies .icon__row .technologies__icon .alfGrey3 {
+          color: #777; }
         .section__technologies .technologies .icon__row .technologies__icon .altGrey {
           color: #ccc; }
         .section__technologies .technologies .icon__row .technologies__icon .altGrey2 {
@@ -396,6 +404,12 @@ body {
             color: #cae4ec; }
           .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey3 {
             color: #005875; }
+          .section__technologies .technologies .icon__row .technologies__icon:hover .alfGrey {
+            color: #005875; }
+          .section__technologies .technologies .icon__row .technologies__icon:hover .alfGrey2 {
+            color: #aaa; }
+          .section__technologies .technologies .icon__row .technologies__icon:hover .alfGrey3 {
+            color: #0092c3; }
           .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey4 {
             color: #444; }
           .section__technologies .technologies .icon__row .technologies__icon:hover .altGrey5 {
