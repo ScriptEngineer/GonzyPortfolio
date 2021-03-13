@@ -382,6 +382,8 @@ body {
       justify-content: center; }
       .section__technologies .technologies .technologies__icon > span {
         font-family: 'Helvetica', sans-serif; }
+      .section__technologies .technologies .technologies__icon > a {
+        color: inherit; }
       .section__technologies .technologies .technologies__icon img {
         width: 3.5em; }
       .section__technologies .technologies .technologies__icon .darkGrey {
