@@ -380,10 +380,10 @@ body {
       display: flex;
       align-items: center;
       justify-content: center; }
-      .section__technologies .technologies .technologies__icon > span {
-        font-family: 'Helvetica', sans-serif; }
       .section__technologies .technologies .technologies__icon > a {
-        color: inherit; }
+        color: inherit;
+        font-family: 'Helvetica', sans-serif;
+        text-decoration: none; }
       .section__technologies .technologies .technologies__icon img {
         width: 3.5em; }
       .section__technologies .technologies .technologies__icon .darkGrey {
@@ -431,17 +431,17 @@ body {
       animation-name: reveal;
       animation-duration: 0.2s;
       animation-fill-mode: forwards; }
-      .section__technologies .technologies.present .technologies__icon:nth-child(1), .section__technologies .technologies.present .technologies__icon:nth-child(7), .section__technologies .technologies.present .technologies__icon:nth-child(13), .section__technologies .technologies.present .technologies__icon:nth-child(19) {
+      .section__technologies .technologies.present .technologies__icon:nth-child(1), .section__technologies .technologies.present .technologies__icon:nth-child(7), .section__technologies .technologies.present .technologies__icon:nth-child(13), .section__technologies .technologies.present .technologies__icon:nth-child(19), .section__technologies .technologies.present .technologies__icon:nth-child(25) {
         animation-delay: 0.2s; }
-      .section__technologies .technologies.present .technologies__icon:nth-child(2), .section__technologies .technologies.present .technologies__icon:nth-child(8), .section__technologies .technologies.present .technologies__icon:nth-child(14), .section__technologies .technologies.present .technologies__icon:nth-child(20) {
+      .section__technologies .technologies.present .technologies__icon:nth-child(2), .section__technologies .technologies.present .technologies__icon:nth-child(8), .section__technologies .technologies.present .technologies__icon:nth-child(14), .section__technologies .technologies.present .technologies__icon:nth-child(20), .section__technologies .technologies.present .technologies__icon:nth-child(26) {
         animation-delay: 0.4s; }
-      .section__technologies .technologies.present .technologies__icon:nth-child(3), .section__technologies .technologies.present .technologies__icon:nth-child(9), .section__technologies .technologies.present .technologies__icon:nth-child(15), .section__technologies .technologies.present .technologies__icon:nth-child(21) {
+      .section__technologies .technologies.present .technologies__icon:nth-child(3), .section__technologies .technologies.present .technologies__icon:nth-child(9), .section__technologies .technologies.present .technologies__icon:nth-child(15), .section__technologies .technologies.present .technologies__icon:nth-child(21), .section__technologies .technologies.present .technologies__icon:nth-child(27) {
         animation-delay: 0.6s; }
-      .section__technologies .technologies.present .technologies__icon:nth-child(4), .section__technologies .technologies.present .technologies__icon:nth-child(10), .section__technologies .technologies.present .technologies__icon:nth-child(16), .section__technologies .technologies.present .technologies__icon:nth-child(22) {
+      .section__technologies .technologies.present .technologies__icon:nth-child(4), .section__technologies .technologies.present .technologies__icon:nth-child(10), .section__technologies .technologies.present .technologies__icon:nth-child(16), .section__technologies .technologies.present .technologies__icon:nth-child(22), .section__technologies .technologies.present .technologies__icon:nth-child(28) {
         animation-delay: 0.8s; }
-      .section__technologies .technologies.present .technologies__icon:nth-child(5), .section__technologies .technologies.present .technologies__icon:nth-child(11), .section__technologies .technologies.present .technologies__icon:nth-child(17), .section__technologies .technologies.present .technologies__icon:nth-child(23) {
+      .section__technologies .technologies.present .technologies__icon:nth-child(5), .section__technologies .technologies.present .technologies__icon:nth-child(11), .section__technologies .technologies.present .technologies__icon:nth-child(17), .section__technologies .technologies.present .technologies__icon:nth-child(23), .section__technologies .technologies.present .technologies__icon:nth-child(29) {
         animation-delay: 1.0s; }
-      .section__technologies .technologies.present .technologies__icon:nth-child(6), .section__technologies .technologies.present .technologies__icon:nth-child(12), .section__technologies .technologies.present .technologies__icon:nth-child(18), .section__technologies .technologies.present .technologies__icon:nth-child(24) {
+      .section__technologies .technologies.present .technologies__icon:nth-child(6), .section__technologies .technologies.present .technologies__icon:nth-child(12), .section__technologies .technologies.present .technologies__icon:nth-child(18), .section__technologies .technologies.present .technologies__icon:nth-child(24), .section__technologies .technologies.present .technologies__icon:nth-child(30) {
         animation-delay: 1.2s; }
 
 .sectionStats {

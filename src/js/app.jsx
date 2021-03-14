@@ -307,7 +307,7 @@ export default class App extends React.Component {
 
                             <div className="technologies__icon" title="Apache">
                               <a href="https://httpd.apache.org/">
-                                <svg width="100%" height="100%" viewBox="0 0 220 400" version="1.1" xmlns="http://www.w3.org/2000/svg" style={{fillRule:'evenodd',clipRule:'evenodd',strokeLinejoin:'round',strokeMiterlimit:2}} >
+                                <svg width="50px" viewBox="0 0 220 400" version="1.1" xmlns="http://www.w3.org/2000/svg" style={{fillRule:'evenodd',clipRule:'evenodd',strokeLinejoin:'round',strokeMiterlimit:2}} >
                                   <g transform="matrix(0.10592,0,0,0.10592,11.0993,0.339045)">
                                     <path d="M1554.04,239.571C1501.92,270.34 1415.19,357.456 1312.12,483.802L1406.92,663.033C1473.65,567.84 1541.35,481.879 1609.62,408.61C1615,402.84 1617.5,400.148 1617.5,400.148C1615,402.84 1612.12,405.917 1609.62,408.61C1587.5,432.84 1520.38,511.302 1419.23,666.687C1516.73,661.879 1666.35,641.879 1788.46,621.11C1825,417.456 1752.88,324.379 1752.88,324.379C1752.88,324.379 1661.35,176.302 1554.04,239.571Z" style={{fillRule:'nonzero'}} />
                                   </g>
@@ -562,7 +562,7 @@ export default class App extends React.Component {
 
                             <div className="technologies__icon" title="Localist">
                               <a href="https://www.localist.com/">
-                                <svg width="122" height="59" viewBox="0 0 122 59" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="82" viewBox="0 0 122 59" xmlns="http://www.w3.org/2000/svg">
                                 <g fill="none" fillRule="evenodd">
                                   <path d="M118.066 46.775c.19 1.122-.734 2.12-2.067 2.231a3516.568 3516.568 0 0 0-98.888 9.628c-1.357.153-2.433-.934-2.4-2.426.21-9.632.44-19.273.69-28.923.04-1.495 1.12-2.743 2.41-2.784a3143.268 3143.268 0 0 1 94.016-1.72c1.264-.002 2.44.922 2.623 2.062 1.185 7.368 2.39 14.68 3.616 21.932" fill="#333745" />
                                   <path className="altGrey2" d="M104.402 28.652c-.02 1.161-1.14 2.114-2.493 2.124-17.411.103-34.71-.046-51.895-.444-1.338-.028-2.289-1.253-2.124-2.73.936-8.456 1.85-16.84 2.741-25.16.158-1.455 1.31-2.481 2.576-2.298a1639.25 1639.25 0 0 0 49.214 6.244c1.282.146 2.314 1.194 2.3 2.344-.084 6.61-.19 13.25-.319 19.92" fill="currentColor" />
@@ -601,7 +601,7 @@ export default class App extends React.Component {
 
                             <div className="technologies__icon" title="TinyMCE">
                               <a href="https://www.tiny.cloud/">
-                                <svg width="100px" height="64px" viewBox="0 0 586 198" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="64px" viewBox="0 0 586 198" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                       <g id="Group" fill="currentColor">
                                         <path d="M87.8,61.19 L131.7,61.19 L131.7,71 L87.8,71 L87.8,61.19 Z M87.8,119.81 L131.7,119.81 L131.7,129.58 L87.8,129.58 L87.8,119.81 Z M73.17,100.27 L146.33,100.27 L146.33,110 L73.17,110 L73.17,100.27 Z M73.17,80.73 L146.33,80.73 L146.33,90.5 L73.17,90.5 L73.17,80.73 Z M29.27,93 L109.78,171.15 L190.23,92.99 L109.78,14.79 L29.27,93 Z M109.42,0.13 L197.55,85 L210.32,73.09 L219.5,81.4 L109.75,188.2 L20.45,101.51 L8.63,112.92 L0,104.55 L109.42,0.13 Z" id="Shape"></path>
@@ -614,7 +614,7 @@ export default class App extends React.Component {
 
                             <div className="technologies__icon" title="Bluepay/Clover">
                               <a href="https://www.clover.com/">
-                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 22 22">
+                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 22 22" width="50px">
                                   <g>
                                     <path fill="currentColor" d="M9.7,5.6c0-2-1.2-3.7-3-4.5s-3.9-0.4-5.3,1s-1.8,3.5-1.1,5.3s2.5,3,4.5,3h4.9L9.7,5.6z M11.1,5.6   c0-2,1.2-3.7,3-4.5s3.9-0.4,5.3,1s1.8,3.5,1.1,5.3s-2.5,3-4.5,3h-4.9L11.1,5.6z M11.1,16.6c0,2,1.2,3.7,3,4.5   c1.8,0.8,3.9,0.4,5.3-1c1.4-1.4,1.8-3.5,1.1-5.3s-2.5-3-4.5-3h-4.9L11.1,16.6z M4.8,20.1c1.9,0,3.5-1.5,3.5-3.5v-3.5H4.8   c-1.9,0-3.5,1.5-3.5,3.5S2.9,20.1,4.8,20.1z M9.7,16.6c0,2-1.2,3.7-3,4.5c-1.8,0.8-3.9,0.4-5.3-1c-1.4-1.4-1.8-3.5-1.1-5.3   s2.5-3,4.5-3h4.9L9.7,16.6z" />
                                   </g>
@@ -665,7 +665,7 @@ export default class App extends React.Component {
 
                             <div className="technologies__icon" title="Django">
                               <a href="https://www.djangoproject.com/">
-                                <svg viewBox="0 0 256 326" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">
+                                <svg viewBox="0 0 256 326" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" width="50x">
                                   <g fill="currentColor">
                                     <path d="M114.784 0h53.278v244.191c-27.29 5.162-47.38 7.193-69.117 7.193C33.873 251.316 0 222.245 0 166.412c0-53.795 35.93-88.708 91.608-88.708 8.64 0 15.222.68 23.176 2.717V0zm1.867 124.427c-6.24-2.038-11.382-2.717-17.965-2.717-26.947 0-42.512 16.437-42.512 45.243 0 28.046 14.88 43.532 42.17 43.532 5.896 0 10.696-.332 18.307-1.351v-84.707z" />
                                     <path d="M255.187 84.26v122.263c0 42.105-3.154 62.353-12.411 79.81-8.64 16.783-20.022 27.366-43.541 39.055l-49.438-23.297c23.519-10.93 34.901-20.588 42.17-35.327 7.61-15.072 10.01-32.529 10.01-78.445V84.261h53.21zM196.608 0h53.278v54.135h-53.278V0z" />
