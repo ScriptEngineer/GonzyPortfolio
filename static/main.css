@@ -384,12 +384,13 @@ body {
       .nav__link:hover {
         padding-top: 60px;
         right: 10px; } }
-    .nav__link a {
+    .nav__link > a {
       display: flex;
       align-items: center;
       text-decoration: none; }
     @media screen and (max-width: 500px) {
       .nav__link {
+        justify-content: flex-end;
         width: 100%; } }
   @media screen and (max-width: 500px) {
     .nav__links {
@@ -422,6 +423,9 @@ body {
     @media screen and (max-width: 500px) {
       .nav__section {
         justify-content: center; } }
+  .nav__pagination {
+    cursor: pointer;
+    padding-left: 20px; }
   .nav .github__link .nav__icon {
     background-color: #00ACE1; }
     .nav .github__link .nav__icon svg {
@@ -432,6 +436,10 @@ body {
           font-size: 22px; } }
   .nav .resume__link {
     text-decoration: none; }
+  .nav .swiper-container-vertical > .swiper-pagination-bullets {
+    transform: none; }
+  .nav .swiper-pagination-bullet-active {
+    background: #00ACE1; }
   .nav #navLogo {
     height: 40px;
     margin-left: 20px; }

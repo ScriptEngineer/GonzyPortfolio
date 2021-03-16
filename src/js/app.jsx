@@ -35,12 +35,20 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-          size: 'large'
-        };
+        if (window.innerWidth < 630) {
+          this.state = {
+            size: 'small'
+          }
+        } else {
+          this.state = {
+            size: 'large'
+          }
+        }
+
 
         this.checkView = this.checkView.bind(this);
         this.compareLogos = this.compareLogos.bind(this);
+        this.cycleNav = this.cycleNav.bind(this);
         this.morphCycle = this.morphCycle.bind(this);
         this.morph = this.morph.bind(this);
 
@@ -48,12 +56,26 @@ export default class App extends React.Component {
 
     checkView() {
     
-      let size = window.innerWidth;
       console.log(navigator.userAgent);
-      if (size < 630) {
-        this.setState({
-          size: 'small'
-        });
+
+      window.onresize = () => {
+
+        clearTimeout(resizeTimer);
+
+        let resizeTimer = setTimeout(() => {
+
+          if (window.innerWidth < 630) {
+            this.setState({
+              size: 'small'
+            });
+          } else {
+            this.setState({
+              size: 'large'
+            });
+          }
+
+        }, 600);
+
       }
       
     }
@@ -101,9 +123,11 @@ export default class App extends React.Component {
 
     }
 
-    componentDidUpdate() {
-
+    cycleNav() {
+      let slider = document.querySelector('.nav__links').swiper;
+      slider.slideNext();
     }
+
 
     morphCycle(counter) {
 
@@ -154,7 +178,7 @@ export default class App extends React.Component {
 
       if (this.state.size == 'small') {
 
-        navMenu = <Swiper pagination={{ clickable: true }} direction='vertical' className="nav__section nav__links">
+        navMenu = <Swiper pagination={{ el: '.nav__pagination' }} direction='vertical' loop='true' className="nav__section nav__links">
 
           <SwiperSlide className="nav__link">
             <a href="https://github.com/ScriptEngineer" className="github__link" target="_blank" >
@@ -185,6 +209,7 @@ export default class App extends React.Component {
             </a>
           </SwiperSlide>
 
+          <div className="nav__pagination" onClick={this.cycleNav}></div>
         </Swiper>;
 
       } else {

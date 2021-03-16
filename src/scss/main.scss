@@ -60,6 +60,8 @@
   }
 }
 
+$gonzy-blue: #00ACE1;
+
 $mobile: "screen and (max-width:500px)";
 $tablet: "screen and (min-width:501px) (max-width:1000px)";
 $tablet-up: "screen and (min-width:501px)";
@@ -202,14 +204,15 @@ body {
         }
       }
 
-      a {
+      > a {
         display: flex;
         align-items: center;
         text-decoration: none;
       }
 
       @media #{$mobile} {
-          width: 100%;
+        justify-content: flex-end;
+        width: 100%;
       }
   }
 
@@ -257,6 +260,11 @@ body {
       }
   }
 
+  &__pagination {
+    cursor: pointer;
+    padding-left: 20px;
+  }
+
 	.github__link {
 		.nav__icon {
 			background-color: #00ACE1;
@@ -276,12 +284,19 @@ body {
 		text-decoration: none;
 	}
 
+  .swiper-container-vertical > .swiper-pagination-bullets {
+    transform: none;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: $gonzy-blue;
+  }
+
 	#navLogo	{
     height: 40px;
     margin-left: 20px;
   }
     
-
   h3 {
 		color:  #00ACE1;
 		font-size: 10pt;  
