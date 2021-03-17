@@ -300,55 +300,18 @@ body {
 .center {
   text-align: center; }
 
-#contactWindow {
-  position: fixed;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  transition: all 0.3s ease;
-  top: 50px;
-  z-index: 10;
-  width: auto;
-  height: 0px;
-  background: rgba(255, 255, 255, 0.95);
-  overflow: hidden;
-  border-bottom-left-radius: 80px;
-  border-bottom-right-radius: 80px; }
-  #contactWindow .contWrap {
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto; }
-    #contactWindow .contWrap label {
-      font-family: 'Oswald',sans-serif;
-      color: #00ACE1; }
-    #contactWindow .contWrap #cancelEmail,
-    #contactWindow .contWrap #submitEmail {
-      padding: 10px 20px;
-      border: solid 2px;
-      font-family: 'Oswald',sans-serif;
-      color: #00ACE1;
-      border-color: #00ACE1;
-      border-radius: 30px;
-      transition: all 0.3s ease; }
-      #contactWindow .contWrap #cancelEmail:hover,
-      #contactWindow .contWrap #submitEmail:hover {
-        color: #FFF;
-        border-color: #CCC;
-        background-color: #00ACE1; }
-
 .nav {
   border-bottom: solid 1px;
   border-color: #ccc;
   display: grid;
-  grid-template-columns: auto 500px;
+  grid-template-columns: auto auto;
   position: fixed;
   z-index: 3;
-  background: rgba(255, 255, 255, 0.95);
+  background: #fff;
   width: 100%; }
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 501px) {
     .nav {
-      grid-template-columns: auto auto; } }
+      grid-template-columns: auto 500px; } }
   .nav__link {
     display: flex;
     align-items: center;
@@ -376,8 +339,6 @@ body {
       z-index: -2; }
     .nav__link:hover {
       cursor: pointer; }
-      .nav__link:hover .github__link .nav__icon {
-        background-color: #007193; }
       .nav__link:hover h3, .nav__link:hover svg {
         color: #007193; }
     @media screen and (min-width: 1001px) {
@@ -420,17 +381,13 @@ body {
     align-items: center;
     display: flex;
     height: 70px; }
-    @media screen and (max-width: 500px) {
-      .nav__section {
-        justify-content: center; } }
   .nav__pagination {
     cursor: pointer;
     padding-left: 20px; }
   .nav .github__link .nav__icon {
-    background-color: #00ACE1; }
+    margin-right: 5px; }
     .nav .github__link .nav__icon svg {
-      color: #fff;
-      font-size: 42px; }
+      font-size: 30px; }
       @media screen and (max-width: 500px) {
         .nav .github__link .nav__icon svg {
           font-size: 22px; } }
@@ -531,10 +488,8 @@ body {
     padding-bottom: 50px;
     font-family: sans-serif;
     color: #fff;
-    letter-spacing: 8px; }
-    @media screen and (max-width: 500px) {
-      .section__history .section__title {
-        text-align: center; } }
+    letter-spacing: 8px;
+    text-align: center; }
   .section__history .entry {
     background-image: linear-gradient(to right, rgba(230, 249, 255, 0.7), rgba(230, 249, 255, 0.1), rgba(230, 249, 255, 0));
     border-radius: 7px;
@@ -544,7 +499,7 @@ body {
     margin-bottom: 20px;
     position: relative;
     width: 800px; }
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 818px) {
       .section__history .entry {
         flex-direction: column;
         height: auto;
@@ -560,7 +515,7 @@ body {
     .section__history .entry__time {
       font-weight: lighter;
       margin-bottom: 0px; }
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 818px) {
       .section__history .entry__title {
         text-align: center; } }
     .section__history .entry__link {
@@ -572,7 +527,7 @@ body {
       width: 300px;
       opacity: 0;
       left: 2000px; }
-      @media screen and (max-width: 500px) {
+      @media screen and (max-width: 818px) {
         .section__history .entry__link {
           width: 100%; }
           .section__history .entry__link img {

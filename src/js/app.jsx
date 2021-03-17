@@ -35,7 +35,7 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
 
-        if (window.innerWidth < 630) {
+        if (window.innerWidth < 500) {
           this.state = {
             size: 'small'
           }
@@ -64,7 +64,7 @@ export default class App extends React.Component {
 
         let resizeTimer = setTimeout(() => {
 
-          if (window.innerWidth < 630) {
+          if (window.innerWidth < 500) {
             this.setState({
               size: 'small'
             });
@@ -276,6 +276,7 @@ export default class App extends React.Component {
                       </div>
 
                       <div className="section__hero__branding">
+
                         <h1>gonzy designs</h1>
                         <p>passionate software development.</p>
                       </div>

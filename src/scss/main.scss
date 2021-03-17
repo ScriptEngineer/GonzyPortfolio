@@ -91,65 +91,18 @@ body {
 	text-align: center;   
 }
 
-#contactWindow {
-    position: fixed;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    transition: all 0.3s ease;
-    top: 50px;
-    z-index: 10;
-    width: auto;
-    height:0px;
-    background: rgba(255,255,255,0.95);
-    overflow: hidden;
-    border-bottom-left-radius:80px;
-    border-bottom-right-radius:80px;
-
-    .contWrap {
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-              
-      label {
-        font-family:'Oswald',sans-serif;
-        color:#00ACE1;
-      }    
-              
-      #cancelEmail,
-      #submitEmail {
-        padding:10px 20px;
-        border: solid 2px;
-        font-family:'Oswald',sans-serif;
-        color:#00ACE1;
-        border-color:#00ACE1;
-        border-radius:30px;
-        transition: all 0.3s ease;
-
-        &:hover {
-            color:#FFF;
-            border-color:#CCC;
-            background-color:#00ACE1;
-        }
-      }
-                
-    }
-
-}
-
 .nav {
 	border-bottom: solid 1px;
 	border-color: #ccc;
 	display: grid;
-	grid-template-columns: auto 500px;
+	grid-template-columns:auto auto;
 	position: fixed;
 	z-index: 3;
-	background: rgba(255,255,255,0.95);
+	background: #fff;
   width: 100%;
 
-  @media #{$mobile} {
-      grid-template-columns:auto auto;
+  @media #{$tablet-up} {
+    grid-template-columns: auto 500px;
   }
   
   &__link {
@@ -186,10 +139,6 @@ body {
 
       &:hover {
         cursor: pointer;
-
-        .github__link .nav__icon {
-          background-color: #007193;
-        }
 
         h3, svg {
           color: #007193;
@@ -254,10 +203,6 @@ body {
       align-items: center;
       display: flex;
       height: 70px;
-            
-      @media #{$mobile} {
-          justify-content: center;
-      }
   }
 
   &__pagination {
@@ -267,11 +212,9 @@ body {
 
 	.github__link {
 		.nav__icon {
-			background-color: #00ACE1;
-
+      margin-right: 5px;
 			svg {
-				color: #fff;
-        font-size: 42px;
+        font-size:30px;
         
         @media #{$mobile} {
             font-size: 22px;
@@ -414,11 +357,7 @@ body {
 		font-family: sans-serif;
 		color: #fff; 
     letter-spacing: 8px;
-
-    @media #{$mobile} {
-        text-align: center;
-    }
-
+    text-align: center;
 	}
 
 	.entry {
@@ -431,7 +370,7 @@ body {
 		position: relative;
     width: 800px;
         
-    @media #{$mobile} {
+    @media screen and (max-width: 818px) {
         flex-direction: column;
         height: auto;
         overflow: hidden;
@@ -458,29 +397,28 @@ body {
     }
         
     &__title {      
-        @media #{$mobile} {
+        @media screen and (max-width: 818px) {
             text-align: center;
         }
     }
 
 		&__link {
 			align-items: center;
-			//background-color: #fff;
 			background-color: rgba(255,255,255,0.3);
 			display: flex;
 			justify-content: space-evenly;
 			position: relative;
 			width: 300px;
 			opacity: 0;
-            left: 2000px;
-            
-            @media #{$mobile} {
-                width: 100%;
-                img {
-                    margin-top: 12px;
-                    margin-bottom: 12px;
-                }
-            }
+      left: 2000px;
+      
+      @media screen and (max-width: 818px) {
+          width: 100%;
+          img {
+              margin-top: 12px;
+              margin-bottom: 12px;
+          }
+      }
 
 			a {
 				position: relative;
@@ -504,6 +442,7 @@ body {
 			}
 
 		}
+
 	}
 
 	&.present .entry{
