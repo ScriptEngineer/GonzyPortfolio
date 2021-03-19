@@ -355,7 +355,7 @@ body {
         width: 100%; } }
   @media screen and (max-width: 500px) {
     .nav__links {
-      width: 300px; } }
+      width: 250px; } }
   .nav__icon {
     align-items: center;
     border-radius: 60px;
