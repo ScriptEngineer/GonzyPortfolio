@@ -210,19 +210,6 @@ body {
     padding-left: 20px;
   }
 
-	.github__link {
-		.nav__icon {
-      margin-right: 5px;
-			svg {
-        font-size:30px;
-        
-        @media #{$mobile} {
-            font-size: 22px;
-        }
-			}
-		}
-	}
-
 	.resume__link {
 		text-decoration: none;
 	}
@@ -343,9 +330,7 @@ body {
 }
 
 .section__history {
-  background-image: url('../img/back4.jpg');
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: #00ACE1;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

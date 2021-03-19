@@ -384,13 +384,6 @@ body {
   .nav__pagination {
     cursor: pointer;
     padding-left: 20px; }
-  .nav .github__link .nav__icon {
-    margin-right: 5px; }
-    .nav .github__link .nav__icon svg {
-      font-size: 30px; }
-      @media screen and (max-width: 500px) {
-        .nav .github__link .nav__icon svg {
-          font-size: 22px; } }
   .nav .resume__link {
     text-decoration: none; }
   .nav .swiper-container-vertical > .swiper-pagination-bullets {
@@ -476,9 +469,7 @@ body {
       transition: inherit; }
 
 .section__history {
-  background-image: url("../img/back4.jpg");
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: #00ACE1;
   display: flex;
   flex-direction: column;
   align-items: center;
