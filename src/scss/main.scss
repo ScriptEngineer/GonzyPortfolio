@@ -487,7 +487,7 @@ body {
         fill: currentColor;
         cursor: pointer;
         height: 80px;
-        margin: 20px 30px;
+        margin: 10px 15px;
         opacity: 0;
         position: relative;
         transition: all 0.3s ease;
@@ -495,6 +495,10 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media #{$desktop} {
+          margin: 20px 30px;
+        }
 
         > a {
           color: inherit;

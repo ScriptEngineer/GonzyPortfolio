@@ -384,7 +384,7 @@ export default class App extends React.Component {
 
                           <div className="technologies__icon" title="Webpack">
                             <a href="https://webpack.js.org/">
-                              <svg viewBox="0 0 875.7 875.7" xmlns="http://www.w3.org/2000/svg">
+                              <svg viewBox="0 0 875.7 875.7" width="64" xmlns="http://www.w3.org/2000/svg">
                                 <path d="m387 0 387 218.9v437.9l-387 218.9-387-218.9v-437.9z" fill="#fff" />
                                 <path d="m704.9 641.7-305.1 172.6v-134.4l190.1-104.6zm20.9-18.9v-360.9l-111.6 64.5v232zm-657.9 18.9 305.1 172.6v-134.4l-190.2-104.6zm-20.9-18.9v-360.9l111.6 64.5v232zm13.1-384.3 312.9-177v129.9l-200.5 110.3-1.6.9zm652.6 0-312.9-177v129.9l200.5 110.2 1.6.9z" fill="currentColor" />
                                 <path className="darkGrey" d="m373 649.3-187.6-103.2v-204.3l187.6 108.3zm26.8 0 187.6-103.1v-204.4l-187.6 108.3zm-201.7-331.1 188.3-103.5 188.3 103.5-188.3 108.7z" fill="currentColor" />
@@ -655,7 +655,7 @@ export default class App extends React.Component {
 
                           <div className="technologies__icon" title="Google Analytics">
                             <a href="https://analytics.google.com/analytics/web/">
-                              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 192 192" enableBackground="new 0 0 192 192">
+                              <svg version="1.1" width="64" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 192 192" enableBackground="new 0 0 192 192">
                               <rect x="0" y="0" fill="none" width="192" height="192" />
                                 <g>
                                   <g>
@@ -687,7 +687,7 @@ export default class App extends React.Component {
 
                           <div className="technologies__icon" title="Heroku">
                             <a href="https://www.heroku.com/">
-                              <svg version="1.1" id="Layer_1"
+                              <svg version="1.1" id="Layer_1" width="64"
                                 xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="60 -8 143 40"
                                 xmlSpace="preserve">
                       

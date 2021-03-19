@@ -578,7 +578,7 @@ body {
       fill: currentColor;
       cursor: pointer;
       height: 80px;
-      margin: 20px 30px;
+      margin: 10px 15px;
       opacity: 0;
       position: relative;
       transition: all 0.3s ease;
@@ -586,6 +586,9 @@ body {
       display: flex;
       align-items: center;
       justify-content: center; }
+      @media screen and (min-width: 1001px) {
+        .section__technologies .technologies .technologies__icon {
+          margin: 20px 30px; } }
       .section__technologies .technologies .technologies__icon > a {
         color: inherit;
         font-family: 'Helvetica', sans-serif;
