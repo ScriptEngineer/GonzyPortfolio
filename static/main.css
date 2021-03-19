@@ -275,10 +275,10 @@
 @keyframes revealHero {
   0% {
     opacity: 0;
-    margin-top: 0px; }
+    padding-top: 0px; }
   100% {
     opacity: 1;
-    margin-top: 50px; } }
+    padding-top: 90px; } }
 
 body {
   margin: 0px; }
@@ -308,7 +308,11 @@ body {
   position: fixed;
   z-index: 3;
   background: #fff;
-  width: 100%; }
+  width: 100%;
+  top: -100px;
+  transition: all 0.8s ease; }
+  .nav.reveal {
+    top: 0px; }
   @media screen and (min-width: 501px) {
     .nav {
       grid-template-columns: auto 500px; } }
@@ -413,7 +417,7 @@ body {
   border-color: #ccc;
   height: 700px;
   position: relative;
-  padding-top: 50px;
+  padding-top: 0px;
   overflow: hidden;
   animation-name: revealHero;
   animation-duration: 1s;
@@ -440,9 +444,9 @@ body {
       .section__hero__presentation {
         background-image: url("../img/laptop.svg"); } }
   .section__hero__branding {
-    width: 35%;
+    width: 80%;
     text-align: center; }
-    @media screen and (min-width: 1001px) {
+    @media screen and (min-width: 501px) {
       .section__hero__branding {
         text-align: left;
         width: 25%; } }

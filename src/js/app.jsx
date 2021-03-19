@@ -105,16 +105,28 @@ export default class App extends React.Component {
 
     componentDidMount() {
    
+      let sTop, breakpoint = window.scrollY;
+   
       this.morphCycle(0);
+
+      document.querySelector('.nav').classList.add('reveal');
 
       window.addEventListener('scroll', () => {
 
-          let sTop = window.scrollY;
+          sTop = window.scrollY;
     
           if (sTop > 1100) {
               document.querySelector('.technologies').classList.add('present');
           } else if (sTop > 580) {
               document.querySelector('.section__history').classList.add('present');
+          }
+   
+          if (window.scrollY > breakpoint) {
+            document.querySelector('.nav').classList.remove('reveal');
+            breakpoint = window.scrollY;
+          } else {
+            document.querySelector('.nav').classList.add('reveal');
+            breakpoint = window.scrollY;
           }
           
       });
