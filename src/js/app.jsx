@@ -30,6 +30,7 @@ SwiperCore.use(Pagination);
 
 library.add(standardIcons, brandIcons);
 
+
 export default class App extends React.Component {
 
     constructor(props) {
@@ -257,6 +258,7 @@ export default class App extends React.Component {
               <div className="mainBody">
 
                   <div className="section__hero">
+
                     <div className="row">
 
                       <div className="section__hero__presentation">
@@ -271,11 +273,49 @@ export default class App extends React.Component {
 
                       <div className="section__hero__branding">
 
-                        <h1>gonzy designs</h1>
-                        <p>passionate software development.</p>
+                        <svg className="section__hero__web__graphic" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1188.7 772.35">
+                          <path style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} d="M300.14,225.46,1003,292.61,601.55,538.85a.09.09,0,0,1-.12,0L300.09,225.56A.06.06,0,0,1,300.14,225.46Z" transform="translate(-287.78 -150.4)"/>
+                          <path style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} d="M1003,292.61,1125.21,163a.24.24,0,0,1,.36,0l120.62,148.91a.08.08,0,0,1-.07.13Z" transform="translate(-287.78 -150.4)"/>
+                          <path style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} d="M1246.3,312l80.23,25.26a.22.22,0,0,1,.08.37l-80.31,67.93Z" transform="translate(-287.78 -150.4)"/>
+                          <path style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} d="M1327,337.5l126,121.65-9.7,109.6L1327,337.53S1327,337.47,1327,337.5Z" transform="translate(-287.78 -150.4)"/>
+                          <path style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} d="M601.36,539.07,485.07,698.58s0,0,0,0L641.78,712,601.53,539.1A.09.09,0,0,0,601.36,539.07Z" transform="translate(-287.78 -150.4)"/>
+                          <polygon style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} points="354 561.64 734.62 766.13 734.63 766.13 734.63 591.97 354 561.64"/>
+                          <path style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} d="M1022.41,742.37l83.91-173.62,362.86,245a.19.19,0,0,1-.14.35Z" transform="translate(-287.78 -150.4)"/>
+                          <path style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} d="M1106.32,568.75h337l26.56,95.1a0,0,0,0,1,0,0Z" transform="translate(-287.78 -150.4)"/>
+                          <path style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} d="M1469.91,663.91V814.13a.19.19,0,0,1-.15.19L1022.41,916.53" transform="translate(-287.78 -150.4)"/>
+                          <polyline style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} points="197.28 548.21 12.19 75.04 837.62 12.35 1039.12 186.99"/>
+                          <path style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} d="M1443.33,568.75l-197-163.18L601.76,538.83a.1.1,0,0,0,0,.19l420.67,203.35" transform="translate(-287.78 -150.4)"/>
+                          <polyline style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} points="313.7 388.5 818.54 418.35 958.52 255.17"/>
+                          <line style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} x1="715.22" y1="142.21" x2="958.52" y2="255.65"/>
+                          <line style={{fill: "none", stroke: "#00ACE1", strokeMiterLimit: 10, strokeWidth:'0.5px' }} x1="958.52" y1="161.62" x2="313.7" y2="388.5"/>
+                          <circle style={{fill: "#00ACE1"}} cx="197.28" cy="548.21" r="5.97"/>
+                          <circle style={{fill: "#00ACE1"}} cx="313.7" cy="388.5" r="13.02"/>
+                          <circle style={{fill: "#00ACE1"}} cx="12.19" cy="75.04" r="11.94"/>
+                          <circle style={{fill: "#00ACE1"}} cx="837.62" cy="12.35" r="12.1"/>
+                          <circle style={{fill: "#00ACE1"}} cx="1039.12" cy="186.99" r="10.89"/>
+                          <circle style={{fill: "#00ACE1"}} cx="958.52" cy="161.62" r="5.97"/>
+                          <circle style={{fill: "#00ACE1"}} cx="958.52" cy="255.65" r="8.2"/>
+                          <circle style={{fill: "#00ACE1"}} cx="818.21" cy="418.35" r="12.25"/>
+                          <circle style={{fill: "#00ACE1"}} cx="734.62" cy="591.49" r="9.09"/>
+                          <circle style={{fill: "#00ACE1"}} cx="354" cy="561.64" r="7.54"/>
+                          <circle style={{fill: "#00ACE1"}} cx="1164.5" cy="309.39" r="5.97"/>
+                          <circle style={{fill: "#00ACE1"}} cx="1155.55" cy="418.35" r="9.17"/>
+                          <circle style={{fill: "#00ACE1"}} cx="1182.42" cy="513.88" r="5.97"/>
+                          <circle style={{fill: "#00ACE1"}} cx="1182.42" cy="663.14" r="6.04"/>
+                          <circle style={{fill: "#00ACE1"}} cx="734.62" cy="766.13" r="5.97"/>
+                          <circle style={{fill: "#00ACE1"}} cx="715.22" cy="142.21" r="10.11"/>
+                          <circle style={{fill: "#00ACE1"}} cx="843.59" cy="201.92" r="5.97"/>
+                        </svg>
+                        
+                        <div className="section__hero__branding__content">
+                          <h1>gonzy designs!</h1>
+                          <p>passionate software development.</p>
+                        </div>
+
                       </div>
 
                     </div>
+
                   </div>
 
                   <div className="section__history">
@@ -283,7 +323,7 @@ export default class App extends React.Component {
                       <h2 className="section__title">Striving for new heights in Coding Experience</h2>
                       <div className="entry">
                           <div className="entry__content">
-                              <p className="entry__time">Sep. 2016 - Present</p>
+                              <p className="entry__time">Sep. 2016 - June 2021</p>
                               <h2 className="entry__title">Web Developer</h2>
                           </div>
                           <div className="entry__link">

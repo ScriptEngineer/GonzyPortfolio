@@ -1,6 +1,7 @@
 @import '../../node_modules/swiper/swiper.scss';
 @import '../../node_modules/swiper/components/pagination/pagination.scss';
 
+
 @keyframes bring-left {
 
 	0% {
@@ -67,8 +68,18 @@ $tablet: "screen and (min-width:501px) (max-width:1000px)";
 $tablet-up: "screen and (min-width:501px)";
 $desktop: "screen and (min-width:1001px)";
 
+
+:root {
+  --blue: #00ACE1; 
+}
+
 body {
 	margin: 0px;
+}
+
+p, h1, h2, h3, h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .row {
@@ -245,26 +256,23 @@ body {
     
 }
 
-.nopad {
-	padding: 0;    
-}
-
 .section__hero {
   background-image: url('../img/triangleDesign.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat-x;
+  background-size: auto 560px;
   border-bottom: solid 2px;  
   border-color: #ccc;
-  height: 700px;
+  height: 800px;
   position: relative;
   padding-top: 0px;
   overflow: hidden;
   animation-name: revealHero;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  
-  &::before {
-    background:radial-gradient(circle at center, #fff 0, #fff 75%, rgba(255,255,255,0.1) 100%);
+  z-index: 0;
+
+  &::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -273,16 +281,28 @@ body {
     top: 0;
   }
   
+  &::before {
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,1));
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 560px;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+  
   &__presentation {
     background-image: url('../img/phone.svg');
     position: relative;
-    width: 75%;
-    height: 500px;
+    width: 70%;
+    height: 400px;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 
     @media #{$desktop} {
       background-image: url('../img/laptop.svg');
@@ -290,12 +310,14 @@ body {
   }
 
   &__branding {
+    position: relative;
     width: 80%;
     text-align: center;
 
     @media #{$tablet-up} {
       text-align: left;
-      width: 25%;
+      width: 30%;
+      margin-bottom: 100px;
     }
 
     h1, p {
@@ -303,22 +325,47 @@ body {
       font-family: sans-serif;
       font-style: italic;
       font-weight: lighter;
-      letter-spacing: 10px;
+      letter-spacing: 3px;
     }
 
     h1 {
       font-size: 17pt;
+      font-weight: bolder;
       text-transform: uppercase;
+    }
+
+    &__content {
+      background-color: #fff;
+      border-width: 1px 0px 5px 0px;
+      border-style: solid;
+      border-image: linear-gradient(-90deg, #fff, var(--blue)) 1;
+      padding: 20px;
+      position: relative;
+      width: 140%;
+      left: -40%;
+      padding: 10% 20%;
     }
 
   }
 
+  &__web__graphic {
+    position: absolute;
+    right: 40px;
+    top: -220px;
+    transform: scaleX(-1);
+    opacity: 0.7;
+    width: 380px;
+  }
+
   > .row {
     flex-direction: column;
+    z-index: 2;
 
-      @media #{$desktop} {
-        flex-direction: row;
-      }
+    @media #{$desktop} {
+      flex-direction: row;
+      padding-top: 130px;
+    }
+
   }
 
   #svgMorpher {
