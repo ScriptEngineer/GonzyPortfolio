@@ -308,8 +308,10 @@ p, h1, h2, h3, h4 {
   text-align: center; }
 
 .nav {
-  border-bottom: solid 1px;
-  border-color: #ccc;
+  /*
+  border-image: linear-gradient(90deg, #fff, var(--blue)) 1;
+  */
+  border-bottom: solid 1px var(--blue);
   display: grid;
   grid-template-columns: auto auto;
   position: fixed;
@@ -324,38 +326,46 @@ p, h1, h2, h3, h4 {
     .nav {
       grid-template-columns: auto 500px; } }
   .nav__link {
+    background-color: #fff;
     display: flex;
     align-items: center;
     position: relative;
     right: 0px;
     transition: all 0.3s ease; }
-    @media screen and (min-width: 501px) {
-      .nav__link {
-        padding: 25px 5px 5px 5px; } }
-    @media screen and (min-width: 1001px) {
-      .nav__link::before {
-        border-radius: 10px;
-        border: solid 1px #ccc;
-        border-top: none;
-        content: '';
-        width: 120%;
-        height: 100px;
-        transform: skew(-20deg);
-        background: #fff;
-        position: absolute;
-        left: 0;
-        bottom: -1px;
-        z-index: -1; } }
-    .nav__link:first-child::before {
-      z-index: -2; }
+    .nav__link::after {
+      background-color: #fff;
+      content: '';
+      height: 100%;
+      max-height: 0px;
+      width: 140%;
+      border-radius: 100px;
+      position: absolute;
+      z-index: -1;
+      transition: max-height 0.3s ease;
+      top: 0px;
+      left: -20%; }
+    .nav__link::before {
+      background-color: #fff;
+      content: '';
+      height: 130%;
+      max-height: 0px;
+      width: 120%;
+      border-radius: 100px;
+      position: absolute;
+      z-index: -2;
+      border: solid 1px transparent;
+      transition: max-height 0.3s ease;
+      top: 0px;
+      left: -10%; }
     .nav__link:hover {
       cursor: pointer; }
       .nav__link:hover h3, .nav__link:hover svg {
         color: #007193; }
     @media screen and (min-width: 1001px) {
-      .nav__link:hover {
-        padding-top: 60px;
-        right: 10px; } }
+      .nav__link:hover::before {
+        border-color: var(--blue); }
+      .nav__link:hover::before, .nav__link:hover::after {
+        max-height: 100px; } }
     .nav__link > a {
       display: flex;
       align-items: center;
@@ -389,7 +399,7 @@ p, h1, h2, h3, h4 {
         height: 20px;
         width: 20px; } }
   .nav__section {
-    align-items: center;
+    align-items: flex-end;
     display: flex;
     height: 70px; }
   .nav__pagination {
@@ -403,7 +413,7 @@ p, h1, h2, h3, h4 {
     background: #00ACE1; }
   .nav #navLogo {
     height: 40px;
-    margin-left: 20px; }
+    margin: 20px; }
   .nav h3 {
     color: #00ACE1;
     font-size: 10pt;
@@ -414,6 +424,7 @@ p, h1, h2, h3, h4 {
     padding-right: 8px; }
 
 .section__hero {
+  background-attachment: fixed;
   background-image: url("../img/triangleDesign.jpg");
   background-size: cover;
   background-repeat: repeat-x;
@@ -429,12 +440,15 @@ p, h1, h2, h3, h4 {
   animation-fill-mode: forwards;
   z-index: 0; }
   .section__hero::after {
+    background-color: #fff;
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
-    top: 0; }
+    top: 560px;
+    box-sizing: solid 1px var(--blue);
+    box-shadow: 0px 0px 100px 10px #aaa; }
   .section__hero::before {
     background: linear-gradient(to right, rgba(255, 255, 255, 0), white, white);
     content: '';
@@ -499,6 +513,7 @@ p, h1, h2, h3, h4 {
     z-index: 2; }
     @media screen and (min-width: 1001px) {
       .section__hero > .row {
+        align-items: flex-end;
         flex-direction: row;
         padding-top: 130px; } }
   .section__hero #svgMorpher {
@@ -538,7 +553,10 @@ p, h1, h2, h3, h4 {
         overflow: hidden;
         width: 90%; } }
     .section__history .entry__content {
-      padding-left: 20px; }
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
       .section__history .entry__content h2, .section__history .entry__content p {
         color: #474747;
         font-family: sans-serif; }

@@ -308,7 +308,7 @@ export default class App extends React.Component {
                         </svg>
                         
                         <div className="section__hero__branding__content">
-                          <h1>gonzy designs!</h1>
+                          <h1>gonzy designs</h1>
                           <p>passionate software development.</p>
                         </div>
 
