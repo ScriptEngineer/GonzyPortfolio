@@ -1,6 +1,6 @@
 @import '../../node_modules/swiper/swiper.scss';
 @import '../../node_modules/swiper/components/pagination/pagination.scss';
-
+@import './breakpoints';
 
 @keyframes bring-left {
 
@@ -61,16 +61,9 @@
   }
 }
 
-$gonzy-blue: #00ACE1;
-
-$mobile: "screen and (max-width:500px)";
-$tablet: "screen and (min-width:501px) (max-width:1000px)";
-$tablet-up: "screen and (min-width:501px)";
-$desktop: "screen and (min-width:1001px)";
-
 
 :root {
-  --blue: #00ACE1; 
+  --gonzy-blue: #00ACE1;
 }
 
 body {
@@ -87,10 +80,10 @@ p, h1, h2, h3, h4 {
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 100px;
-  max-width: 1000px;
+  max-width: $medium;
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 .wrapper {
@@ -120,7 +113,7 @@ p, h1, h2, h3, h4 {
     top: 0px;
   }
 
-  @media #{$tablet-up} {
+  @media #{$medium-up} {
     grid-template-columns: auto 500px;
   }
   
@@ -170,7 +163,7 @@ p, h1, h2, h3, h4 {
 
     }
 
-    @media #{$desktop} {
+    @media #{$large} {
       &:hover::before {
         border-color: var(--blue);
       }
@@ -186,7 +179,7 @@ p, h1, h2, h3, h4 {
       text-decoration: none;
     }
 
-    @media #{$mobile} {
+    @media #{$small} {
       justify-content: flex-end;
       width: 100%;
     }
@@ -194,7 +187,7 @@ p, h1, h2, h3, h4 {
   }
 
   &__links {
-    @media #{$mobile} {
+    @media #{$small} {
       width: 250px;
     }
   }
@@ -214,13 +207,13 @@ p, h1, h2, h3, h4 {
       font-size: 24px;
       transition: all 0.3s ease;
       
-      @media #{$mobile} {
+      @media #{$small} {
           font-size: 14px;
       }
     }    
 
         
-    @media #{$mobile} {
+    @media #{$small} {
         border: none;
         height: 20px;
         width: 20px;
@@ -247,7 +240,7 @@ p, h1, h2, h3, h4 {
   }
 
   .swiper-pagination-bullet-active {
-    background: $gonzy-blue;
+    background: var(--gonzy-blue);
   }
 
 	#navLogo	{
@@ -275,7 +268,9 @@ p, h1, h2, h3, h4 {
   background-size: auto 560px;
   border-bottom: solid 2px;  
   border-color: #ccc;
-  height: 800px;
+  display: flex;
+  align-items: center;
+  height: 80vh;
   position: relative;
   padding-top: 0px;
   overflow: hidden;
@@ -308,7 +303,7 @@ p, h1, h2, h3, h4 {
   }
   
   &__presentation {
-    background-image: url('../img/phone.svg');
+    background-image: url('../img/laptop.svg');
     position: relative;
     width: 70%;
     height: 400px;
@@ -319,9 +314,10 @@ p, h1, h2, h3, h4 {
     align-items: center;
     z-index: 1;
 
-    @media #{$desktop} {
-      background-image: url('../img/laptop.svg');
+    @media #{$small} {
+      background-image: url('../img/phone.svg');
     }
+
   }
 
   &__branding {
@@ -329,7 +325,7 @@ p, h1, h2, h3, h4 {
     width: 80%;
     text-align: center;
 
-    @media #{$tablet-up} {
+    @media #{$medium-up} {
       text-align: left;
       width: 30%;
       margin-bottom: 100px;
@@ -353,7 +349,7 @@ p, h1, h2, h3, h4 {
       background-color: #fff;
       border-width: 1px 0px 5px 0px;
       border-style: solid;
-      border-image: linear-gradient(-90deg, #fff, var(--blue)) 1;
+      border-image: linear-gradient(-90deg, #fff, var(--gonzy-blue)) 1;
       padding: 20px;
       position: relative;
       width: 140%;
@@ -376,10 +372,9 @@ p, h1, h2, h3, h4 {
     flex-direction: column;
     z-index: 2;
 
-    @media #{$desktop} {
+    @media #{$large} {
       align-items: flex-end;
       flex-direction: row;
-      padding-top: 130px;
     }
 
   }
@@ -387,7 +382,7 @@ p, h1, h2, h3, h4 {
   #svgMorpher {
     transition: all 0.3s ease;
 
-    @media #{$desktop} {
+    @media #{$large} {
       margin-bottom: 100px;
     }
 
@@ -569,7 +564,7 @@ p, h1, h2, h3, h4 {
         align-items: center;
         justify-content: center;
 
-        @media #{$desktop} {
+        @media #{$large} {
           margin: 20px 30px;
         }
 

@@ -141,7 +141,6 @@ export default class App extends React.Component {
       slider.slideNext();
     }
 
-
     morphCycle(counter) {
 
       this.morph(brandIcons[counter]).then(() => {
@@ -321,6 +320,20 @@ export default class App extends React.Component {
                   <div className="section__history">
 
                       <h2 className="section__title">Striving for new heights in Coding Experience</h2>
+
+                      <div className="entry">
+                          <div className="entry__content">
+                              <p className="entry__time">July 2021 - present </p>
+                              <h2 className="entry__title">Senior Web Developer</h2>
+                          </div>
+                          <div className="entry__link">
+                              <div className="triangle"></div>
+                              <a href="https://trinitysoft.net/" target="_blank">
+                                  <img src="img/trinity-software-logo.webp" width="240" />
+                              </a>
+                          </div>
+                      </div>
+
                       <div className="entry">
                           <div className="entry__content">
                               <p className="entry__time">Sep. 2016 - June 2021</p>

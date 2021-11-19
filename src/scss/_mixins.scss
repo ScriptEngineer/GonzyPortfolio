@@ -1,0 +1,32 @@
+
+@import './breakpoints';
+
+@mixin responsive-style($class, $prop) {
+    @for $i from 0 through 10 {
+        .#{$class} {
+            $prop: $i * 10px;
+
+            @media #{$small} {
+                &--s {
+                    $prop: $i * 10px;
+                }
+            }
+
+            @media #{$medium} {
+                &--m {
+                    $prop: $i * 10px;
+                }
+            }
+
+               
+
+            @media #{$large} {
+                &--l {
+                    $prop: $i * 10px;
+                }
+            }
+
+
+        } 
+    }
+}
