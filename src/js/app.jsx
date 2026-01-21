@@ -200,7 +200,7 @@ export default class App extends React.Component {
       navMenu = <Swiper pagination={{ el: '.nav__pagination' }} direction='vertical' loop='true' className="nav__section nav__links">
 
         <SwiperSlide className="nav__link">
-          <a href="gonzyResume_v3.pdf" type="application/octet-stream" download="gonzyResume_v3.pdf">
+          <a href="GonzyResume.pdf" type="application/octet-stream" download="GonzyResume.pdf">
             <div className="nav__icon">
               <FontAwesomeIcon icon="file-download" />
             </div>
@@ -226,7 +226,7 @@ export default class App extends React.Component {
       navMenu = <div className="nav__section nav__links">
 
         <div className="nav__link">
-          <a href="gonzyResume_v3.pdf" type="application/octet-stream" download="gonzyResume_v3.pdf">
+          <a href="GonzyResume.pdf" type="application/octet-stream" download="GonzyResume.pdf">
             <div className="nav__icon">
               <FontAwesomeIcon icon="file-download" />
             </div>
