@@ -2,7 +2,6 @@
   "name": "gonzyportfolio",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
@@ -10,10 +9,16 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "snapsvg-cjs": "^0.0.6",
     "swiper": ">=6.5.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.16.3",
+    "parcel": "^2.16.3",
+    "sass": "^1.97.2"
+  },
   "scripts": {
+    "dev": "parcel src/index.html --dist-dir static",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

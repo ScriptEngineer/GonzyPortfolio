@@ -262,7 +262,7 @@ p, h1, h2, h3, h4 {
 
 .section__hero {
   background-attachment: fixed;
-  background-image: url('../img/triangleDesign.jpg');
+  background-image: url('/img/triangleDesign.jpg');
   background-size: cover;
   background-repeat: repeat-x;
   background-size: auto 560px;
@@ -303,7 +303,7 @@ p, h1, h2, h3, h4 {
   }
   
   &__presentation {
-    background-image: url('../img/laptop.svg');
+    background-image: url('/img/laptop.svg');
     position: relative;
     width: 70%;
     height: 400px;
@@ -315,7 +315,7 @@ p, h1, h2, h3, h4 {
     z-index: 1;
 
     @media #{$small} {
-      background-image: url('../img/phone.svg');
+      background-image: url('/img/phone.svg');
     }
 
   }
