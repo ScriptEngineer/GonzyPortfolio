@@ -49,18 +49,6 @@
 
 }
 
-@keyframes revealHero {
-  0% {
-    opacity: 0;
-    padding-top: 0px;
-  }
-
-  100% {
-    opacity: 1;
-    padding-top: 90px;
-  }
-}
-
 
 :root {
   --gonzy-blue: #00ACE1;
@@ -96,18 +84,16 @@ p, h1, h2, h3, h4 {
 }
 
 .nav {
-  /*
-  border-image: linear-gradient(90deg, #fff, var(--blue)) 1;
-  */
 	border-bottom: solid 1px var(--blue);
 	display: grid;
-	grid-template-columns:auto auto;
+	grid-template-columns:auto 1fr;
 	position: fixed;
 	z-index: 3;
 	background: #fff;
   width: 100%;
   top: -100px;
   transition: all 0.8s ease;
+  box-shadow: 0px 0px 3px 0px #cfcfcf;
 
   &.reveal {
     top: 0px;
@@ -115,6 +101,12 @@ p, h1, h2, h3, h4 {
 
   @media #{$medium-up} {
     grid-template-columns: auto 500px;
+  }
+
+  &__branding {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
   }
   
   &__link {
@@ -125,35 +117,6 @@ p, h1, h2, h3, h4 {
     right: 0px;
     transition: all 0.3s ease;
 
-    &::after {
-      background-color: #fff;
-      content: '';
-      height: 100%;
-      max-height: 0px;
-      width: 140%;
-      border-radius: 100px;
-      position: absolute;
-      z-index: -1;
-      transition: max-height 0.3s ease;
-      top: 0px;
-      left: -20%;
-    }
-
-    &::before {
-      background-color: #fff;
-      content: '';
-      height: 130%;
-      max-height: 0px;
-      width: 120%;
-      border-radius: 100px;
-      position: absolute;
-      z-index: -2;
-      border: solid 1px transparent;
-      transition: max-height 0.3s ease;
-      top: 0px;
-      left: -10%;
-    }
-
     &:hover {
       cursor: pointer;
 
@@ -161,16 +124,6 @@ p, h1, h2, h3, h4 {
         color: #007193;
       }
 
-    }
-
-    @media #{$large} {
-      &:hover::before {
-        border-color: var(--blue);
-      }
-      &:hover::before,
-      &:hover::after {
-        max-height: 100px;
-      }
     }
 
     > a {
@@ -187,8 +140,12 @@ p, h1, h2, h3, h4 {
   }
 
   &__links {
-    @media #{$small} {
-      width: 250px;
+    justify-content: flex-end;
+    padding-right: 30px;
+
+    &.swiper-container {
+      margin-left: unset;
+      margin-right: unset;
     }
   }
 
@@ -214,21 +171,23 @@ p, h1, h2, h3, h4 {
 
         
     @media #{$small} {
-        border: none;
-        height: 20px;
-        width: 20px;
+      border: none;
+      height: 20px;
+      width: 20px;
     }
   }
 
   &__section {
-      align-items: flex-end;
-      display: flex;
-      height: 70px;
+    display: flex;
+    height: 70px;
   }
 
   &__pagination {
     cursor: pointer;
     padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
 	.resume__link {
@@ -245,13 +204,12 @@ p, h1, h2, h3, h4 {
 
 	#navLogo	{
     height: 40px;
-    margin: 20px;
   }
     
   h3 {
 		color:  #00ACE1;
 		font-size: 10pt;  
-		font-family: sans-serif;
+		font-family: Oswald, sans-serif;
     font-weight: normal;
     margin-bottom: 0px;
     margin-top: 0px;
@@ -265,7 +223,7 @@ p, h1, h2, h3, h4 {
   background-image: url('/img/triangleDesign.jpg');
   background-size: cover;
   background-repeat: repeat-x;
-  background-size: auto 560px;
+  background-size: auto 700px;
   border-bottom: solid 2px;  
   border-color: #ccc;
   display: flex;
@@ -274,21 +232,15 @@ p, h1, h2, h3, h4 {
   position: relative;
   padding-top: 0px;
   overflow: hidden;
-  animation-name: revealHero;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
   z-index: 0;
 
-  &::after {
-    background-color: #fff;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 560px;
-    box-sizing: solid 1px var(--blue);
-    box-shadow: 0px 0px 100px 10px #aaa;
+  @media #{$medium-up} { 
+    padding-top: 90px;
+  }
+
+  @media #{$small} { 
+    align-items: flex-start;
+    height: 700px;
   }
   
   &::before {
@@ -296,10 +248,15 @@ p, h1, h2, h3, h4 {
     content: '';
     position: absolute;
     width: 100%;
-    height: 560px;
+    height: 640px;
     left: 0;
     top: 0;
     z-index: 2;
+
+    @media #{$small} {
+      height: 740px;
+    }
+
   }
   
   &__presentation {
@@ -314,15 +271,17 @@ p, h1, h2, h3, h4 {
     align-items: center;
     z-index: 1;
 
+    
     @media #{$small} {
       background-image: url('/img/phone.svg');
+      margin-top: 50px;
     }
 
   }
 
   &__branding {
     position: relative;
-    width: 80%;
+    width: 100%;
     text-align: center;
 
     @media #{$medium-up} {
@@ -331,9 +290,13 @@ p, h1, h2, h3, h4 {
       margin-bottom: 100px;
     }
 
+    @media #{$small} {
+      margin-top: 70px;
+    }
+
     h1, p {
       color: #00ACE1;
-      font-family: sans-serif;
+      font-family: Oswald, sans-serif;
       font-style: italic;
       font-weight: lighter;
       letter-spacing: 3px;
@@ -350,31 +313,40 @@ p, h1, h2, h3, h4 {
       border-width: 1px 0px 5px 0px;
       border-style: solid;
       border-image: linear-gradient(-90deg, #fff, var(--gonzy-blue)) 1;
-      padding: 20px;
+      padding: 30px 20px;
       position: relative;
-      width: 140%;
-      left: -40%;
-      padding: 10% 20%;
+      @media #{$large-up} { 
+        width: 140%;
+        left: -40%;
+      }
     }
 
   }
 
   &__web__graphic {
     position: absolute;
-    right: 40px;
+    right: 20px;
     top: -220px;
     transform: scaleX(-1);
     opacity: 0.7;
-    width: 380px;
+    width: 480px;
+
+    @media #{$small} { 
+      top: 220px;
+    }
   }
 
   > .row {
     flex-direction: column;
     z-index: 2;
 
-    @media #{$large} {
+    @media #{$large-up} {
       align-items: flex-end;
       flex-direction: row;
+    }
+
+    @media #{$small} {
+      flex-direction: column-reverse;
     }
 
   }
@@ -403,10 +375,11 @@ p, h1, h2, h3, h4 {
 	.section__title {
 		padding-top: 50px;
 		padding-bottom: 50px;
-		font-family: sans-serif;
+		font-family: Oswald, sans-serif;
 		color: #fff; 
     letter-spacing: 8px;
     text-align: center;
+    font-size: 40px;
 	}
 
 	.entry {
@@ -435,7 +408,7 @@ p, h1, h2, h3, h4 {
 
 			h2, p {
 				color: #474747;
-				font-family: sans-serif;
+				font-family: Oswald, sans-serif;
 			}
 
 			h2 {
@@ -522,8 +495,10 @@ p, h1, h2, h3, h4 {
     padding-bottom: 100px;
 
     .section__title {
-        font-family: sans-serif;
+        font-family: Oswald,sans-serif;
         font-weight: lighter;
+        padding: 0px 30px;
+        margin-bottom: 20px;
     }
 
     .technologies {
@@ -555,7 +530,7 @@ p, h1, h2, h3, h4 {
         fill: currentColor;
         cursor: pointer;
         height: 80px;
-        margin: 10px 15px;
+        margin: 10px auto 15px;
         opacity: 0;
         position: relative;
         transition: all 0.3s ease;
