@@ -31,8 +31,7 @@ const urlImgLogo = new URL("/img/gonzydesigns_logo.svg", import.meta.url);
 const urlImgLogo3D = new URL("/img/gonzydesigns_logo_3d.svg", import.meta.url);
 const urlImgTrinity = new URL("/img/trinity-software-logo.webp", import.meta.url);
 const urlImgUTSW = new URL("/img/utsw-logo.png", import.meta.url);
-const urlImgMaxi = new URL("/img/maxi-logo.png", import.meta.url);
-const urlImgLlantec = new URL("/img/llantec-logo.png", import.meta.url);
+const urlImgMaxi = new URL("/img/maxi-logo2.png", import.meta.url);
 const urlImgUTA = new URL("/img/uta-logo-alt.png", import.meta.url);
 
 SwiperCore.use(Pagination);
@@ -340,7 +339,7 @@ export default class App extends React.Component {
                         <div className="entry__link">
                             <div className="triangle"></div>
                             <a href="https://trinitysoft.net/" target="_blank">
-                                <img src={urlImgTrinity} width="240" />
+                                <img style={{filter: "saturate(0) brightness(20)"}} src={urlImgTrinity} width="240" />
                             </a>
                         </div>
                     </div>
@@ -353,7 +352,7 @@ export default class App extends React.Component {
                         <div className="entry__link">
                             <div className="triangle"></div>
                             <a href="https://www.utsouthwestern.edu/" target="_blank">
-                              <img src={urlImgUTSW} width="240" />
+                              <img style={{filter: "saturate(0) brightness(7)"}} src={urlImgUTSW} width="240" />
                             </a>
                         </div>
                     </div>
@@ -366,15 +365,8 @@ export default class App extends React.Component {
                         </div>
 
                         <div className="entry__link">
-
-                            <div className="triangle"></div>
-                            
-                            <img src={urlImgMaxi} width="120" />
-                            
-                            <a href="https://www.llantec.com/" target="_blank">
-                                <img src={urlImgLlantec} width="120" />
-                            </a>
-
+                          <div className="triangle"></div>
+                          <img style={{filter: "saturate(0) brightness(8)"}} src={urlImgMaxi} width="120" />                         
                         </div>
 
                     </div>
