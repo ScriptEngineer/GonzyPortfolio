@@ -650,6 +650,9 @@ p, h1, h2, h3, h4 {
 				margin-top: 0px;
         font-weight: 600;
         letter-spacing: 0.5px;
+        background: var(--gradient-primary);
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
 			}
 
       p {

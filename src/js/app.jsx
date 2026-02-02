@@ -391,7 +391,7 @@ export default class App extends React.Component {
                         <div className="entry__link">
                             <div className="triangle"></div>
                             <a href="https://www.uta.edu/uta/" target="_blank">
-                                <img src={urlImgUTA} width="120" />
+                                <img src={urlImgUTA} width="100" />
                             </a>
                         </div>
                     </div>
