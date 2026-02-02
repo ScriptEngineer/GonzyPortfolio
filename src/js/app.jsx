@@ -28,6 +28,7 @@ const standardIcons = [faDesktop, faMobileAlt, faFileDownload, faEnvelope, faLis
 const brandIcons = [faAws,faCss3,faGit,faGulp,faGithub,faHtml5,faJava,faJs,faNodeJs,faNpm,faPython,faPhp,faReact,faSass,faMailchimp];
 
 const urlImgLogo = new URL("/img/gonzydesigns_logo.svg", import.meta.url);
+const urlImgLogo3D = new URL("/img/gonzydesigns_logo_3d.svg", import.meta.url);
 const urlImgTrinity = new URL("/img/trinity-software-logo.webp", import.meta.url);
 const urlImgUTSW = new URL("/img/utsw-logo.png", import.meta.url);
 const urlImgMaxi = new URL("/img/maxi-logo.png", import.meta.url);
@@ -112,10 +113,11 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-  
+
     let sTop, breakpoint = window.scrollY;
-  
-    this.morphCycle(0);
+
+    // Removed morphCycle since we're using the 3D logo instead
+    // this.morphCycle(0);
 
     document.querySelector('.nav').classList.add('reveal');
 
@@ -268,13 +270,15 @@ export default class App extends React.Component {
                   <div className="row">
 
                     <div className="section__hero__presentation">
-                      
-                      <svg id="svgMorpher" height="100px" width="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlSpace="preserve" style={{ fillRule: 'evenodd', clipRule: 'evenodd', strokeLinejoin: 'round', strokeMiterlimit: 2 }}>
-                        <g>
-                          <path id="squiggly" style={{ fill: '#00ACE1' }} d="M91.8,45c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7s-4.5-1.7-6.2-3.7C70,47.3,68,45,64,45c-3.9,0-5.9,2.3-7.7,4.3   c-1.7,2-3.2,3.7-6.2,3.7c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-3.9,0-5.9,2.3-7.7,4.3c-1.7,2-3.2,3.7-6.2,3.7   c-3,0-4.5-1.7-6.2-3.7c-1.8-2-3.8-4.3-7.7-4.3c-0.6,0-1,0.4-1,1s0.4,1,1,1c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3   c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3   c1.7-2,3.2-3.7,6.2-3.7c3,0,4.5,1.7,6.2,3.7c1.8,2,3.8,4.3,7.7,4.3c3.9,0,5.9-2.3,7.7-4.3c1.7-2,3.2-3.7,6.2-3.7c0.6,0,1-0.4,1-1   S92.4,45,91.8,45z"></path>
-                        </g>
-                      </svg>
-                    
+
+                      <div className="logo-glass-card">
+                        <div className="logo-3d-container">
+                          <div className="logo-3d">
+                            <img src={urlImgLogo3D} alt="Gonzy Designs 3D Logo" />
+                          </div>
+                        </div>
+                      </div>
+
                     </div>
 
                     <div className="section__hero__branding">
@@ -315,7 +319,7 @@ export default class App extends React.Component {
                       
                       <div className="section__hero__branding__content">
                         <h1>gonzy designs</h1>
-                        <p>passionate software development.</p>
+                        <p>smart software solutions.</p>
                       </div>
 
                     </div>
