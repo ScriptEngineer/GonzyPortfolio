@@ -768,25 +768,51 @@ p, h1, h2, h3, h4 {
     }
 
     .technology__name {
-        font-family: 'Helvetica', sans-serif;
+        font-family: Oswald, sans-serif;
         font-weight: 400;
-        font-size: 24px;
+        font-size: 28px;
         text-align: center;
-        color: var(--primary-blue);
+        color: #fff;
         min-height: 40px;
         margin-bottom: 40px;
         padding: 8px 20px;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         letter-spacing: 1px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        &::before,
+        &::after {
+            content: '';
+            height: 2px;
+            width: 80px;
+            background: var(--gradient-primary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
         &.visible {
             opacity: 1;
             transform: translateY(0);
+
+            &::before,
+            &::after {
+                width: 80px;
+                opacity: 1;
+            }
         }
 
         &.hidden {
             opacity: 0;
             transform: translateY(-10px);
+
+            &::before,
+            &::after {
+                width: 0;
+                opacity: 0;
+            }
         }
     }
 
@@ -1110,25 +1136,25 @@ p, h1, h2, h3, h4 {
 @keyframes float3d {
   0% {
     filter:
-      drop-shadow(0 10px 30px rgba(88, 166, 255, 0.28))
-      drop-shadow(0 20px 60px rgba(163, 113, 247, 0.18))
-      drop-shadow(0 0 50px rgba(255, 255, 255, 0.08))
+      drop-shadow(0 10px 30px rgba(88, 166, 255, 0.15))
+      drop-shadow(0 20px 60px rgba(163, 113, 247, 0.10))
+      drop-shadow(0 0 50px rgba(255, 255, 255, 0.04))
       brightness(1.01)
       contrast(1.005);
   }
   50% {
     filter:
-      drop-shadow(0 10px 31px rgba(88, 166, 255, 0.32))
-      drop-shadow(0 21px 62px rgba(163, 113, 247, 0.22))
-      drop-shadow(0 0 55px rgba(255, 255, 255, 0.12))
+      drop-shadow(0 10px 31px rgba(88, 166, 255, 0.18))
+      drop-shadow(0 21px 62px rgba(163, 113, 247, 0.12))
+      drop-shadow(0 0 55px rgba(255, 255, 255, 0.06))
       brightness(1.04)
       contrast(1.02);
   }
   100% {
     filter:
-      drop-shadow(0 10px 30px rgba(88, 166, 255, 0.28))
-      drop-shadow(0 20px 60px rgba(163, 113, 247, 0.18))
-      drop-shadow(0 0 50px rgba(255, 255, 255, 0.08))
+      drop-shadow(0 10px 30px rgba(88, 166, 255, 0.15))
+      drop-shadow(0 20px 60px rgba(163, 113, 247, 0.10))
+      drop-shadow(0 0 50px rgba(255, 255, 255, 0.04))
       brightness(1.01)
       contrast(1.005);
   }
