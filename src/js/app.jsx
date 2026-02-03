@@ -61,6 +61,9 @@ export default class App extends React.Component {
       this.handleTechHover = this.handleTechHover.bind(this);
       this.handleTechLeave = this.handleTechLeave.bind(this);
 
+      this.counterRef = React.createRef();
+      this.counterAnimated = false;
+
   }
 
   checkView() {
@@ -144,6 +147,43 @@ export default class App extends React.Component {
     });
 
     this.checkView();
+
+    // Counter animation observer
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !this.counterAnimated) {
+          this.counterAnimated = true;
+          this.animateCounter();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (this.counterRef.current) {
+      counterObserver.observe(this.counterRef.current);
+    }
+
+  }
+
+  animateCounter() {
+    const el = this.counterRef.current;
+    if (!el) return;
+    const target = 1000;
+    const duration = 2000;
+    const start = performance.now();
+
+    const step = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic for a fast-start, smooth-end feel
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.round(eased * target);
+      el.textContent = ">" + value.toLocaleString();
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
 
   }
 
@@ -337,6 +377,156 @@ export default class App extends React.Component {
 
                   </div>
 
+                </div>
+
+                <div className="section__cloud-stats">
+                  <div className="cloud-stats__inner">
+
+                    <div className="cloud-stats__graphic">
+                      <svg viewBox="0 0 600 400" className="cloud-stats__svg" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <filter id="glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur" />
+                            <feMerge>
+                              <feMergeNode in="blur" />
+                              <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                          </filter>
+                          <filter id="glow-purple" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="5" result="blur" />
+                            <feMerge>
+                              <feMergeNode in="blur" />
+                              <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                          </filter>
+                          <filter id="glow-packet" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3" result="blur" />
+                            <feMerge>
+                              <feMergeNode in="blur" />
+                              <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                          </filter>
+                          <linearGradient id="grad-line" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#58a6ff" stopOpacity="0.6" />
+                            <stop offset="50%" stopColor="#a371f7" stopOpacity="0.4" />
+                            <stop offset="100%" stopColor="#a371f7" stopOpacity="0.6" />
+                          </linearGradient>
+
+                          {/* Path for data packets to follow */}
+                          <path id="dataPath" d="M 170 280 C 170 160, 300 80, 430 120" fill="none" />
+                          <path id="dataPathReverse" d="M 430 120 C 300 80, 170 160, 170 280" fill="none" />
+                        </defs>
+
+                        {/* Laptop body */}
+                        <g filter="url(#glow-blue)">
+                          {/* Screen */}
+                          <rect x="80" y="220" width="180" height="120" rx="8" ry="8"
+                            fill="none" stroke="#58a6ff" strokeWidth="2" />
+                          {/* Screen inner glow */}
+                          <rect x="90" y="228" width="160" height="96" rx="4" ry="4"
+                            fill="rgba(88,166,255,0.05)" stroke="rgba(88,166,255,0.3)" strokeWidth="0.5" />
+                          {/* Code lines on screen */}
+                          <line x1="100" y1="248" x2="155" y2="248" stroke="#58a6ff" strokeWidth="1.5" opacity="0.6">
+                            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite" />
+                          </line>
+                          <line x1="100" y1="260" x2="175" y2="260" stroke="#a371f7" strokeWidth="1.5" opacity="0.5">
+                            <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.5s" repeatCount="indefinite" />
+                          </line>
+                          <line x1="100" y1="272" x2="140" y2="272" stroke="#56d4dd" strokeWidth="1.5" opacity="0.4">
+                            <animate attributeName="opacity" values="0.2;0.7;0.2" dur="1.8s" repeatCount="indefinite" />
+                          </line>
+                          <line x1="100" y1="284" x2="165" y2="284" stroke="#58a6ff" strokeWidth="1.5" opacity="0.5">
+                            <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.2s" repeatCount="indefinite" />
+                          </line>
+                          <line x1="100" y1="296" x2="150" y2="296" stroke="#a371f7" strokeWidth="1.5" opacity="0.4">
+                            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite" />
+                          </line>
+                          <line x1="100" y1="308" x2="180" y2="308" stroke="#56d4dd" strokeWidth="1.5" opacity="0.3">
+                            <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2.7s" repeatCount="indefinite" />
+                          </line>
+                          {/* Keyboard base */}
+                          <path d="M 60 340 L 80 340 L 80 340 L 260 340 L 260 340 L 280 340 L 280 355 C 280 360 275 365 270 365 L 70 365 C 65 365 60 360 60 355 Z"
+                            fill="none" stroke="#58a6ff" strokeWidth="1.5" />
+                          {/* Trackpad */}
+                          <rect x="140" y="346" width="60" height="12" rx="3" ry="3"
+                            fill="none" stroke="rgba(88,166,255,0.4)" strokeWidth="0.8" />
+                        </g>
+
+                        {/* Cloud */}
+                        <g filter="url(#glow-purple)">
+                          <path d="M 390 140 C 390 140, 385 90, 430 80 C 475 70, 490 95, 490 95 C 490 95, 520 75, 540 100 C 560 125, 545 145, 545 145 C 545 145, 560 160, 540 175 C 520 190, 500 180, 500 180 C 500 180, 485 200, 450 195 C 415 190, 405 170, 405 170 C 405 170, 375 175, 375 160 C 375 145, 390 140, 390 140 Z"
+                            fill="rgba(163,113,247,0.05)" stroke="#a371f7" strokeWidth="2" />
+                          {/* Inner cloud detail lines */}
+                          <path d="M 420 130 C 420 130, 440 115, 465 125" fill="none" stroke="rgba(163,113,247,0.3)" strokeWidth="0.8" />
+                          <path d="M 410 155 C 410 155, 445 145, 490 155" fill="none" stroke="rgba(163,113,247,0.3)" strokeWidth="0.8" />
+                          {/* Server dots inside cloud */}
+                          <circle cx="440" cy="120" r="3" fill="#a371f7" opacity="0.6">
+                            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite" />
+                          </circle>
+                          <circle cx="470" cy="135" r="3" fill="#a371f7" opacity="0.5">
+                            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" />
+                          </circle>
+                          <circle cx="455" cy="160" r="3" fill="#a371f7" opacity="0.7">
+                            <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.5s" repeatCount="indefinite" />
+                          </circle>
+                          <circle cx="500" cy="150" r="2.5" fill="#a371f7" opacity="0.4">
+                            <animate attributeName="opacity" values="0.2;0.7;0.2" dur="1.8s" repeatCount="indefinite" />
+                          </circle>
+                        </g>
+
+                        {/* Connection line */}
+                        <path d="M 170 280 C 170 160, 300 80, 430 120" fill="none"
+                          stroke="url(#grad-line)" strokeWidth="1.5" strokeDasharray="6 4" filter="url(#glow-packet)">
+                          <animate attributeName="strokeDashoffset" values="0;-20" dur="1s" repeatCount="indefinite" />
+                        </path>
+
+                        {/* Data packets going UP (laptop → cloud) */}
+                        <circle r="5" fill="#58a6ff" filter="url(#glow-packet)">
+                          <animateMotion dur="2.5s" repeatCount="indefinite" begin="0s">
+                            <mpath href="#dataPath" />
+                          </animateMotion>
+                          <animate attributeName="opacity" values="0;1;1;0" dur="2.5s" repeatCount="indefinite" begin="0s" />
+                        </circle>
+                        <circle r="3.5" fill="#56d4dd" filter="url(#glow-packet)">
+                          <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.8s">
+                            <mpath href="#dataPath" />
+                          </animateMotion>
+                          <animate attributeName="opacity" values="0;1;1;0" dur="2.5s" repeatCount="indefinite" begin="0.8s" />
+                        </circle>
+                        <circle r="4" fill="#58a6ff" filter="url(#glow-packet)">
+                          <animateMotion dur="2.5s" repeatCount="indefinite" begin="1.6s">
+                            <mpath href="#dataPath" />
+                          </animateMotion>
+                          <animate attributeName="opacity" values="0;1;1;0" dur="2.5s" repeatCount="indefinite" begin="1.6s" />
+                        </circle>
+
+                        {/* Data packets going DOWN (cloud → laptop) */}
+                        <circle r="4" fill="#a371f7" filter="url(#glow-packet)">
+                          <animateMotion dur="3s" repeatCount="indefinite" begin="0.4s">
+                            <mpath href="#dataPathReverse" />
+                          </animateMotion>
+                          <animate attributeName="opacity" values="0;1;1;0" dur="3s" repeatCount="indefinite" begin="0.4s" />
+                        </circle>
+                        <circle r="3" fill="#a371f7" filter="url(#glow-packet)">
+                          <animateMotion dur="3s" repeatCount="indefinite" begin="1.5s">
+                            <mpath href="#dataPathReverse" />
+                          </animateMotion>
+                          <animate attributeName="opacity" values="0;1;1;0" dur="3s" repeatCount="indefinite" begin="1.5s" />
+                        </circle>
+                      </svg>
+                    </div>
+
+                    <div className="cloud-stats__counter">
+                      <div className="cloud-stats__counter__stats">
+                        <span className="cloud-stats__number" ref={this.counterRef}>0</span>
+                        <span className="cloud-stats__label">COMMITS</span>
+                      </div>
+                      <div className="cloud-stats__counter__graphic">
+                          <FontAwesomeIcon icon={['fab', 'github']} size="8x" />
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
 
                 <div className="section__history">
