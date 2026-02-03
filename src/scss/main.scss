@@ -400,7 +400,7 @@ p, h1, h2, h3, h4 {
       }
 
       @media #{$large-up} {
-        bottom: 120px;
+        bottom: 100px;
       }
 
       @media #{$small} {
@@ -554,7 +554,7 @@ p, h1, h2, h3, h4 {
     display: flex;
     align-items: center;
     gap: 16px;
-    max-width: 500px;
+    max-width: 460px;
 
     &__stats {
       display: flex;
