@@ -103,7 +103,6 @@ p, h1, h2, h3, h4 {
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  max-width: $medium;
   position: relative;
   z-index: 1;
   width: 100%;
@@ -520,12 +519,10 @@ p, h1, h2, h3, h4 {
 
     @media #{$small} {
       flex-direction: column;
-      gap: 40px;
       padding: 0 20px;
     }
 
     @media #{$medium} {
-      gap: 50px;
       padding: 0 30px;
     }
   }
@@ -1050,6 +1047,15 @@ p, h1, h2, h3, h4 {
           }
         }
               
+      }
+
+      &__wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        background: linear-gradient(#0d1117 0%, #1a1f2e 100%);
+        padding: 40px 0px;
       }
 
     }
