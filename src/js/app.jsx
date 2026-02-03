@@ -382,6 +382,16 @@ export default class App extends React.Component {
                 <div className="section__cloud-stats">
                   <div className="cloud-stats__inner">
 
+                    <div className="cloud-stats__counter">
+                      <div className="cloud-stats__counter__stats">
+                        <span className="cloud-stats__number" ref={this.counterRef}>0</span>
+                        <span className="cloud-stats__label">COMMITS</span>
+                      </div>
+                      <div className="cloud-stats__counter__graphic">
+                          <FontAwesomeIcon icon={['fab', 'github']} size="8x" />
+                      </div>
+                    </div>
+
                     <div className="cloud-stats__graphic">
                       <svg viewBox="0 0 600 400" className="cloud-stats__svg" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -516,22 +526,12 @@ export default class App extends React.Component {
                       </svg>
                     </div>
 
-                    <div className="cloud-stats__counter">
-                      <div className="cloud-stats__counter__stats">
-                        <span className="cloud-stats__number" ref={this.counterRef}>0</span>
-                        <span className="cloud-stats__label">COMMITS</span>
-                      </div>
-                      <div className="cloud-stats__counter__graphic">
-                          <FontAwesomeIcon icon={['fab', 'github']} size="8x" />
-                      </div>
-                    </div>
-
                   </div>
                 </div>
 
                 <div className="section__history">
 
-                    <h2 className="section__title">Career Experience</h2>
+                    <h2 className="section__title">10+ Years Web Dev Experience</h2>
 
                     <div className="entry">
                         <div className="entry__content">

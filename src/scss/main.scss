@@ -501,20 +501,22 @@ p, h1, h2, h3, h4 {
 }
 
 .section__cloud-stats {
-  background: linear-gradient(180deg, #0d1117 0%, #161b22 100%);
+  background:radial-gradient(circle at 1px 1px, #58a6ff2b 1px, #0000 0) 0 0 / 32px 32px, linear-gradient(#0d1117 0%, #161b22 100%) 0 0 / 100% 100%;
+  background-size: 32px 32px, 100% 100%;
   padding: 100px 0;
   overflow: hidden;
   border-bottom: 1px solid var(--border-color);
   position: relative;
 
   .cloud-stats__inner {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
-    gap: 80px;
 
     @media #{$small} {
       flex-direction: column;
@@ -530,8 +532,9 @@ p, h1, h2, h3, h4 {
 
   .cloud-stats__graphic {
     flex: 1;
-    max-width: 550px;
+    max-width: 350px;
     min-width: 0;
+    transform: scaleX(-1);
 
     @media #{$small} {
       max-width: 100%;
@@ -551,6 +554,7 @@ p, h1, h2, h3, h4 {
     display: flex;
     align-items: center;
     gap: 16px;
+    max-width: 500px;
 
     &__stats {
       display: flex;
