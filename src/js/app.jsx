@@ -33,6 +33,7 @@ const urlImgUTSW = new URL("/img/utsw-logo.png", import.meta.url);
 const urlImgMaxi = new URL("/img/maxi-logo2.png", import.meta.url);
 const urlImgUTA = new URL("/img/uta-logo-alt.png", import.meta.url);
 const agentPenny = new URL("/img/penny.png", import.meta.url);
+const agentJason = new URL("/img/jason.png", import.meta.url);
 
 SwiperCore.use(Pagination);
 library.add(standardIcons, brandIcons);
@@ -490,52 +491,104 @@ export default class App extends React.Component {
                   <div className="showcase__inner">
                     <h2 className="showcase__title">Showcase</h2>
 
-                    <div className="showcase__card">
-                      <div className="showcase__card__content">
+                    <div className="showcase__demos">
 
-                        <div className="showcase__card__content__header">
+                      <div className="showcase__card showcase__card--penny">
+                        <div className="showcase__card__content">
 
-                          <div className="showcase__card__image">
-                            <img src={agentPenny} alt="AI Agent Penny" />
+                          <div className="showcase__card__content__header">
+
+                            <div className="showcase__card__image">
+                              <img src={agentPenny} alt="AI Agent Penny" />
+                            </div>
+
+                            <div className="showcase__card__content__header__info">
+
+                              <h3 className="showcase__card__title">Meet Penny</h3>
+                              <p className="showcase__card__subtitle">Your friendly AI Agent front-desk and customer support representative</p>
+                              
+                            </div>
+
                           </div>
 
-                          <div className="showcase__card__content__header__info">
+                          <p className="showcase__card__description">
+                            Penny is an intelligent AI agent designed to transform how businesses handle customer interactions.
+                            From answering simple questions about your business to scheduling appointments, making calls,
+                            sending emails, and managing customer inquiries — Penny does it all with a personal touch.
+                            Available 24/7, she ensures no customer is left waiting while maintaining the warmth and
+                            professionalism your brand deserves.
+                          </p>
 
-                            <h3 className="showcase__card__title">Meet Penny</h3>
-                            <p className="showcase__card__subtitle">Your friendly AI Agent front-desk and customer support representative</p>
-                            
+                          <h3 className="showcase__card__demo-title">Demo</h3>
+
+                          <div className="showcase__card__actions">
+                            <a href="tel:+18172865319" className="showcase__card__btn showcase__card__btn--primary">
+                              <svg viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                              </svg>
+                              Call (817) 286 5319
+                            </a>
+                            <span className="showcase__card__actions__divider">or</span>
+                            <button onClick={this.openChat} className="showcase__card__btn showcase__card__btn--primary">
+                              <svg viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+                              </svg>
+                              Chat
+                            </button>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div className="showcase__card showcase__card--jason">
+                        <div className="showcase__card__content">
+
+                          <div className="showcase__card__content__header">
+
+                            <div className="showcase__card__image">
+                              <img src={agentJason} alt="AI Agent Jason" />
+                            </div>
+
+                            <div className="showcase__card__content__header__info">
+
+                              <h3 className="showcase__card__title">Meet Jason</h3>
+                              <p className="showcase__card__subtitle">Your ambitious and driven lead follow-up AI Agent</p>
+                              
+                            </div>
+
                           </div>
 
+                          <p className="showcase__card__description">
+                            Penny is an intelligent AI agent designed to transform how businesses handle customer interactions.
+                            From answering simple questions about your business to scheduling appointments, making calls,
+                            sending emails, and managing customer inquiries — Penny does it all with a personal touch.
+                            Available 24/7, she ensures no customer is left waiting while maintaining the warmth and
+                            professionalism your brand deserves.
+                          </p>
+
+                          <h3 className="showcase__card__demo-title">Demo</h3>
+
+                          <div className="showcase__card__actions">
+                            <a href="tel:+18172865319" className="showcase__card__btn showcase__card__btn--primary">
+                              <svg viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                              </svg>
+                              Call (817) 286 5319
+                            </a>
+                            <span className="showcase__card__actions__divider">or</span>
+                            <button onClick={this.openChat} className="showcase__card__btn showcase__card__btn--primary">
+                              <svg viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+                              </svg>
+                              Chat
+                            </button>
+                          </div>
                         </div>
 
-                        <p className="showcase__card__description">
-                          Penny is an intelligent AI agent designed to transform how businesses handle customer interactions.
-                          From answering simple questions about your business to scheduling appointments, making calls,
-                          sending emails, and managing customer inquiries — Penny does it all with a personal touch.
-                          Available 24/7, she ensures no customer is left waiting while maintaining the warmth and
-                          professionalism your brand deserves.
-                        </p>
-
-                        <h3 className="showcase__card__demo-title">Demo</h3>
-
-                        <div className="showcase__card__actions">
-                          <a href="tel:+18172865319" className="showcase__card__btn showcase__card__btn--primary">
-                            <svg viewBox="0 0 16 16" fill="currentColor">
-                              <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                            </svg>
-                            Call (817) 286 5319
-                          </a>
-                          <span className="showcase__card__actions__divider">or</span>
-                          <button onClick={this.openChat} className="showcase__card__btn showcase__card__btn--primary">
-                            <svg viewBox="0 0 16 16" fill="currentColor">
-                              <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
-                            </svg>
-                            Chat
-                          </button>
-                        </div>
                       </div>
 
                     </div>
+
 
                   </div>
                 </div>

@@ -505,6 +505,12 @@ p, h1, h2, h3, h4 {
   border-bottom: 1px solid var(--border-color);
   position: relative;
 
+  .showcase__demos {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
   .showcase__inner {
     max-width: 1200px;
     margin: 0 auto;
