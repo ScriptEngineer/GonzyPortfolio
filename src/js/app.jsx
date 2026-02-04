@@ -79,6 +79,7 @@ export default class App extends React.Component {
       this.counterRef = React.createRef();
       this.chatMessagesRef = React.createRef();
       this.counterAnimated = false;
+      this.ws = null;
 
   }
 
@@ -178,6 +179,41 @@ export default class App extends React.Component {
       counterObserver.observe(this.counterRef.current);
     }
 
+    // WebSocket connection for chat
+    this.ws = new WebSocket('ws://localhost:3001');
+
+    this.ws.onopen = () => {
+      console.log('WebSocket connected');
+    };
+
+    this.ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      console.log('Received:', data);
+
+      if (data.type === 'response' || data.type === 'webhook') {
+        const agentResponse = {
+          id: this.state.chatMessages.length + 1,
+          type: 'agent',
+          text: data.data?.output || data.data?.message || JSON.stringify(data.data)
+        };
+        this.setState({
+          chatMessages: [...this.state.chatMessages, agentResponse]
+        }, () => {
+          this.scrollToBottom();
+        });
+      }
+    };
+
+    this.ws.onerror = (error) => {
+      console.error('WebSocket error:', error);
+    };
+
+  }
+
+  componentWillUnmount() {
+    if (this.ws) {
+      this.ws.close();
+    }
   }
 
   animateCounter() {
@@ -291,19 +327,12 @@ export default class App extends React.Component {
       chatInput: ''
     }, () => {
       this.scrollToBottom();
-      // Simulate agent response after a short delay
-      setTimeout(() => {
-        const agentResponse = {
-          id: this.state.chatMessages.length + 1,
-          type: 'agent',
-          text: "Thanks for your message! This is a demo response from Penny. In a live environment, I'd be helping you with scheduling, answering questions, and more!"
-        };
-        this.setState({
-          chatMessages: [...this.state.chatMessages, agentResponse]
-        }, () => {
-          this.scrollToBottom();
-        });
-      }, 1000);
+      // Send message via WebSocket to n8n
+      if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+        this.ws.send(JSON.stringify({ type: 'chat', content: userMessage.text }));
+      } else {
+        console.warn('WebSocket not connected');
+      }
     });
   }
 
