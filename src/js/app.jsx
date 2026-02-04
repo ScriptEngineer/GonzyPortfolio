@@ -191,10 +191,19 @@ export default class App extends React.Component {
       console.log('Received:', data);
 
       if (data.type === 'response' || data.type === 'webhook') {
+        // Extract text - handle string directly or nested object
+        let text = data.data;
+        if (typeof data.data === 'object' && data.data !== null) {
+          text = data.data.agentResponse || data.data.output || data.data.message || JSON.stringify(data.data);
+        }
+
+        // Skip non-message responses (like success confirmations)
+        if (!text || text === '{"success":true}') return;
+
         const agentResponse = {
           id: this.state.chatMessages.length + 1,
           type: 'agent',
-          text: data.data?.output || data.data?.message || JSON.stringify(data.data)
+          text: String(text)
         };
         this.setState({
           chatMessages: [...this.state.chatMessages, agentResponse]

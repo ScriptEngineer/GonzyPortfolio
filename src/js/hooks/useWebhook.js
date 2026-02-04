@@ -4,6 +4,7 @@ export function useWebhook(url = 'ws://localhost:3001') {
   const [messages, setMessages] = useState([]);
   const [lastMessage, setLastMessage] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
+  const [sessionId, setSessionId] = useState(null);
   const wsRef = useRef(null);
 
   useEffect(() => {
@@ -18,6 +19,13 @@ export function useWebhook(url = 'ws://localhost:3001') {
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
       console.log('Received:', data);
+
+      // Capture session ID from server
+      if (data.type === 'session') {
+        setSessionId(data.sessionId);
+        return;
+      }
+
       setLastMessage(data);
       setMessages((prev) => [...prev, data]);
     };
@@ -52,5 +60,5 @@ export function useWebhook(url = 'ws://localhost:3001') {
     setLastMessage(null);
   }, []);
 
-  return { messages, lastMessage, isConnected, sendMessage, clearMessages };
+  return { messages, lastMessage, isConnected, sessionId, sendMessage, clearMessages };
 }

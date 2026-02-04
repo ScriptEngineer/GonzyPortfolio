@@ -7,6 +7,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
@@ -16,12 +17,13 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.16.3",
+    "nodemon": "^3.1.11",
     "parcel": "^2.16.3",
     "sass": "^1.97.2"
   },
   "scripts": {
     "dev": "parcel src/index.html --dist-dir static",
-    "server": "node server.js",
+    "server": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
