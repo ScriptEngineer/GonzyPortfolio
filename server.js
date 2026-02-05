@@ -93,6 +93,59 @@ app.post('/webhook', (req, res) => {
 
 });
 
+// VAPI call endpoint - proxy to protect API key
+app.post('/api/vapi/call', async (req, res) => {
+  const { phoneNumber } = req.body;
+
+  if (!phoneNumber) {
+    return res.status(400).json({ success: false, error: 'phoneNumber is required' });
+  }
+
+  const VAPI_API_KEY = process.env.VAPI_API_KEY;
+  const VAPI_AGENT_NUMBER = process.env.VAPI_AGENT_NUMBER_JASON;
+  const VAPI_AGENT_ID = process.env.VAPI_AGENT_ID_JASON;
+  
+  if (!VAPI_API_KEY || !VAPI_AGENT_ID) {
+    console.error('VAPI_API_KEY or VAPI_AGENT_ID not configured');
+    return res.status(500).json({ success: false, error: 'VAPI not configured' });
+  }
+
+  try {
+
+    const fetchCall = {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${VAPI_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        assistantId: VAPI_AGENT_ID,
+        phoneNumberId: VAPI_AGENT_NUMBER,
+        customer: {
+          number: "+1" + phoneNumber,
+        },
+      }),
+    };
+
+    console.log('Initiating VAPI call');
+    console.log(fetchCall);
+
+    const response = await fetch('https://api.vapi.ai/call', fetchCall);
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log('VAPI call initiated:', data);
+      res.json({ success: true, data });
+    } else {
+      console.error('VAPI call failed:', data);
+      res.status(response.status).json({ success: false, error: data });
+    }
+  } catch (error) {
+    console.error('VAPI call error:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
 // Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', clients: clients.size });

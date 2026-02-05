@@ -43,26 +43,19 @@ export default class App extends React.Component {
   constructor(props) {
       super(props);
 
+      this.state = {
+        size: 'large',
+        hoveredTech: null,
+        isChatOpen: false,
+        chatMessages: [
+          { id: 1, type: 'agent', text: "Hi there! I'm Penny, your friendly AI assistant. How can I help you today?" }
+        ],
+        chatInput: '',
+        jasonPhone: ''
+      }
+
       if (window.innerWidth < 500) {
-        this.state = {
-          size: 'small',
-          hoveredTech: null,
-          isChatOpen: false,
-          chatMessages: [
-            { id: 1, type: 'agent', text: "Hi there! I'm Penny, your friendly AI assistant. How can I help you today?" }
-          ],
-          chatInput: ''
-        }
-      } else {
-        this.state = {
-          size: 'large',
-          hoveredTech: null,
-          isChatOpen: false,
-          chatMessages: [
-            { id: 1, type: 'agent', text: "Hi there! I'm Penny, your friendly AI assistant. How can I help you today?" }
-          ],
-          chatInput: ''
-        }
+        this.state.size = "small";
       }
 
       this.checkView = this.checkView.bind(this);
@@ -76,6 +69,8 @@ export default class App extends React.Component {
       this.closeChat = this.closeChat.bind(this);
       this.handleChatInput = this.handleChatInput.bind(this);
       this.sendMessage = this.sendMessage.bind(this);
+      this.handleJasonPhoneChange = this.handleJasonPhoneChange.bind(this);
+      this.submitJasonPhone = this.submitJasonPhone.bind(this);
 
       this.counterRef = React.createRef();
       this.chatMessagesRef = React.createRef();
@@ -320,6 +315,35 @@ export default class App extends React.Component {
     this.setState({ chatInput: e.target.value });
   }
 
+  handleJasonPhoneChange(e) {
+    this.setState({ jasonPhone: e.target.value });
+  }
+
+  async submitJasonPhone(e) {
+    e.preventDefault();
+    const { jasonPhone } = this.state;
+    if (!jasonPhone.trim()) return;
+
+    try {
+      const response = await fetch('/api/vapi/call', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phoneNumber: jasonPhone.trim() }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        console.log('VAPI call initiated:', data);
+        this.setState({ jasonPhone: '' });
+      } else {
+        console.error('VAPI call failed:', data.error);
+      }
+    } catch (error) {
+      console.error('Error calling VAPI:', error);
+    }
+  }
+
   sendMessage(e) {
     e.preventDefault();
     const { chatInput, chatMessages } = this.state;
@@ -553,35 +577,43 @@ export default class App extends React.Component {
 
                               <h3 className="showcase__card__title">Meet Jason</h3>
                               <p className="showcase__card__subtitle">Your ambitious and driven lead follow-up AI Agent</p>
-                              
+
                             </div>
 
                           </div>
 
                           <p className="showcase__card__description">
-                            Penny is an intelligent AI agent designed to transform how businesses handle customer interactions.
-                            From answering simple questions about your business to scheduling appointments, making calls,
-                            sending emails, and managing customer inquiries — Penny does it all with a personal touch.
-                            Available 24/7, she ensures no customer is left waiting while maintaining the warmth and
-                            professionalism your brand deserves.
+                            Jason is an agentic lead-followup AI built to plug directly into your existing business workflows—so he doesn’t just “chat,” he actually moves work forward using the same tools your team already relies on. He can be tailored to your business rules, your tone, your offers, your qualifying criteria, and your process from first contact to booked appointment (and beyond).
+                            <br />
+                            <br />
+                            Jason can integrate with your CRM and marketing stack to capture new leads, enrich contact records, tag/segment prospects, update pipeline stages, and trigger the right follow-up sequence based on intent and timing. He can work across channels (web chat, SMS, email, social DMs) to respond instantly, qualify leads with your exact questions, and route opportunities to the right rep or location.
+                            <br />
+                            <br />
+                            Because Jason is agentic, he can execute multi-step tasks end-to-end: pull information from your knowledge base or website, generate personalized messages using your templates, notify your team in Slack/Teams, and produce clean summaries and next-step recommendations inside your CRM. You can define guardrails (pricing rules, operating hours, escalation paths, compliance language, do-not-contact handling) so he operates safely and consistently at scale.
                           </p>
 
                           <h3 className="showcase__card__demo-title">Demo</h3>
 
                           <div className="showcase__card__actions">
-                            <a href="tel:+18172865319" className="showcase__card__btn showcase__card__btn--primary">
-                              <svg viewBox="0 0 16 16" fill="currentColor">
-                                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                              </svg>
-                              Call (817) 286 5319
-                            </a>
-                            <span className="showcase__card__actions__divider">or</span>
-                            <button onClick={this.openChat} className="showcase__card__btn showcase__card__btn--primary">
-                              <svg viewBox="0 0 16 16" fill="currentColor">
-                                <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
-                              </svg>
-                              Chat
-                            </button>
+                            
+                            <div className="showcase__card__field">
+                              <form className="showcase__card__form" onSubmit={this.submitJasonPhone}>
+                                <input
+                                  type="tel"
+                                  placeholder="Enter your phone"
+                                  value={this.state.jasonPhone}
+                                  onChange={this.handleJasonPhoneChange}
+                                  className="showcase__card__input"
+                                />
+                                <button type="submit" className="showcase__card__btn showcase__card__btn--primary">
+                                  <svg viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                                  </svg>
+                                  Submit
+                                </button>
+                              </form>
+                            </div>
+
                           </div>
                         </div>
 
