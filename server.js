@@ -339,6 +339,51 @@ app.get('/api/db/schema', async (req, res) => {
   }
 });
 
+// Fetch all table rows in one call
+app.get('/api/db/tabledata', async (req, res) => {
+  const dbUrl = process.env.TERRY_DATABASE_URL;
+
+  if (!dbUrl) {
+    return res.status(400).json({
+      success: false,
+      error: 'Database connection string is required.'
+    });
+  }
+
+  const pool = new Pool({ connectionString: dbUrl });
+
+  try {
+    // Get all public table names
+    const tablesResult = await pool.query(`
+      SELECT table_name
+      FROM information_schema.tables
+      WHERE table_schema = 'public'
+        AND table_type = 'BASE TABLE'
+      ORDER BY table_name;
+    `);
+
+    const tableData = {};
+
+    // Fetch rows for each table (limit to 50 per table)
+    await Promise.all(
+      tablesResult.rows.map(async ({ table_name }) => {
+        const result = await pool.query(
+          `SELECT * FROM "${table_name}" LIMIT 50`
+        );
+        tableData[table_name] = result.rows;
+      })
+    );
+
+    res.json({ success: true, tableData });
+
+  } catch (error) {
+    console.error('Table data fetch error:', error);
+    res.status(500).json({ success: false, error: error.message });
+  } finally {
+    await pool.end();
+  }
+});
+
 // Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', clients: clients.size });

@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict stKTuyfaaQoRFji2MUFTvvhJe108I4uw0bpqRfgadkedyRtjNolsNngjYfItCG0
+\restrict 2z3xywguKGdGgvZX3c3VchK5CYqMVybg6idj0SseIBCcpkpudP1h1XgGIqbLnc7
 
 -- Dumped from database version 16.11 (Homebrew)
 -- Dumped by pg_dump version 16.11 (Homebrew)
@@ -23,7 +23,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: categories; Type: TABLE; Schema: public; Owner: gerardogonzalez
+-- Name: categories; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.categories (
@@ -32,10 +32,8 @@ CREATE TABLE public.categories (
 );
 
 
-ALTER TABLE public.categories OWNER TO gerardogonzalez;
-
 --
--- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: gerardogonzalez
+-- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.categories_id_seq
@@ -47,17 +45,15 @@ CREATE SEQUENCE public.categories_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.categories_id_seq OWNER TO gerardogonzalez;
-
 --
--- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gerardogonzalez
+-- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.categories_id_seq OWNED BY public.categories.id;
 
 
 --
--- Name: customers; Type: TABLE; Schema: public; Owner: gerardogonzalez
+-- Name: customers; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.customers (
@@ -68,10 +64,8 @@ CREATE TABLE public.customers (
 );
 
 
-ALTER TABLE public.customers OWNER TO gerardogonzalez;
-
 --
--- Name: customers_id_seq; Type: SEQUENCE; Schema: public; Owner: gerardogonzalez
+-- Name: customers_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.customers_id_seq
@@ -83,17 +77,15 @@ CREATE SEQUENCE public.customers_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.customers_id_seq OWNER TO gerardogonzalez;
-
 --
--- Name: customers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gerardogonzalez
+-- Name: customers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.customers_id_seq OWNED BY public.customers.id;
 
 
 --
--- Name: inventory; Type: TABLE; Schema: public; Owner: gerardogonzalez
+-- Name: inventory; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.inventory (
@@ -104,10 +96,8 @@ CREATE TABLE public.inventory (
 );
 
 
-ALTER TABLE public.inventory OWNER TO gerardogonzalez;
-
 --
--- Name: order_items; Type: TABLE; Schema: public; Owner: gerardogonzalez
+-- Name: order_items; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.order_items (
@@ -119,10 +109,8 @@ CREATE TABLE public.order_items (
 );
 
 
-ALTER TABLE public.order_items OWNER TO gerardogonzalez;
-
 --
--- Name: orders; Type: TABLE; Schema: public; Owner: gerardogonzalez
+-- Name: orders; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.orders (
@@ -133,10 +121,8 @@ CREATE TABLE public.orders (
 );
 
 
-ALTER TABLE public.orders OWNER TO gerardogonzalez;
-
 --
--- Name: orders_id_seq; Type: SEQUENCE; Schema: public; Owner: gerardogonzalez
+-- Name: orders_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.orders_id_seq
@@ -148,17 +134,15 @@ CREATE SEQUENCE public.orders_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.orders_id_seq OWNER TO gerardogonzalez;
-
 --
--- Name: orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gerardogonzalez
+-- Name: orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.orders_id_seq OWNED BY public.orders.id;
 
 
 --
--- Name: products; Type: TABLE; Schema: public; Owner: gerardogonzalez
+-- Name: products; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.products (
@@ -174,10 +158,8 @@ CREATE TABLE public.products (
 );
 
 
-ALTER TABLE public.products OWNER TO gerardogonzalez;
-
 --
--- Name: products_id_seq; Type: SEQUENCE; Schema: public; Owner: gerardogonzalez
+-- Name: products_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.products_id_seq
@@ -189,17 +171,15 @@ CREATE SEQUENCE public.products_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.products_id_seq OWNER TO gerardogonzalez;
-
 --
--- Name: products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gerardogonzalez
+-- Name: products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.products_id_seq OWNED BY public.products.id;
 
 
 --
--- Name: suppliers; Type: TABLE; Schema: public; Owner: gerardogonzalez
+-- Name: suppliers; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.suppliers (
@@ -210,10 +190,8 @@ CREATE TABLE public.suppliers (
 );
 
 
-ALTER TABLE public.suppliers OWNER TO gerardogonzalez;
-
 --
--- Name: suppliers_id_seq; Type: SEQUENCE; Schema: public; Owner: gerardogonzalez
+-- Name: suppliers_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.suppliers_id_seq
@@ -225,17 +203,15 @@ CREATE SEQUENCE public.suppliers_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.suppliers_id_seq OWNER TO gerardogonzalez;
-
 --
--- Name: suppliers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gerardogonzalez
+-- Name: suppliers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.suppliers_id_seq OWNED BY public.suppliers.id;
 
 
 --
--- Name: warehouses; Type: TABLE; Schema: public; Owner: gerardogonzalez
+-- Name: warehouses; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.warehouses (
@@ -246,10 +222,8 @@ CREATE TABLE public.warehouses (
 );
 
 
-ALTER TABLE public.warehouses OWNER TO gerardogonzalez;
-
 --
--- Name: warehouses_id_seq; Type: SEQUENCE; Schema: public; Owner: gerardogonzalez
+-- Name: warehouses_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.warehouses_id_seq
@@ -261,59 +235,57 @@ CREATE SEQUENCE public.warehouses_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.warehouses_id_seq OWNER TO gerardogonzalez;
-
 --
--- Name: warehouses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gerardogonzalez
+-- Name: warehouses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.warehouses_id_seq OWNED BY public.warehouses.id;
 
 
 --
--- Name: categories id; Type: DEFAULT; Schema: public; Owner: gerardogonzalez
+-- Name: categories id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.categories ALTER COLUMN id SET DEFAULT nextval('public.categories_id_seq'::regclass);
 
 
 --
--- Name: customers id; Type: DEFAULT; Schema: public; Owner: gerardogonzalez
+-- Name: customers id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.customers ALTER COLUMN id SET DEFAULT nextval('public.customers_id_seq'::regclass);
 
 
 --
--- Name: orders id; Type: DEFAULT; Schema: public; Owner: gerardogonzalez
+-- Name: orders id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.orders ALTER COLUMN id SET DEFAULT nextval('public.orders_id_seq'::regclass);
 
 
 --
--- Name: products id; Type: DEFAULT; Schema: public; Owner: gerardogonzalez
+-- Name: products id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.products ALTER COLUMN id SET DEFAULT nextval('public.products_id_seq'::regclass);
 
 
 --
--- Name: suppliers id; Type: DEFAULT; Schema: public; Owner: gerardogonzalez
+-- Name: suppliers id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.suppliers ALTER COLUMN id SET DEFAULT nextval('public.suppliers_id_seq'::regclass);
 
 
 --
--- Name: warehouses id; Type: DEFAULT; Schema: public; Owner: gerardogonzalez
+-- Name: warehouses id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.warehouses ALTER COLUMN id SET DEFAULT nextval('public.warehouses_id_seq'::regclass);
 
 
 --
--- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: gerardogonzalez
+-- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.categories (id, name) FROM stdin;
@@ -326,7 +298,7 @@ COPY public.categories (id, name) FROM stdin;
 
 
 --
--- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: gerardogonzalez
+-- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.customers (id, name, email, phone) FROM stdin;
@@ -338,7 +310,7 @@ COPY public.customers (id, name, email, phone) FROM stdin;
 
 
 --
--- Data for Name: inventory; Type: TABLE DATA; Schema: public; Owner: gerardogonzalez
+-- Data for Name: inventory; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.inventory (product_id, warehouse_id, qty_on_hand, qty_reserved) FROM stdin;
@@ -359,7 +331,7 @@ COPY public.inventory (product_id, warehouse_id, qty_on_hand, qty_reserved) FROM
 
 
 --
--- Data for Name: order_items; Type: TABLE DATA; Schema: public; Owner: gerardogonzalez
+-- Data for Name: order_items; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.order_items (order_id, product_id, quantity, unit_price) FROM stdin;
@@ -375,7 +347,7 @@ COPY public.order_items (order_id, product_id, quantity, unit_price) FROM stdin;
 
 
 --
--- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: gerardogonzalez
+-- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.orders (id, customer_id, order_date, status) FROM stdin;
@@ -387,7 +359,7 @@ COPY public.orders (id, customer_id, order_date, status) FROM stdin;
 
 
 --
--- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: gerardogonzalez
+-- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.products (id, sku, name, category_id, supplier_id, material, finish, unit_price, active) FROM stdin;
@@ -405,7 +377,7 @@ COPY public.products (id, sku, name, category_id, supplier_id, material, finish,
 
 
 --
--- Data for Name: suppliers; Type: TABLE DATA; Schema: public; Owner: gerardogonzalez
+-- Data for Name: suppliers; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.suppliers (id, name, phone, email) FROM stdin;
@@ -416,7 +388,7 @@ COPY public.suppliers (id, name, phone, email) FROM stdin;
 
 
 --
--- Data for Name: warehouses; Type: TABLE DATA; Schema: public; Owner: gerardogonzalez
+-- Data for Name: warehouses; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.warehouses (id, name, city, state) FROM stdin;
@@ -427,49 +399,49 @@ COPY public.warehouses (id, name, city, state) FROM stdin;
 
 
 --
--- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gerardogonzalez
+-- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.categories_id_seq', 5, true);
 
 
 --
--- Name: customers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gerardogonzalez
+-- Name: customers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.customers_id_seq', 4, true);
 
 
 --
--- Name: orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gerardogonzalez
+-- Name: orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.orders_id_seq', 4, true);
 
 
 --
--- Name: products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gerardogonzalez
+-- Name: products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.products_id_seq', 10, true);
 
 
 --
--- Name: suppliers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gerardogonzalez
+-- Name: suppliers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.suppliers_id_seq', 3, true);
 
 
 --
--- Name: warehouses_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gerardogonzalez
+-- Name: warehouses_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.warehouses_id_seq', 3, true);
 
 
 --
--- Name: categories categories_name_key; Type: CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: categories categories_name_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.categories
@@ -477,7 +449,7 @@ ALTER TABLE ONLY public.categories
 
 
 --
--- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.categories
@@ -485,7 +457,7 @@ ALTER TABLE ONLY public.categories
 
 
 --
--- Name: customers customers_email_key; Type: CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: customers customers_email_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.customers
@@ -493,7 +465,7 @@ ALTER TABLE ONLY public.customers
 
 
 --
--- Name: customers customers_pkey; Type: CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: customers customers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.customers
@@ -501,7 +473,7 @@ ALTER TABLE ONLY public.customers
 
 
 --
--- Name: inventory inventory_pkey; Type: CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: inventory inventory_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.inventory
@@ -509,7 +481,7 @@ ALTER TABLE ONLY public.inventory
 
 
 --
--- Name: order_items order_items_pkey; Type: CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: order_items order_items_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.order_items
@@ -517,7 +489,7 @@ ALTER TABLE ONLY public.order_items
 
 
 --
--- Name: orders orders_pkey; Type: CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: orders orders_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.orders
@@ -525,7 +497,7 @@ ALTER TABLE ONLY public.orders
 
 
 --
--- Name: products products_pkey; Type: CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: products products_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.products
@@ -533,7 +505,7 @@ ALTER TABLE ONLY public.products
 
 
 --
--- Name: products products_sku_key; Type: CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: products products_sku_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.products
@@ -541,7 +513,7 @@ ALTER TABLE ONLY public.products
 
 
 --
--- Name: suppliers suppliers_pkey; Type: CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: suppliers suppliers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.suppliers
@@ -549,7 +521,7 @@ ALTER TABLE ONLY public.suppliers
 
 
 --
--- Name: warehouses warehouses_pkey; Type: CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: warehouses warehouses_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.warehouses
@@ -557,7 +529,7 @@ ALTER TABLE ONLY public.warehouses
 
 
 --
--- Name: inventory inventory_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: inventory inventory_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.inventory
@@ -565,7 +537,7 @@ ALTER TABLE ONLY public.inventory
 
 
 --
--- Name: inventory inventory_warehouse_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: inventory inventory_warehouse_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.inventory
@@ -573,7 +545,7 @@ ALTER TABLE ONLY public.inventory
 
 
 --
--- Name: order_items order_items_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: order_items order_items_order_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.order_items
@@ -581,7 +553,7 @@ ALTER TABLE ONLY public.order_items
 
 
 --
--- Name: order_items order_items_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: order_items order_items_product_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.order_items
@@ -589,7 +561,7 @@ ALTER TABLE ONLY public.order_items
 
 
 --
--- Name: orders orders_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: orders orders_customer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.orders
@@ -597,7 +569,7 @@ ALTER TABLE ONLY public.orders
 
 
 --
--- Name: products products_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: products products_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.products
@@ -605,7 +577,7 @@ ALTER TABLE ONLY public.products
 
 
 --
--- Name: products products_supplier_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: gerardogonzalez
+-- Name: products products_supplier_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.products
@@ -616,5 +588,5 @@ ALTER TABLE ONLY public.products
 -- PostgreSQL database dump complete
 --
 
-\unrestrict stKTuyfaaQoRFji2MUFTvvhJe108I4uw0bpqRfgadkedyRtjNolsNngjYfItCG0
+\unrestrict 2z3xywguKGdGgvZX3c3VchK5CYqMVybg6idj0SseIBCcpkpudP1h1XgGIqbLnc7
 
