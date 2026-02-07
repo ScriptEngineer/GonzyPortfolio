@@ -4,6 +4,7 @@ const { WebSocketServer } = require('ws');
 const http = require('http');
 const path = require('path');
 const crypto = require('crypto');
+const { Pool } = require('pg');
 
 const app = express();
 app.use(express.json());
@@ -50,6 +51,48 @@ wss.on('connection', (ws) => {
           ws.send(JSON.stringify({ type: 'response', data, timestamp: Date.now() }));
         } else {
           ws.send(JSON.stringify({ type: 'error', error: 'n8n request failed', timestamp: Date.now() }));
+        }
+      } else if (message.type === 'terry-audio') {
+        // Forward audio chunk to Terry's n8n webhook
+        const TERRY_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL_TERRY;
+
+        if (!TERRY_WEBHOOK_URL) {
+          console.error('N8N_WEBHOOK_URL_TERRY not configured');
+          return;
+        }
+
+        try {
+          // Convert base64 to binary buffer
+          const audioBuffer = Buffer.from(message.audio, 'base64');
+
+          // Determine file extension from mimeType
+          const extension = message.mimeType.includes('webm') ? 'webm' : 'audio';
+
+          // Create FormData with binary audio file
+          const formData = new FormData();
+          const audioBlob = new Blob([audioBuffer], { type: message.mimeType });
+          formData.append('audio', audioBlob, `audio-${Date.now()}.${extension}`);
+          formData.append('sessionId', ws.sessionId);
+          formData.append('timestamp', message.timestamp.toString());
+
+          const response = await fetch(TERRY_WEBHOOK_URL, {
+            method: 'POST',
+            body: formData,
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            // If n8n returns a transcription or response, send it back
+            if (data.transcript || data.response) {
+              ws.send(JSON.stringify({
+                type: 'terry-response',
+                data,
+                timestamp: Date.now()
+              }));
+            }
+          }
+        } catch (error) {
+          console.error('Terry webhook error:', error);
         }
       }
     } catch (error) {
@@ -143,6 +186,156 @@ app.post('/api/vapi/call', async (req, res) => {
   } catch (error) {
     console.error('VAPI call error:', error);
     res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// PostgreSQL schema endpoint - fetch tables, columns, and relationships
+app.get('/api/db/schema', async (req, res) => {
+
+  // Use provided connection string or fall back to environment variable
+  const dbUrl = process.env.TERRY_DATABASE_URL;
+
+  if (!dbUrl) {
+    return res.status(400).json({
+      success: false,
+      error: 'Database connection string is required. Provide connectionString in body or set TERRY_DATABASE_URL env var.'
+    });
+  }
+
+  const pool = new Pool({ connectionString: dbUrl });
+
+  try {
+    // Query to get all tables in the public schema
+    const tablesQuery = `
+      SELECT table_name
+      FROM information_schema.tables
+      WHERE table_schema = 'public'
+        AND table_type = 'BASE TABLE'
+      ORDER BY table_name;
+    `;
+
+    // Query to get columns for all tables
+    const columnsQuery = `
+      SELECT
+        c.table_name,
+        c.column_name,
+        c.data_type,
+        c.character_maximum_length,
+        c.numeric_precision,
+        c.numeric_scale,
+        c.is_nullable,
+        c.column_default,
+        CASE WHEN pk.column_name IS NOT NULL THEN true ELSE false END as is_primary_key
+      FROM information_schema.columns c
+      LEFT JOIN (
+        SELECT ku.table_name, ku.column_name
+        FROM information_schema.table_constraints tc
+        JOIN information_schema.key_column_usage ku
+          ON tc.constraint_name = ku.constraint_name
+          AND tc.table_schema = ku.table_schema
+        WHERE tc.constraint_type = 'PRIMARY KEY'
+          AND tc.table_schema = 'public'
+      ) pk ON c.table_name = pk.table_name AND c.column_name = pk.column_name
+      WHERE c.table_schema = 'public'
+      ORDER BY c.table_name, c.ordinal_position;
+    `;
+
+    // Query to get foreign key relationships
+    const foreignKeysQuery = `
+      SELECT
+        tc.table_name as from_table,
+        kcu.column_name as from_column,
+        ccu.table_name as to_table,
+        ccu.column_name as to_column
+      FROM information_schema.table_constraints tc
+      JOIN information_schema.key_column_usage kcu
+        ON tc.constraint_name = kcu.constraint_name
+        AND tc.table_schema = kcu.table_schema
+      JOIN information_schema.constraint_column_usage ccu
+        ON ccu.constraint_name = tc.constraint_name
+        AND ccu.table_schema = tc.table_schema
+      WHERE tc.constraint_type = 'FOREIGN KEY'
+        AND tc.table_schema = 'public';
+    `;
+
+    // Execute all queries
+    const [tablesResult, columnsResult, fkResult] = await Promise.all([
+      pool.query(tablesQuery),
+      pool.query(columnsQuery),
+      pool.query(foreignKeysQuery)
+    ]);
+
+    // Build foreign key lookup
+    const foreignKeys = {};
+    fkResult.rows.forEach(fk => {
+      const key = `${fk.from_table}.${fk.from_column}`;
+      foreignKeys[key] = { table: fk.to_table, column: fk.to_column };
+    });
+
+    // Build tables with columns
+    const tableMap = {};
+    const tableCount = tablesResult.rows.length;
+
+    // Calculate initial positions in a grid layout
+    const cols = Math.ceil(Math.sqrt(tableCount));
+    let index = 0;
+
+    tablesResult.rows.forEach(table => {
+      const row = Math.floor(index / cols);
+      const col = index % cols;
+      tableMap[table.table_name] = {
+        name: table.table_name,
+        x: 20 + col * 180,
+        y: 20 + row * 140,
+        columns: []
+      };
+      index++;
+    });
+
+    // Add columns to tables
+    columnsResult.rows.forEach(col => {
+      if (tableMap[col.table_name]) {
+        // Format the data type
+        let dataType = col.data_type.toUpperCase();
+        if (col.character_maximum_length) {
+          dataType += `(${col.character_maximum_length})`;
+        } else if (col.numeric_precision && col.data_type === 'numeric') {
+          dataType = `DECIMAL(${col.numeric_precision},${col.numeric_scale || 0})`;
+        }
+
+        const fkKey = `${col.table_name}.${col.column_name}`;
+        const foreignKey = foreignKeys[fkKey];
+
+        tableMap[col.table_name].columns.push({
+          name: col.column_name,
+          type: dataType,
+          isPrimary: col.is_primary_key,
+          isNullable: col.is_nullable === 'YES',
+          defaultValue: col.column_default,
+          ...(foreignKey && { foreignKey })
+        });
+      }
+    });
+
+    const tables = Object.values(tableMap);
+
+    res.json({
+      success: true,
+      schema: {
+        tables,
+        tableCount: tables.length,
+        relationshipCount: fkResult.rows.length
+      }
+    });
+
+  } catch (error) {
+    console.error('Database schema error:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  } finally {
+    await pool.end();
   }
 });
 
