@@ -16,8 +16,51 @@ const wss = new WebSocketServer({ server });
 // Track connected clients by sessionId
 const clients = new Map();
 
-// n8n webhook URL - configure this to your n8n instance
-const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL;
+const PENNY_WEBHOOK_URL_PRO = process.env.N8N_WEBHOOK_URL_PENNY_PRO;
+const PENNY_WEBHOOK_URL_DEV = process.env.N8N_WEBHOOK_URL_PENNY_DEV;
+
+// TERRY WORKFLOW WEBHOOKS
+const TERRY_WEBHOOK_URL_PRO = process.env.N8N_WEBHOOK_URL_TERRY_PRO;
+const TERRY_WEBHOOK_URL_DEV = process.env.N8N_WEBHOOK_URL_TERRY_DEV;
+
+// VAPI configuration
+const VAPI_API_KEY = process.env.VAPI_API_KEY;
+const VAPI_AGENT_NUMBER = process.env.VAPI_AGENT_NUMBER_JASON;
+const VAPI_AGENT_ID = process.env.VAPI_AGENT_ID_JASON;
+
+function getArgs(argv) {
+  const args = { _: [] };
+
+  for (const token of argv.slice(2)) {
+    if (token.startsWith("--")) {
+      const [k, v] = token.slice(2).split("=");
+      args[k] = v === undefined ? true : v;
+    } else {
+      args._.push(token);
+    }
+  }
+  return args;
+}
+
+const args = getArgs(process.argv);
+
+const isDev = !!args.dev;
+const isProd = !!args.pro;
+
+let MODE = 'dev';
+if (isProd) MODE = 'pro';
+
+console.log(`Starting server in ${MODE} mode`);
+
+if (!TERRY_WEBHOOK_URL_PRO || !TERRY_WEBHOOK_URL_DEV) {
+  console.error('terry webhook not configured');
+  return;
+}
+
+if (!PENNY_WEBHOOK_URL_PRO || !PENNY_WEBHOOK_URL_DEV) {
+  console.error('penny webhook not configured');
+  return;
+}
 
 wss.on('connection', (ws) => {
   // Generate unique session ID for this connection
@@ -35,7 +78,7 @@ wss.on('connection', (ws) => {
 
       if (message.type === 'chat') {
         // Forward to n8n with session ID
-        const response = await fetch(N8N_WEBHOOK_URL, {
+        const response = await fetch(MODE === 'pro' ? PENNY_WEBHOOK_URL_PRO : PENNY_WEBHOOK_URL_DEV, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -54,12 +97,6 @@ wss.on('connection', (ws) => {
         }
       } else if (message.type === 'terry-audio') {
         // Forward audio chunk to Terry's n8n webhook
-        const TERRY_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL_TERRY;
-
-        if (!TERRY_WEBHOOK_URL) {
-          console.error('N8N_WEBHOOK_URL_TERRY not configured');
-          return;
-        }
 
         try {
           // Convert base64 to binary buffer
@@ -71,11 +108,11 @@ wss.on('connection', (ws) => {
           // Create FormData with binary audio file
           const formData = new FormData();
           const audioBlob = new Blob([audioBuffer], { type: message.mimeType });
-          formData.append('audio', audioBlob, `audio-${Date.now()}.${extension}`);
+          formData.append('audio_file', audioBlob, `audio-${Date.now()}.${extension}`);
           formData.append('sessionId', ws.sessionId);
           formData.append('timestamp', message.timestamp.toString());
 
-          const response = await fetch(TERRY_WEBHOOK_URL, {
+          const response = await fetch(MODE === 'pro' ? TERRY_WEBHOOK_URL_PRO : TERRY_WEBHOOK_URL_DEV, {
             method: 'POST',
             body: formData,
           });
@@ -143,10 +180,6 @@ app.post('/api/vapi/call', async (req, res) => {
   if (!phoneNumber) {
     return res.status(400).json({ success: false, error: 'phoneNumber is required' });
   }
-
-  const VAPI_API_KEY = process.env.VAPI_API_KEY;
-  const VAPI_AGENT_NUMBER = process.env.VAPI_AGENT_NUMBER_JASON;
-  const VAPI_AGENT_ID = process.env.VAPI_AGENT_ID_JASON;
   
   if (!VAPI_API_KEY || !VAPI_AGENT_ID) {
     console.error('VAPI_API_KEY or VAPI_AGENT_ID not configured');

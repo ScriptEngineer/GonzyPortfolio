@@ -23,8 +23,9 @@
     "sass": "^1.97.2"
   },
   "scripts": {
-    "dev": "parcel src/index.html --dist-dir static",
-    "server": "nodemon server.js",
+    "build": "parcel src/index.html --dist-dir static",
+    "start:dev": "node server.js --dev",
+    "start:pro": "node server.js --pro",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
