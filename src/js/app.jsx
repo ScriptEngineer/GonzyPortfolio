@@ -448,7 +448,7 @@ export default class App extends React.Component {
       isTerryDemoActive: true,
       isTerryRecording: false,
       terryAudioReady: false,
-      terryTranscript: 'Click "Start Request" to begin recording your question.'
+      terryTranscript: 'Click "Start" above to begin recording your question.'
     }, () => {
       this.fetchTerrySchema();
     });
@@ -546,6 +546,20 @@ export default class App extends React.Component {
   }
 
   sendTerryAudio() {
+    // If still recording, stop it first
+    if (this.state.isTerryRecording) {
+      this.stopTerryRecording();
+      // Wait a bit for the recording to finish processing
+      setTimeout(() => {
+        this.sendTerryAudioInternal();
+      }, 100);
+      return;
+    }
+
+    this.sendTerryAudioInternal();
+  }
+
+  sendTerryAudioInternal() {
     if (!this.terryAudioBlob) {
       console.warn('No audio to send');
       return;
@@ -2392,30 +2406,30 @@ export default class App extends React.Component {
                 </div>
                 <div className="terry-modal__header__controls">
                   <button
-                    onClick={this.startTerryRecording}
-                    className="terry-modal__btn-sm terry-modal__btn-sm--primary"
-                    disabled={this.state.isTerryRecording}
+                    onClick={this.state.isTerryRecording ? this.stopTerryRecording : this.startTerryRecording}
+                    className={`terry-modal__btn-sm ${this.state.isTerryRecording ? 'terry-modal__btn-sm--secondary' : 'terry-modal__btn-sm--primary'}`}
                   >
-                    <svg viewBox="0 0 16 16" fill="currentColor">
-                      <path d="M5 3.5A1.5 1.5 0 0 1 6.5 2h3A1.5 1.5 0 0 1 11 3.5v5a3 3 0 1 1-6 0v-5z"/>
-                      <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
-                    </svg>
-                    Start
-                  </button>
-                  <button
-                    onClick={this.stopTerryRecording}
-                    className="terry-modal__btn-sm terry-modal__btn-sm--secondary"
-                    disabled={!this.state.isTerryRecording}
-                  >
-                    <svg viewBox="0 0 16 16" fill="currentColor">
-                      <path d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z"/>
-                    </svg>
-                    Stop
+                    {this.state.isTerryRecording ? (
+                      <>
+                        <svg viewBox="0 0 16 16" fill="currentColor">
+                          <path d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z"/>
+                        </svg>
+                        Stop
+                      </>
+                    ) : (
+                      <>
+                        <svg viewBox="0 0 16 16" fill="currentColor">
+                          <path d="M5 3.5A1.5 1.5 0 0 1 6.5 2h3A1.5 1.5 0 0 1 11 3.5v5a3 3 0 1 1-6 0v-5z"/>
+                          <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                        </svg>
+                        Start
+                      </>
+                    )}
                   </button>
                   <button
                     onClick={this.sendTerryAudio}
                     className="terry-modal__btn-sm terry-modal__btn-sm--success"
-                    disabled={!this.state.terryAudioReady}
+                    disabled={!this.state.isTerryRecording && !this.state.terryAudioReady}
                   >
                     <svg viewBox="0 0 16 16" fill="currentColor">
                       <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
@@ -2541,43 +2555,45 @@ export default class App extends React.Component {
                 </div>
 
                 {/* Table Data Preview */}
-                {this.state.terrySchema.selectedTable && (
-                  <div className="terry-modal__table-data">
-                    <div className="terry-modal__table-data-header">
-                      <svg viewBox="0 0 16 16" fill="currentColor">
-                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
-                      </svg>
-                      <span>{this.state.terrySchema.selectedTable}</span>
-                      <span className="terry-modal__table-data-hint">Table Data</span>
-                    </div>
-                    <div className="terry-modal__table-data-grid">
-                      {this.state.terrySchema.tableDataLoading ? (
-                        <div className="terry-modal__table-data-loading">Loading rows...</div>
-                      ) : this.state.terrySchema.tableData && this.state.terrySchema.tableData[this.state.terrySchema.selectedTable] && this.state.terrySchema.tableData[this.state.terrySchema.selectedTable].length > 0 ? (
-                        <table>
-                          <thead>
-                            <tr>
-                              {Object.keys(this.state.terrySchema.tableData[this.state.terrySchema.selectedTable][0]).map((col) => (
-                                <th key={col}>{col}</th>
+                <div className="terry-modal__table-data">
+                  <div className="terry-modal__table-data-header">
+                    <svg viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"/>
+                    </svg>
+                    <span>{this.state.terrySchema.selectedTable || 'Table Data'}</span>
+                    <span className="terry-modal__table-data-hint">
+                      {this.state.terrySchema.selectedTable ? 'Table Data' : 'Select a table to view data'}
+                    </span>
+                  </div>
+                  <div className="terry-modal__table-data-grid">
+                    {!this.state.terrySchema.selectedTable ? (
+                      <div className="terry-modal__table-data-empty">Click on a table to view its data.</div>
+                    ) : this.state.terrySchema.tableDataLoading ? (
+                      <div className="terry-modal__table-data-loading">Loading rows...</div>
+                    ) : this.state.terrySchema.tableData && this.state.terrySchema.tableData[this.state.terrySchema.selectedTable] && this.state.terrySchema.tableData[this.state.terrySchema.selectedTable].length > 0 ? (
+                      <table>
+                        <thead>
+                          <tr>
+                            {Object.keys(this.state.terrySchema.tableData[this.state.terrySchema.selectedTable][0]).map((col) => (
+                              <th key={col}>{col}</th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {this.state.terrySchema.tableData[this.state.terrySchema.selectedTable].map((row, i) => (
+                            <tr key={i}>
+                              {Object.values(row).map((val, j) => (
+                                <td key={j}>{val !== null && val !== undefined ? String(val) : 'NULL'}</td>
                               ))}
                             </tr>
-                          </thead>
-                          <tbody>
-                            {this.state.terrySchema.tableData[this.state.terrySchema.selectedTable].map((row, i) => (
-                              <tr key={i}>
-                                {Object.values(row).map((val, j) => (
-                                  <td key={j}>{val !== null && val !== undefined ? String(val) : 'NULL'}</td>
-                                ))}
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      ) : (
-                        <div className="terry-modal__table-data-empty">No data available</div>
-                      )}
-                    </div>
+                          ))}
+                        </tbody>
+                      </table>
+                    ) : (
+                      <div className="terry-modal__table-data-empty">No data available</div>
+                    )}
                   </div>
-                )}
+                </div>
 
                 {/* Agent Output */}
                 <div className="terry-modal__output">
