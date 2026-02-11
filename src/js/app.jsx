@@ -264,17 +264,19 @@ export default class App extends React.Component {
 
     this.ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      console.log('Received:', data);
+      const agent = data.agent;
+      const agentResponse = data.agentResponse;
+      const userResponse = data.userResponse;
+      console.log('Received Webhook:');
+      console.log('AGENT:', agent);
+      console.log('RESPONSE:', agentResponse);
 
-      if (data.type === 'response' || data.type === 'webhook') {
+      if (data.type === 'webhook' && agent === 'Penny') {
         // Extract text - handle string directly or nested object
         let text = data.data;
         if (typeof data.data === 'object' && data.data !== null) {
           text = data.data.agentResponse || data.data.output || data.data.message || JSON.stringify(data.data);
         }
-
-        // Skip non-message responses (like success confirmations)
-        if (!text || text === '{"success":true}') return;
 
         const agentResponse = {
           id: this.state.chatMessages.length + 1,
@@ -286,18 +288,17 @@ export default class App extends React.Component {
         }, () => {
           this.scrollToBottom();
         });
-      } else if (data.type === 'terry-response') {
+
+      } else if (data.type === 'webhook' && agent === 'Terry') {
         // Handle Terry's response (transcript or AI response)
         const { terryMessages } = this.state;
         let responseText = '';
 
-        if (data.data.transcript) {
+        if (userResponse) {
           // Show what was transcribed
-          this.setState({ terryTranscript: `You said: "${data.data.transcript}"` });
-        }
-
-        if (data.data.response || data.data.agentResponse) {
-          responseText = data.data.response || data.data.agentResponse;
+          this.setState({ terryTranscript: `${userResponse}` });
+        } else if (agentResponse) {
+          responseText = agentResponse;
           const terryResponse = {
             id: terryMessages.length + 1,
             type: 'agent',

@@ -155,12 +155,12 @@ function sendToSession(sessionId, data) {
 }
 
 app.post('/webhook', (req, res) => {
-  const { sessionId, ...payload } = req.body;
+  const { sessionId, agent, agentResponse, userResponse } = req.body;
   console.log('Received webhook:', req.body);
 
   if (sessionId) {
     // Send to specific session
-    const sent = sendToSession(sessionId, { type: 'webhook', data: payload, timestamp: Date.now() });
+    const sent = sendToSession(sessionId, { type: 'webhook', agent, agentResponse , timestamp: Date.now() });
     if (!sent) {
       res.status(404).json({ success: false, error: `Session ${sessionId} not found` });
     } else {
