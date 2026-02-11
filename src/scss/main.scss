@@ -2264,6 +2264,7 @@ p, h1, h2, h3, h4 {
     position: relative;
     max-width: calc(100vw - 48px);
     max-height: calc(100vh - 48px);
+    width: 100%;;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 20px;
@@ -2443,6 +2444,13 @@ p, h1, h2, h3, h4 {
     gap: 20px;
     max-height: calc(100vh - 200px);
     overflow-y: auto;
+
+    @media #{$large-up} {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      grid-template-rows: 340px auto;
+      gap: 24px;
+    }
   }
 
   // Database Connection Section
@@ -2572,6 +2580,8 @@ p, h1, h2, h3, h4 {
     border: 1px solid var(--border-color);
     border-radius: 12px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   &__schema-header {
@@ -2587,6 +2597,7 @@ p, h1, h2, h3, h4 {
     color: #10b981;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    flex: 0;
 
     svg {
       width: 14px;
@@ -2611,7 +2622,7 @@ p, h1, h2, h3, h4 {
       linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
     background-size: 20px 20px;
-    overflow: hidden;
+    overflow-y: auto;
   }
 
   &__erd-lines {
@@ -2750,9 +2761,12 @@ p, h1, h2, h3, h4 {
     border: 1px solid var(--border-color);
     border-radius: 12px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   &__table-data-header {
+    flex: 0;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -2782,7 +2796,8 @@ p, h1, h2, h3, h4 {
   }
 
   &__table-data-grid {
-    max-height: 200px;
+    height: 100%;
+    flex: 2;
     overflow: auto;
 
     table {
@@ -2838,6 +2853,7 @@ p, h1, h2, h3, h4 {
     border: 1px solid var(--border-color);
     border-radius: 12px;
     overflow: hidden;
+    grid-column: -1/1;
   }
 
   &__output-header {

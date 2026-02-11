@@ -1120,7 +1120,7 @@ export default class App extends React.Component {
                           Terry is an AI-powered database assistant designed to make interacting with your PostgreSQL databases intuitive and conversational. Instead of writing complex SQL queries, simply describe what you want to know. Terry translates your requests into optimized queries and returns a simple answer.
                         </p>
 
-                        <h3 className="showcase__card__demo-title">Demo</h3>
+                        <h3 className="showcase__card__demo-title">Demo (Microphone Access Required)</h3>
 
                         <div className="showcase__card__actions showcase__card__actions--terry">
                           <button
