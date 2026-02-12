@@ -59,6 +59,7 @@ export default class App extends React.Component {
         terryAudioReady: false,
         terryTranscript: '',
         terryMessages: [],
+        terryAgentTyping: false,
         terrySchema: {
           tables: [
             {
@@ -297,7 +298,8 @@ export default class App extends React.Component {
             text: responseText
           };
           this.setState({
-            terryMessages: [...terryMessages, terryResponse]
+            terryMessages: [...terryMessages, terryResponse],
+            terryAgentTyping: false
           });
         }
       }
@@ -561,7 +563,10 @@ export default class App extends React.Component {
     reader.onloadend = () => {
       const base64Audio = reader.result.split(',')[1];
       if (this.ws && this.ws.readyState === WebSocket.OPEN) {
-        this.setState({ terryTranscript: 'Processing audio...' });
+        this.setState({
+          terryTranscript: 'Processing audio...',
+          terryAgentTyping: true
+        });
         this.ws.send(JSON.stringify({
           type: 'terry',
           audio: base64Audio,
@@ -2600,6 +2605,17 @@ export default class App extends React.Component {
                     ) : (
                       <div className="terry-modal__output-placeholder">
                         {this.state.terryTranscript || 'Agent responses will appear here.'}
+                      </div>
+                    )}
+                    {this.state.terryAgentTyping && (
+                      <div className="terry-modal__output-message terry-modal__output-message--agent">
+                        <span className="terry-modal__output-message-text">
+                          <div className="terry-modal__typing-indicator">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                          </div>
+                        </span>
                       </div>
                     )}
                   </div>
