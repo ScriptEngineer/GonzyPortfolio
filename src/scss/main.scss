@@ -172,7 +172,7 @@ p, h1, h2, h3, h4 {
     }
 
     @media #{$medium-down} {
-      padding: 40px 20px 70px 20px;
+      padding: 20px;
     }
 
   }
@@ -330,8 +330,8 @@ p, h1, h2, h3, h4 {
 
       @media #{$medium-down} {
         width: 200%;
-        left: -200px;
-        bottom: 120px;
+        left: -120px;
+        bottom: 45px;
         height: 280px;
         transform: rotate(8deg);
       }
@@ -340,7 +340,7 @@ p, h1, h2, h3, h4 {
         transform: rotate(0deg);
         width: 80%;
         height: 140%;
-        bottom: -20%;
+        bottom: -40%;
         left: 10%;
       }
 
@@ -813,6 +813,15 @@ p, h1, h2, h3, h4 {
         padding: 8px 12px;
         font-size: 13px;
       }
+    }
+
+    &__disclaimer {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--text-primary);
+      font-family: Space Grotesk,sans-serif;
+      opacity: 0.7;
+      line-height: 1.4;
     }
 
     &__actions--forms {

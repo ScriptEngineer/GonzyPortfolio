@@ -1081,6 +1081,9 @@ export default class App extends React.Component {
                                 Submit
                               </button>
                             </form>
+                            <p className="showcase__card__disclaimer">
+                              By submitting your phone number, you agree to receive a phone call from us.
+                            </p>
                           </div>
 
                         </div>
