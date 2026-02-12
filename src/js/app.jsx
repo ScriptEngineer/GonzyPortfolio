@@ -257,7 +257,7 @@ export default class App extends React.Component {
     this.ws = new WebSocket(`${proto}//${location.host}/ws`);
 
     this.ws.onopen = () => {
-      console.log('WebSocket connected');
+      console.log(`WebSocket connected to ${proto}//${location.host}/ws`);
     };
 
     this.ws.onmessage = (event) => {
