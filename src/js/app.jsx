@@ -251,8 +251,10 @@ export default class App extends React.Component {
       counterObserver.observe(this.counterRef.current);
     }
 
+    const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+
     // WebSocket connection for chat
-    this.ws = new WebSocket('ws://localhost:3001');
+    this.ws = new WebSocket(`${proto}//${location.host}/ws`);
 
     this.ws.onopen = () => {
       console.log('WebSocket connected');
