@@ -28,7 +28,7 @@ const VAPI_API_KEY = process.env.VAPI_API_KEY;
 const VAPI_AGENT_NUMBER = process.env.VAPI_AGENT_NUMBER_JASON;
 const VAPI_AGENT_ID = process.env.VAPI_AGENT_ID_JASON;
 
-const MODE = process.env.MODE || 'dev';
+const MODE = process.env.NODE_ENV || 'development';
 
 console.log(`Starting server in ${MODE} mode`);
 
@@ -48,6 +48,21 @@ wss.on('connection', (ws) => {
   clients.set(ws.sessionId, ws);
   console.log(`Client connected: ${ws.sessionId}. Total clients: ${clients.size}`);
 
+  ws.isAlive = true;
+  ws.on('pong', () => {
+    ws.isAlive = true;
+  });
+
+  const heartbeatInterval = setInterval(() => {
+    if (ws.isAlive === false) {
+      console.log(`Terminating dead client: ${ws.sessionId}`);
+      return ws.terminate();
+    }
+
+    ws.isAlive = false;
+    ws.ping(); 
+  }, 10_000);
+
   // Send session ID to client
   ws.send(JSON.stringify({ type: 'session', sessionId: ws.sessionId }));
 
@@ -58,7 +73,7 @@ wss.on('connection', (ws) => {
 
       if (message.type === 'penny') {
         // Forward to n8n with session ID
-        const response = await fetch(MODE === 'pro' ? PENNY_WEBHOOK_URL_PRO : PENNY_WEBHOOK_URL_DEV, {
+        const response = await fetch(MODE === 'production' ? PENNY_WEBHOOK_URL_PRO : PENNY_WEBHOOK_URL_DEV, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -92,7 +107,7 @@ wss.on('connection', (ws) => {
           formData.append('sessionId', ws.sessionId);
           formData.append('timestamp', message.timestamp.toString());
 
-          const response = await fetch(MODE === 'pro' ? TERRY_WEBHOOK_URL_PRO : TERRY_WEBHOOK_URL_DEV, {
+          const response = await fetch(MODE === 'production' ? TERRY_WEBHOOK_URL_PRO : TERRY_WEBHOOK_URL_DEV, {
             method: 'POST',
             body: formData,
           });
@@ -119,6 +134,7 @@ wss.on('connection', (ws) => {
   });
 
   ws.on('close', () => {
+    clearInterval(heartbeatInterval);
     clients.delete(ws.sessionId);
     console.log(`Client disconnected: ${ws.sessionId}. Total clients: ${clients.size}`);
   });
@@ -408,6 +424,6 @@ server.listen(PORT, () => {
   console.log(`Serving static files from /static`);
   console.log(`WebSocket: ws://localhost:${PORT}`);
   console.log(`n8n webhook: http://localhost:${PORT}/webhook`);
-  console.log(`Penny endpoint: ${MODE === 'pro' ? PENNY_WEBHOOK_URL_PRO : PENNY_WEBHOOK_URL_DEV}`);
-  console.log(`Terry endpoint: ${MODE === 'pro' ? TERRY_WEBHOOK_URL_PRO : TERRY_WEBHOOK_URL_DEV}`);
+  console.log(`Penny endpoint: ${MODE === 'production' ? PENNY_WEBHOOK_URL_PRO : PENNY_WEBHOOK_URL_DEV}`);
+  console.log(`Terry endpoint: ${MODE === 'production' ? TERRY_WEBHOOK_URL_PRO : TERRY_WEBHOOK_URL_DEV}`);
 });

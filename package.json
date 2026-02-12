@@ -10,10 +10,9 @@
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "pg": "^8.18.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "snapsvg-cjs": "^0.0.6",
-    "swiper": ">=6.5.1",
     "ws": "^8.19.0"
   },
   "devDependencies": {
@@ -23,7 +22,8 @@
     "sass": "^1.97.2"
   },
   "scripts": {
-    "build": "parcel src/index.html --dist-dir static",
+    "build:dev": "parcel src/index.html --dist-dir static",
+    "build:pro": "parcel build src/index.html --dist-dir static",
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

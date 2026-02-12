@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import SwiperCore, {Pagination} from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { createRoot } from 'react-dom/client';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faMobileAlt, faFileDownload, faEnvelope, faTabletAlt, faUniversalAccess, faListOl, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
@@ -36,7 +34,6 @@ const agentPenny = new URL("/img/penny.png", import.meta.url);
 const agentJason = new URL("/img/jason.png", import.meta.url);
 const agentTerry = new URL("/img/terry.png", import.meta.url);
 
-SwiperCore.use(Pagination);
 library.add(standardIcons, brandIcons);
 
 export default class App extends React.Component {
@@ -2633,4 +2630,5 @@ export default class App extends React.Component {
 
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
+root.render(<App />);
