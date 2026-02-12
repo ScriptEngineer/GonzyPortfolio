@@ -28,27 +28,7 @@ const VAPI_API_KEY = process.env.VAPI_API_KEY;
 const VAPI_AGENT_NUMBER = process.env.VAPI_AGENT_NUMBER_JASON;
 const VAPI_AGENT_ID = process.env.VAPI_AGENT_ID_JASON;
 
-function getArgs(argv) {
-  const args = { _: [] };
-
-  for (const token of argv.slice(2)) {
-    if (token.startsWith("--")) {
-      const [k, v] = token.slice(2).split("=");
-      args[k] = v === undefined ? true : v;
-    } else {
-      args._.push(token);
-    }
-  }
-  return args;
-}
-
-const args = getArgs(process.argv);
-
-const isDev = !!args.dev;
-const isProd = !!args.pro;
-
-let MODE = 'dev';
-if (isProd) MODE = 'pro';
+const MODE = process.env.MODE || 'dev';
 
 console.log(`Starting server in ${MODE} mode`);
 
@@ -76,7 +56,7 @@ wss.on('connection', (ws) => {
       const message = JSON.parse(rawMessage.toString());
       console.log(`[${ws.sessionId}] Received:`, message);
 
-      if (message.type === 'chat') {
+      if (message.type === 'penny') {
         // Forward to n8n with session ID
         const response = await fetch(MODE === 'pro' ? PENNY_WEBHOOK_URL_PRO : PENNY_WEBHOOK_URL_DEV, {
           method: 'POST',
@@ -95,7 +75,7 @@ wss.on('connection', (ws) => {
         } else {
           ws.send(JSON.stringify({ type: 'error', error: 'n8n request failed', timestamp: Date.now() }));
         }
-      } else if (message.type === 'terry-audio') {
+      } else if (message.type === 'terry') {
         // Forward audio chunk to Terry's n8n webhook
 
         try {
@@ -428,4 +408,6 @@ server.listen(PORT, () => {
   console.log(`Serving static files from /static`);
   console.log(`WebSocket: ws://localhost:${PORT}`);
   console.log(`n8n webhook: http://localhost:${PORT}/webhook`);
+  console.log(`Penny endpoint: ${MODE === 'pro' ? PENNY_WEBHOOK_URL_PRO : PENNY_WEBHOOK_URL_DEV}`);
+  console.log(`Terry endpoint: ${MODE === 'pro' ? TERRY_WEBHOOK_URL_PRO : TERRY_WEBHOOK_URL_DEV}`);
 });

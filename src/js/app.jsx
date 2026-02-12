@@ -52,6 +52,7 @@ export default class App extends React.Component {
           { id: 1, type: 'agent', text: "Hi there! I'm Penny, official AI assistant for GonzyDesigns. Would you like to schedule an appointment?" }
         ],
         chatInput: '',
+        chatAgentTyping: false,
         jasonPhone: '',
         isTerryDemoActive: false,
         isTerryRecording: false,
@@ -133,6 +134,7 @@ export default class App extends React.Component {
 
       this.checkView = this.checkView.bind(this);
       this.compareLogos = this.compareLogos.bind(this);
+      this.revealSection = this.revealSections.bind(this);
       this.morphCycle = this.morphCycle.bind(this);
       this.morph = this.morph.bind(this);
       this.handleTechHover = this.handleTechHover.bind(this);
@@ -219,25 +221,18 @@ export default class App extends React.Component {
 
   }
 
+  revealSections() {
+    let sTop = window.scrollY;
+
+    if (sTop > 580 && !document.querySelector('.section__history')?.classList.contains('present')) {
+      document.querySelector('.section__history').classList.add('present');
+    }
+  }
+
   componentDidMount() {
 
-    let sTop, breakpoint = window.scrollY;
-
-    // Removed morphCycle since we're using the 3D logo instead
-    // this.morphCycle(0);
-
-    window.addEventListener('scroll', () => {
-
-        sTop = window.scrollY;
-  
-        if (sTop > 1100) {
-            document.querySelector('.technologies').classList.add('present');
-        } else if (sTop > 580) {
-            document.querySelector('.section__history').classList.add('present');
-        }
-  
-        
-    });
+    window.addEventListener('scroll', () => this.revealSections());
+    window.addEventListener('load', () => this.revealSections());
 
     this.checkView();
 
@@ -272,19 +267,16 @@ export default class App extends React.Component {
       console.log('RESPONSE:', agentResponse);
 
       if (data.type === 'webhook' && agent === 'Penny') {
-        // Extract text - handle string directly or nested object
-        let text = data.data;
-        if (typeof data.data === 'object' && data.data !== null) {
-          text = data.data.agentResponse || data.data.output || data.data.message || JSON.stringify(data.data);
-        }
 
-        const agentResponse = {
+        const pennyResponse = {
           id: this.state.chatMessages.length + 1,
           type: 'agent',
-          text: String(text)
+          text: String(agentResponse)
         };
+        
         this.setState({
-          chatMessages: [...this.state.chatMessages, agentResponse]
+          chatMessages: [...this.state.chatMessages, pennyResponse],
+          chatAgentTyping: false
         }, () => {
           this.scrollToBottom();
         });
@@ -345,7 +337,6 @@ export default class App extends React.Component {
     requestAnimationFrame(step);
 
   }
-
 
   morphCycle(counter) {
 
@@ -572,7 +563,7 @@ export default class App extends React.Component {
       if (this.ws && this.ws.readyState === WebSocket.OPEN) {
         this.setState({ terryTranscript: 'Processing audio...' });
         this.ws.send(JSON.stringify({
-          type: 'terry-audio',
+          type: 'terry',
           audio: base64Audio,
           mimeType: this.audioMimeType,
           timestamp: Date.now()
@@ -786,29 +777,6 @@ export default class App extends React.Component {
     }
   }
 
-  sendTerryMessage(text) {
-    const { terryMessages } = this.state;
-
-    // Add user message to display
-    const userMessage = {
-      id: terryMessages.length + 1,
-      type: 'user',
-      text: text
-    };
-
-    this.setState({
-      terryMessages: [...terryMessages, userMessage]
-    });
-
-    // Send to n8n via WebSocket
-    if (this.ws && this.ws.readyState === WebSocket.OPEN) {
-      this.ws.send(JSON.stringify({
-        type: 'terry',
-        content: text
-      }));
-    }
-  }
-
   sendMessage(e) {
     e.preventDefault();
     const { chatInput, chatMessages } = this.state;
@@ -823,12 +791,16 @@ export default class App extends React.Component {
 
     this.setState({
       chatMessages: [...chatMessages, userMessage],
-      chatInput: ''
+      chatInput: '',
+      chatAgentTyping: true
     }, () => {
       this.scrollToBottom();
       // Send message via WebSocket to n8n
       if (this.ws && this.ws.readyState === WebSocket.OPEN) {
-        this.ws.send(JSON.stringify({ type: 'chat', content: userMessage.text }));
+        this.ws.send(JSON.stringify({ 
+          type: 'penny', 
+          content: userMessage.text 
+        }));
       } else {
         console.warn('WebSocket not connected');
       }
@@ -2360,6 +2332,20 @@ export default class App extends React.Component {
                     </div>
                   </div>
                 ))}
+                {this.state.chatAgentTyping && (
+                  <div className="chat-modal__message chat-modal__message--agent">
+                    <div className="chat-modal__message__avatar">
+                      <img src={agentPenny} alt="AI Agent Penny" />
+                    </div>
+                    <div className="chat-modal__message__bubble">
+                      <div className="chat-modal__typing-indicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
               <form className="chat-modal__input" onSubmit={this.sendMessage}>
                 <input

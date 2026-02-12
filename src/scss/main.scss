@@ -1153,7 +1153,7 @@ p, h1, h2, h3, h4 {
       flex-direction: column;
       justify-content: center;
 
-      @media #{$medium-down} {
+      @media #{$small} {
         padding-left: 0px;
       }
 
@@ -1271,7 +1271,7 @@ p, h1, h2, h3, h4 {
 
 .section__technologies {
     padding-top: 40px;
-    padding-bottom: 120px;
+    padding-bottom: 20px;
     background: var(--bg-secondary);
     overflow: hidden;
 
@@ -2140,6 +2140,34 @@ p, h1, h2, h3, h4 {
     }
   }
 
+  &__typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 0;
+
+    span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text-secondary);
+      opacity: 0.6;
+      animation: bounce 1.4s infinite ease-in-out;
+
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+    }
+  }
+
   &__input {
     display: flex;
     align-items: center;
@@ -2221,6 +2249,17 @@ p, h1, h2, h3, h4 {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
   }
 }
 
