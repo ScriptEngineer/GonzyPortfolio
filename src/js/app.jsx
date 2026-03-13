@@ -131,7 +131,6 @@ export default class App extends React.Component {
       }
 
       this.checkView = this.checkView.bind(this);
-      this.compareLogos = this.compareLogos.bind(this);
       this.revealSection = this.revealSections.bind(this);
       this.morphCycle = this.morphCycle.bind(this);
       this.morph = this.morph.bind(this);
@@ -194,29 +193,6 @@ export default class App extends React.Component {
 
     }
     
-  }
-
-  compareLogos (logo1, logo2) {
-
-    let dLogo = Snap.select('#brand_D');
-    let gLogo = Snap.select('#brand_G');
-    let noseLogo = Snap.select('#brand_nose');
-
-    noseLogo.animate({
-      opacity: "1",
-      transform: "matrix(0.504261,-0.0012042,0.000960593,0.402248,-521.09,-8.88001)"
-    }, 1000, mina.easein);
-
-    gLogo.animate({
-      opacity:"1",
-      transform:"matrix(0.18,-0,-0,0.18,0,0)"
-    }, 600, mina.linear);
-
-    dLogo.animate({
-      opacity: "1",
-      transform:"matrix(0.18,-0,-0,0.18,0,0)"
-    }, 1000, mina.easein);
-
   }
 
   revealSections() {
