@@ -10,7 +10,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "snapsvg-cjs": "^0.0.6",
-    "swiper": ">=6.5.1"
+    "swiper": ">=12.1.2"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.16.3",
