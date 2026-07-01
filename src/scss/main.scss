@@ -157,8 +157,7 @@ p, h1, h2, h3, h4 {
 
   &__presentation {
     position: relative;
-    width: 40%;
-    max-height: 220px;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,9 +165,8 @@ p, h1, h2, h3, h4 {
     overflow: visible;
 
     @media #{$large-up} {
-      min-height: 600px;
-      padding: 60px 20px;
-      min-height: 350px;
+      min-height: 560px;
+      padding: 20px 10px;
     }
 
     @media #{$medium-down} {
@@ -1870,14 +1868,18 @@ p, h1, h2, h3, h4 {
   perspective: 1000px;
   transform-style: preserve-3d;
   overflow: visible;
+  box-sizing: border-box;
+  // Inner breathing room so the logo + its glow never touch (or get clipped at) the edges.
+  padding: 4% 9%;
 
   @media #{$large-up} {
-    width: 320px;
-    height: 380px;
+    width: clamp(360px, 44vw, 520px);
+    height: clamp(420px, 51vw, 600px);
   }
 
   @media #{$medium-down} {
-    width: 170px;
+    width: clamp(200px, 50vw, 300px);
+    height: clamp(236px, 58vw, 350px);
   }
 }
 
@@ -3000,3 +3002,6 @@ p, h1, h2, h3, h4 {
     }
   }
 }
+
+// Company multi-page site (header, footer, marketing + legal pages)
+@import './site';

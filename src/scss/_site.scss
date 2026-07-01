@@ -1,0 +1,533 @@
+// ===========================================================================
+// Company site: header, footer, buttons, and the new marketing/legal pages.
+// Uses the design tokens defined in main.scss (:root).
+// ===========================================================================
+
+$maxw: 1180px;
+
+// Global default font. The original theme only set fonts per-element, so new
+// pages fell back to the browser serif default — set the brand sans-serif here.
+body {
+  font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// Hero logo video (ComfyUI loop) overlaid on the still 3D logo; cross-fades in.
+.logo-3d {
+  // Ensure the logo always fits fully inside its box (never cropped on any side).
+  // Drop the float3d glow so the logo reads as a solid, rigid 3D object (crisp edges).
+  img {
+    object-fit: contain;
+    animation: none;
+    filter: none;
+  }
+
+  &__still {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.6s ease;
+    &.is-hidden { opacity: 0; }
+  }
+  &__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    // Logo sits edge-to-edge in the generated frame; pull it in from the card edges.
+    transform: scale(0.82);
+    // The webm carries a real alpha channel (transparent background), so no blend
+    // mode is needed — it composites cleanly over the hero.
+    mix-blend-mode: normal;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+    animation: float3d 6s ease-in-out infinite;
+    &.is-ready { opacity: 1; }
+  }
+}
+
+.site-main {
+  flex: 1 0 auto;
+}
+
+// --- Buttons ---------------------------------------------------------------
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+  &--primary {
+    background: var(--gradient-primary);
+    color: #fff;
+    box-shadow: var(--shadow-glow);
+    &:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(88,166,255,0.6); }
+  }
+  &--ghost {
+    background: transparent;
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    &:hover { border-color: var(--primary-blue); color: #fff; }
+  }
+  &--lg { padding: 15px 30px; font-size: 16px; }
+}
+
+// --- Header ----------------------------------------------------------------
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+
+  &__inner {
+    max-width: $maxw;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-primary);
+  }
+  &__logo { height: 34px; width: auto; }
+  &__name {
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.3px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+  &__link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.15s ease;
+    &:hover { color: var(--text-primary); }
+    &.is-active { color: var(--primary-blue); }
+  }
+  &__cta {
+    padding: 9px 18px;
+    border-radius: 9px;
+    background: var(--gradient-primary);
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    &:hover { transform: translateY(-1px); }
+  }
+
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 6px;
+    span {
+      width: 24px; height: 2px;
+      background: var(--text-primary);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+  }
+}
+
+@media #{$medium-down} {
+  .site-header {
+    &__toggle {
+      display: flex;
+      &.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      &.is-open span:nth-child(2) { opacity: 0; }
+      &.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+    &__nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 4px;
+      padding: 12px 24px 20px;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: max-height 0.25s ease, opacity 0.2s ease;
+      &.is-open { max-height: 340px; opacity: 1; pointer-events: auto; }
+    }
+    &__link { padding: 10px 0; font-size: 16px; }
+    &__cta { text-align: center; margin-top: 8px; }
+  }
+}
+
+// --- Generic page bits -----------------------------------------------------
+.page { width: 100%; }
+
+.section-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 17px;
+  max-width: 640px;
+}
+
+.page-hero {
+  padding: 72px 24px 40px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--gradient-subtle);
+
+  &__inner { max-width: $maxw; margin: 0 auto; }
+  &__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-blue);
+  }
+  &__title {
+    font-size: 42px;
+    font-weight: 700;
+    margin: 12px 0;
+    max-width: 760px;
+  }
+  &__lead {
+    color: var(--text-secondary);
+    font-size: 18px;
+    max-width: 680px;
+  }
+}
+
+// --- Home hero -------------------------------------------------------------
+.home-hero {
+  padding: 80px 24px;
+  background: var(--gradient-subtle);
+  border-bottom: 1px solid var(--border-color);
+
+  &__inner {
+    max-width: $maxw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 40px;
+  }
+  &__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-blue);
+  }
+  &__title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 14px 0 18px;
+  }
+  &__lead {
+    color: var(--text-secondary);
+    font-size: 19px;
+    margin-bottom: 28px;
+    max-width: 560px;
+  }
+  &__actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  &__logo-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img { width: 100%; max-width: 300px; height: auto; }
+  }
+}
+
+@media #{$medium-down} {
+  .home-hero__inner { grid-template-columns: 1fr; }
+  .home-hero__title { font-size: 36px; }
+  .home-hero__art { order: -1; }
+  .page-hero__title { font-size: 32px; }
+}
+
+// --- Sections + cards ------------------------------------------------------
+.home-section {
+  max-width: $maxw;
+  margin: 0 auto;
+  padding: 72px 24px;
+
+  &__head { text-align: center; margin-bottom: 40px;
+    .section-subtitle { margin: 0 auto; }
+  }
+  &__cta { text-align: center; margin-top: 40px; }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 28px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  &:hover { transform: translateY(-4px); border-color: var(--primary-blue); }
+
+  &__icon {
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--gradient-primary);
+    margin-bottom: 18px;
+    svg { width: 24px; height: 24px; color: #fff; }
+  }
+  &__title { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+  &__body { color: var(--text-secondary); font-size: 15.5px; }
+}
+
+@media #{$medium-down} {
+  .cards { grid-template-columns: 1fr; }
+}
+
+// --- Stats band ------------------------------------------------------------
+.home-stats {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+
+  &__inner {
+    max-width: $maxw;
+    margin: 0 auto;
+    padding: 48px 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+  &__item { display: flex; flex-direction: column; gap: 6px; }
+  &__value {
+    font-size: 40px;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &__label { color: var(--text-secondary); font-size: 14px; }
+}
+@media #{$medium-down} {
+  .home-stats__inner { grid-template-columns: repeat(2, 1fr); }
+}
+
+// --- CTA band --------------------------------------------------------------
+.home-cta {
+  padding: 80px 24px;
+  text-align: center;
+  &__inner { max-width: 720px; margin: 0 auto; }
+  &__title { font-size: 34px; font-weight: 700; margin-bottom: 12px; }
+  &__lead { color: var(--text-secondary); font-size: 18px; margin-bottom: 26px; }
+}
+
+// --- Prose (About / Privacy) ----------------------------------------------
+.prose-section {
+  padding: 60px 24px;
+  border-top: 1px solid var(--border-color);
+}
+.prose {
+  max-width: 780px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 16.5px;
+
+  p { margin-bottom: 18px; }
+  ul { margin: 0 0 18px; padding-left: 20px; }
+  li { margin-bottom: 8px; }
+  a { color: var(--primary-blue); }
+  .section-title { color: var(--text-primary); margin: 32px 0 14px; }
+  &__muted { font-size: 14px; opacity: 0.7; margin-top: 30px; }
+}
+
+// --- Timeline (About) ------------------------------------------------------
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  &__item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 4px 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+  &__period { color: var(--primary-blue); font-size: 14px; font-weight: 600; }
+  &__role { color: var(--text-primary); font-weight: 600; grid-column: 2; }
+  &__org { color: var(--text-secondary); font-size: 14px; grid-column: 2; }
+}
+@media #{$medium-down} {
+  .timeline__item { grid-template-columns: 1fr; }
+  .timeline__role, .timeline__org { grid-column: 1; }
+}
+
+// --- Contact ---------------------------------------------------------------
+.contact-grid {
+  max-width: $maxw;
+  margin: 0 auto;
+  padding: 60px 24px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 40px;
+}
+.contact-info {
+  &__company { font-weight: 700; font-size: 18px; margin-bottom: 20px; }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 18px;
+    a { color: var(--primary-blue); text-decoration: none; }
+  }
+  &__label {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+}
+.contact-form {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    input, textarea {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 9px;
+      padding: 11px 13px;
+      color: var(--text-primary);
+      font-size: 15px;
+      font-family: inherit;
+      &:focus { outline: none; border-color: var(--primary-blue); }
+    }
+  }
+  &__note { font-size: 13px; color: var(--text-secondary); margin: 0; }
+}
+@media #{$medium-down} {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+// --- Footer ----------------------------------------------------------------
+.site-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+
+  &__inner {
+    max-width: $maxw;
+    margin: 0 auto;
+    padding: 48px 24px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr;
+    gap: 32px;
+  }
+  &__brand-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 17px;
+  }
+  &__logo { height: 30px; }
+  &__tagline { margin-top: 10px; font-size: 14px; }
+
+  h4 {
+    color: var(--text-primary);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+  &__nav { display: flex; flex-direction: column; gap: 9px; }
+  &__link { color: var(--text-secondary); text-decoration: none; font-size: 15px;
+    &:hover { color: var(--primary-blue); }
+  }
+  &__contact {
+    p { margin-bottom: 8px; font-size: 15px; }
+    a { color: var(--primary-blue); text-decoration: none; }
+  }
+  &__company { color: var(--text-primary); font-weight: 600; }
+
+  &__bar {
+    border-top: 1px solid var(--border-color);
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: $maxw;
+    margin: 0 auto;
+    font-size: 13px;
+    a { color: var(--text-secondary); text-decoration: none; margin-left: 14px;
+      &:hover { color: var(--primary-blue); }
+    }
+  }
+}
+@media #{$medium-down} {
+  .site-footer__inner { grid-template-columns: 1fr; gap: 26px; }
+  .site-footer__bar { flex-direction: column; gap: 8px; }
+}

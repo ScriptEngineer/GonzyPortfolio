@@ -418,6 +418,12 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok', clients: clients.size });
 });
 
+// SPA fallback: serve the app shell for client-side routes (e.g. /about, /services).
+// API and websocket routes are registered above and take precedence.
+app.get(/.*/, (req, res) => {
+  res.sendFile(path.join(__dirname, 'static', 'index.html'));
+});
+
 const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
