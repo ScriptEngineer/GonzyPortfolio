@@ -106,7 +106,7 @@ export default function FrankensteinAudio() {
         <div className="fk-hero__glow" aria-hidden="true" />
         <div className="fk-hero__inner">
           <img className="fk-hero__logo" src={appLogo} alt="" aria-hidden="true" />
-          <span className="fk-hero__eyebrow">Frankenstein Audio · AI Stem Studio</span>
+          <span className="fk-hero__eyebrow">Frankenstein Audio · Music Studio</span>
           <h1 className="fk-hero__title">
             Making music has never been <em>this easy.</em>
           </h1>

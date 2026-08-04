@@ -626,9 +626,10 @@ $fk-surface: #16181c;
     margin: 0 auto;
   }
   &__logo {
+    display: block;
     height: 72px;
     width: auto;
-    margin-bottom: 18px;
+    margin: 0 auto 18px;
     // Source artwork is black; flip it to white for the dark hero.
     filter: invert(1) drop-shadow(0 0 24px rgba(230, 184, 74, 0.35));
   }
