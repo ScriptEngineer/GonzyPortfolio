@@ -9,22 +9,22 @@ const studioShot = new URL('/img/landing-shot.webp', import.meta.url);
 
 const FEATURES = [
   {
-    title: 'Studio-grade stem separation',
-    body: 'Every upload is restored and split into vocals, instrumental, bass, and drums with state-of-the-art AI separation — each part becomes a tile you can drop into any mix.',
+    title: 'Studio-grade Music',
+    body: 'Vocals, instrumental, bass, and drums all effortlessly combined and harmonized.',
     icon: (
       <path d="M8 1.2 15 5 8 8.8 1 5 8 1.2Zm-4.6 6L8 9.9l4.6-2.7 1.9 1L8 12 1.5 8.2l1.9-1Zm0 3.2L8 13.1l4.6-2.7 1.9 1L8 15.2l-6.5-3.8 1.9-1Z" />
     ),
   },
   {
     title: 'Smart tools that stay on beat',
-    body: 'Magic fill picks the stems that best back your vocal — ranked by key, tempo, and groove. Distribute places verses where they fit. Gap fill writes in matching lines. Everything lands on the grid.',
+    body: "Find the right place for your vocals, instrumentals, and beats. Everything lands on the grid to keep your song's flow.",
     icon: (
       <path d="M9 1l1.2 3.1L13.3 5 10.2 6.2 9 9.3 7.8 6.2 4.7 5l3.1-.9L9 1ZM3.5 8.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2Zm9 2.5.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6.6-1.6Z" />
     ),
   },
   {
-    title: 'Create, then publish',
-    body: 'Generate brand-new AI beats matched to your arrangement. Export your mix as MP3, WAV, or a YouTube-ready video with beat-synced animated visuals.',
+    title: 'Publishing & Export Tools',
+    body: 'Export your mix as MP3, WAV, or a YouTube-ready video with animated visuals.',
     icon: (
       <path d="M8 1.5a1 1 0 0 1 .7.3l3.5 3.5-1.4 1.4L9 4.9V10H7V4.9L5.2 6.7 3.8 5.3 7.3 1.8a1 1 0 0 1 .7-.3ZM2 9h2v3.5h8V9h2v4a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13V9Z" />
     ),
@@ -54,22 +54,22 @@ const HIGHLIGHTS = [
   { value: '4', label: 'Stems from every song — vocals, instrumental, bass, drums' },
   { value: '0', label: 'Musical training required to build a full track' },
   { value: '100%', label: 'In your browser — nothing to install' },
-  { value: '3', label: 'Free songs to start, no card required' },
+  { value: '7', label: 'Days of full access, free — no card required' },
 ];
 
 const PLANS = [
   {
-    tier: 'Free',
+    tier: 'Free trial',
     price: '$0',
-    period: 'forever',
+    period: 'for 7 days',
     featured: false,
     perks: [
-      'Full mixing studio',
-      '3 songs in your library',
-      '2 exports included',
-      'AI stem separation',
+      'Everything in Pro for 7 days',
+      '5 magic-tool uses included',
+      'Unlimited songs & exports',
+      'No card required',
     ],
-    cta: 'Start free',
+    cta: 'Start free trial',
   },
   {
     tier: 'Pro',
@@ -77,10 +77,10 @@ const PLANS = [
     period: '/month · or $99.99/year',
     featured: true,
     perks: [
-      'Unlimited exports, clean videos',
-      'Magic fill, distribute & gap fill',
-      'All stem refinements',
-      'AI beat generation',
+      'No time limit — create forever',
+      'Unlimited magic fill, distribute & gap fill',
+      'All stem refinements & AI beats',
+      'Everything the studio offers, without caps',
     ],
     cta: 'Go Pro',
   },
@@ -121,7 +121,7 @@ export default function FrankensteinAudio() {
             </a>
             <a href="#fk-features" className="btn btn--ghost btn--lg">Explore features</a>
           </div>
-          <p className="fk-hero__trust">Free account · 3 songs · no card required</p>
+          <p className="fk-hero__trust">Free 7-day trial · full access · no card required</p>
         </div>
         <div className="fk-eq" aria-hidden="true">
           {EQ_BARS.map((h, i) => (
@@ -231,7 +231,7 @@ export default function FrankensteinAudio() {
       {/* Closing CTA */}
       <section className="home-cta fk-cta">
         <div className="home-cta__inner">
-          <h2 className="home-cta__title">Your next mix is three songs away.</h2>
+          <h2 className="home-cta__title">Your next hit is one click away.</h2>
           <p className="home-cta__lead">
             Frankenstein Audio is built and maintained by {COMPANY.legalName}.
             Try it free, or reach out if you want to know more.
