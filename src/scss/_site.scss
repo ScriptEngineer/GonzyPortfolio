@@ -587,6 +587,356 @@ body {
   .contact-grid { grid-template-columns: 1fr; }
 }
 
+// --- Frankenstein Audio product page ----------------------------------------
+// Carries the app's own gold-on-black identity as an accent inside the site.
+$fk-gold: #e6b84a;
+$fk-gold-light: #f2cd72;
+$fk-gold-deep: #c98f2e;
+$fk-ink: #0b0c0e;
+$fk-surface: #16181c;
+
+.btn--gold {
+  background: linear-gradient(180deg, $fk-gold-light, $fk-gold);
+  color: #17130a;
+  box-shadow: 0 6px 24px rgba(230, 184, 74, 0.28);
+  &:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(230, 184, 74, 0.4); }
+}
+
+.fk-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 88px 24px 130px;
+  text-align: center;
+  background: $fk-ink;
+  border-bottom: 1px solid var(--border-color);
+
+  &__glow {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+    width: min(1100px, 130vw);
+    aspect-ratio: 2 / 1;
+    background: radial-gradient(ellipse at center, rgba(230, 184, 74, 0.16), rgba(57, 135, 229, 0.06) 45%, transparent 70%);
+    pointer-events: none;
+  }
+  &__inner {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  &__logo {
+    height: 72px;
+    width: auto;
+    margin-bottom: 18px;
+    // Source artwork is black; flip it to white for the dark hero.
+    filter: invert(1) drop-shadow(0 0 24px rgba(230, 184, 74, 0.35));
+  }
+  &__eyebrow {
+    display: inline-block;
+    font-size: 12.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $fk-gold;
+    border: 1px solid rgba(230, 184, 74, 0.35);
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin-bottom: 22px;
+    background: rgba(230, 184, 74, 0.06);
+  }
+  &__title {
+    font-size: clamp(38px, 6vw, 62px);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    margin: 0 auto;
+    color: #f4f2ec;
+
+    em {
+      font-style: normal;
+      background: linear-gradient(120deg, $fk-gold-light, $fk-gold 55%, $fk-gold-deep);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  &__lead {
+    max-width: 640px;
+    margin: 22px auto 0;
+    color: #b9b7ad;
+    font-size: clamp(16px, 2vw, 19px);
+  }
+  &__actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+  &__trust {
+    margin-top: 16px;
+    color: #85837b;
+    font-size: 13px;
+  }
+}
+
+// CSS-only equalizer strip along the bottom of the hero.
+.fk-eq {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  height: 80px;
+  padding: 0 24px;
+  opacity: 0.55;
+  pointer-events: none;
+
+  span {
+    width: 5px;
+    height: var(--h, 24px);
+    border-radius: 3px 3px 0 0;
+    background: linear-gradient(180deg, rgba(230, 184, 74, 0.9), rgba(230, 184, 74, 0.15));
+    transform-origin: bottom;
+    animation: fk-eq-bounce 1.6s ease-in-out var(--d, 0s) infinite;
+  }
+}
+@keyframes fk-eq-bounce {
+  0%, 100% { transform: scaleY(0.45); }
+  50% { transform: scaleY(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fk-eq span { animation: none; transform: scaleY(0.7); }
+}
+
+// --- Laptop-framed studio screenshot ---
+.fk-stage {
+  position: relative;
+  padding: 0 24px 72px;
+  background:
+    linear-gradient(180deg, $fk-ink 0%, transparent 60%);
+
+  .fk-laptop {
+    position: relative;
+    max-width: 980px;
+    margin: -64px auto 0;
+    filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.6)) drop-shadow(0 12px 48px rgba(230, 184, 74, 0.12));
+  }
+  &__caption {
+    max-width: 640px;
+    margin: 26px auto 0;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14.5px;
+  }
+}
+.fk-laptop {
+  &__lid {
+    position: relative;
+    border-radius: 18px 18px 0 0;
+    background: #0a0b0d;
+    border: 1px solid #2a2d33;
+    border-bottom: none;
+    padding: 14px 14px 0;
+  }
+  &__cam {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #2f3237;
+  }
+  &__screen {
+    position: relative;
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+    background: #000;
+
+    img { display: block; width: 100%; height: auto; }
+
+    // Subtle glass reflection across the display.
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 24%, transparent 40%);
+      pointer-events: none;
+    }
+  }
+  &__deck {
+    height: 16px;
+    background: linear-gradient(180deg, #23262b, #101215);
+    border-radius: 0 0 16px 16px;
+    border: 1px solid #2a2d33;
+    border-top: none;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 7px;
+      background: #0c0d10;
+      border-radius: 0 0 8px 8px;
+    }
+  }
+}
+
+// --- Gold-accented cards / stats / steps / plans ---
+.fk-card {
+  &:hover { border-color: rgba(230, 184, 74, 0.55); }
+  &__icon {
+    background: linear-gradient(135deg, $fk-gold-light, $fk-gold-deep);
+    svg { color: #17130a; }
+  }
+}
+
+.fk-stats {
+  background: $fk-ink;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+
+  &__inner {
+    max-width: $maxw;
+    margin: 0 auto;
+    padding: 48px 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+  &__item { display: flex; flex-direction: column; gap: 8px; }
+  &__value {
+    font-size: 40px;
+    font-weight: 700;
+    background: linear-gradient(120deg, $fk-gold-light, $fk-gold 55%, $fk-gold-deep);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &__label { color: var(--text-secondary); font-size: 14px; }
+}
+
+.fk-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+
+  &__item {
+    position: relative;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 26px 20px 20px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    &:hover { transform: translateY(-4px); border-color: rgba(230, 184, 74, 0.55); }
+  }
+  &__num {
+    position: absolute;
+    top: -14px;
+    left: 18px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, $fk-gold-light, $fk-gold);
+    color: #17130a;
+    font-weight: 800;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__title { font-size: 16.5px; font-weight: 700; margin-bottom: 6px; }
+  &__body { color: var(--text-secondary); font-size: 14.5px; }
+}
+
+.fk-plans {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.fk-plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 28px 26px;
+
+  &--featured {
+    border-color: rgba(230, 184, 74, 0.5);
+    box-shadow: 0 0 40px rgba(230, 184, 74, 0.08) inset;
+  }
+  &__badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #17130a;
+    background: linear-gradient(180deg, $fk-gold-light, $fk-gold);
+    border-radius: 999px;
+    padding: 4px 12px;
+  }
+  &__tier {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  &__price {
+    font-size: 34px;
+    font-weight: 800;
+    margin: 6px 0 14px;
+    small { font-size: 14px; color: var(--text-secondary); font-weight: 500; }
+  }
+  &__perks {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px;
+    flex: 1;
+
+    li {
+      padding: 6px 0;
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      &::before { content: '✓  '; color: $fk-gold; font-weight: 700; }
+    }
+  }
+}
+
+.fk-cta__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media #{$medium-down} {
+  .fk-hero { padding: 64px 20px 110px; }
+  .fk-stage .fk-laptop { margin-top: -48px; }
+  .fk-stats__inner { grid-template-columns: repeat(2, 1fr); }
+  .fk-steps { grid-template-columns: 1fr; gap: 22px; }
+  .fk-plans { grid-template-columns: 1fr; }
+}
+
 // --- Footer ----------------------------------------------------------------
 .site-footer {
   background: var(--bg-secondary);
