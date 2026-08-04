@@ -49,7 +49,22 @@ export default function About() {
 
   return (
     <div className="page page-about">
-      <section className="page-hero">
+      <section className="page-hero page-hero--video">
+        {/* Looping Dallas skyline backdrop. Drop the file at
+            static/video/dallas-skyline.(webm|mp4); a brand gradient shows until then. */}
+        <video
+          className="page-hero__video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        >
+          <source src="/video/dallas-skyline.mp4" type="video/mp4" />
+        </video>
+        <div className="page-hero__overlay" aria-hidden="true"></div>
+
         <div className="page-hero__inner">
           <span className="page-hero__eyebrow">About us</span>
           <h1 className="page-hero__title">A software studio built on a decade of experience</h1>

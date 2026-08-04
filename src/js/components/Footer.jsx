@@ -21,11 +21,12 @@ export default function Footer() {
 
         <nav className="site-footer__nav" aria-label="Footer">
           <h4>Navigate</h4>
-          {NAV_LINKS.map((link) => (
+          {NAV_LINKS.flatMap((link) => link.children ?? [link]).map((link) => (
             <Link key={link.to} to={link.to} className="site-footer__link">
               {link.label}
             </Link>
           ))}
+          <Link to="/contact" className="site-footer__link">Contact</Link>
           <Link to="/privacy" className="site-footer__link">Privacy Policy</Link>
         </nav>
 
@@ -35,9 +36,6 @@ export default function Footer() {
           {address && <p>{address}</p>}
           <p>
             <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
-          </p>
-          <p>
-            <a href={`tel:${COMPANY.phoneHref}`}>{COMPANY.phoneDisplay}</a>
           </p>
         </div>
       </div>

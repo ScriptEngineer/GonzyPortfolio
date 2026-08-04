@@ -13,24 +13,24 @@ const SERVICES = [
     ),
   },
   {
-    title: 'Web & Software Development',
-    body: 'Custom websites, web apps, and business software built with modern, maintainable technology — from first prototype to a scalable production release.',
+    title: 'Custom App Development',
+    body: 'Custom web, mobile, and desktop applications built to fit your exact workflow — designed, engineered, and shipped from first prototype to a scalable production release.',
     icon: (
-      <path d="M1 3.5A1.5 1.5 0 0 1 2.5 2h11A1.5 1.5 0 0 1 15 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 12.5v-9Zm5.6 2.3a.75.75 0 0 0-1.2.9L6.8 9l-1.4 2.3a.75.75 0 1 0 1.2.9l1.75-2.85a.75.75 0 0 0 0-.9L6.6 5.8Zm3.15 4.95a.75.75 0 0 0 0 1.5h2a.75.75 0 0 0 0-1.5h-2Z" />
+      <path d="M2 3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3Zm1.5.5v1.5h9V3.5h-9Zm0 3V13h9V6.5h-9Z" />
     ),
   },
   {
-    title: 'Cloud & Data',
-    body: 'Cloud deployments, API integrations, and database solutions — including natural-language interfaces to your data — that keep your operation fast and reliable.',
+    title: 'Automated Workflows',
+    body: 'Connect the tools you already use and automate the repetitive work — lead routing, notifications, data sync, and multi-step processes that run reliably in the background so your team doesn’t have to.',
     icon: (
-      <path d="M4.5 13a3.5 3.5 0 0 1-.5-6.96 4 4 0 0 1 7.78-.9A3 3 0 0 1 12 13H4.5Z" />
+      <path d="M9.6 1 3.2 9h3.6l-1.4 6 6.4-8H8.2l1.4-6Z" />
     ),
   },
 ];
 
 const STATS = [
   { value: '10+', label: 'Years of experience' },
-  { value: '3', label: 'Live AI agents' },
+  { value: '20+', label: 'Repositories and counting' },
   { value: '24/7', label: 'Automated availability' },
   { value: '100%', label: 'Custom-built solutions' },
 ];
@@ -66,7 +66,7 @@ export default function Home() {
           ))}
         </div>
         <div className="home-section__cta">
-          <Link to="/services" className="btn btn--primary">See our AI agents in action</Link>
+          <Link to="/products/custom-ai-agents" className="btn btn--primary">See our AI agents in action</Link>
         </div>
       </section>
 

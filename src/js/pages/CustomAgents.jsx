@@ -6,7 +6,7 @@ const agentPenny = new URL("/img/penny.png", import.meta.url);
 const agentJason = new URL("/img/jason.png", import.meta.url);
 const agentTerry = new URL("/img/terry.png", import.meta.url);
 
-export default class Services extends React.Component {
+export default class CustomAgents extends React.Component {
 
   constructor(props) {
       super(props);
@@ -174,7 +174,7 @@ export default class Services extends React.Component {
 
   componentDidMount() {
 
-    document.title = `Services & Products | ${COMPANY.shortName}`;
+    document.title = `Custom AI Agents | ${COMPANY.shortName}`;
 
     window.addEventListener('scroll', () => this.revealSections());
     window.addEventListener('load', () => this.revealSections());
@@ -730,7 +730,7 @@ export default class Services extends React.Component {
 
               <div className="page-hero">
                 <div className="page-hero__inner">
-                  <span className="page-hero__eyebrow">Services &amp; Products</span>
+                  <span className="page-hero__eyebrow">Custom AI Agents</span>
                   <h1 className="page-hero__title">AI Agents &amp; Custom Software, Built for Your Business</h1>
                   <p className="page-hero__lead">
                     {COMPANY.shortName} designs, builds, and deploys production-grade AI

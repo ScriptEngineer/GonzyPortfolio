@@ -48,9 +48,16 @@ export function formatAddress(a = COMPANY.address) {
 }
 
 // Primary navigation used by the header and footer.
+// Items with `children` render as a dropdown in the header and are
+// flattened into individual links in the footer.
 export const NAV_LINKS = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
-  { to: '/services', label: 'Services' },
-  { to: '/contact', label: 'Contact' },
+  {
+    label: 'Products',
+    children: [
+      { to: '/products/frankenstein-audio', label: 'Frankenstein Audio' },
+      { to: '/products/custom-ai-agents', label: 'Custom AI Agents' },
+    ],
+  },
 ];

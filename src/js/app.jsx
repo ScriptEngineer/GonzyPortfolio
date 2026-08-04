@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faAws, faCss3, faGit, faGithub, faHtml5, faJava, faJs,
@@ -10,11 +10,12 @@ import {
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
-import Services from './pages/Services';
+import FrankensteinAudio from './pages/FrankensteinAudio';
+import CustomAgents from './pages/CustomAgents';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 
-// Register the brand icons used by the technologies grid on the Services page.
+// Register the brand icons used by the technologies grid on the Custom AI Agents page.
 library.add(
   faAws, faCss3, faGit, faGithub, faHtml5, faJava, faJs,
   faNodeJs, faPython, faReact, faSass, faMailchimp,
@@ -27,7 +28,9 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/products/frankenstein-audio" element={<FrankensteinAudio />} />
+          <Route path="/products/custom-ai-agents" element={<CustomAgents />} />
+          <Route path="/products" element={<Navigate to="/products/custom-ai-agents" replace />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<Home />} />
