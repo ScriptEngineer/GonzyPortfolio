@@ -111,9 +111,7 @@ export default function FrankensteinAudio() {
             Making music has never been <em>this easy.</em>
           </h1>
           <p className="fk-hero__lead">
-            A full music studio in your browser. Upload the songs you love, split
-            them into stems, and stitch the parts into something entirely new —
-            auto-matched in key, tempo, and groove.
+            A full music studio in your browser.
           </p>
           <div className="fk-hero__actions">
             <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="btn btn--gold btn--lg">
