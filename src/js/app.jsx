@@ -11,6 +11,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
 import FrankensteinAudio from './pages/FrankensteinAudio';
+import BrandGenie from './pages/BrandGenie';
 import CustomAgents from './pages/CustomAgents';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
@@ -29,6 +30,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/products/frankenstein-audio" element={<FrankensteinAudio />} />
+          <Route path="/products/brandgenie" element={<BrandGenie />} />
           <Route path="/products/custom-ai-agents" element={<CustomAgents />} />
           <Route path="/products" element={<Navigate to="/products/custom-ai-agents" replace />} />
           <Route path="/contact" element={<Contact />} />

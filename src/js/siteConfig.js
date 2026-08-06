@@ -57,6 +57,7 @@ export const NAV_LINKS = [
     label: 'Products',
     children: [
       { to: '/products/frankenstein-audio', label: 'Frankenstein Audio' },
+      { to: '/products/brandgenie', label: 'BrandGenie' },
       { to: '/products/custom-ai-agents', label: 'Custom AI Agents' },
     ],
   },

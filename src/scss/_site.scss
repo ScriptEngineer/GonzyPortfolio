@@ -938,6 +938,241 @@ $fk-surface: #16181c;
   .fk-plans { grid-template-columns: 1fr; }
 }
 
+// --- BrandGenie product page -------------------------------------------------
+// Carries the app's purple-to-cyan identity as an accent inside the site.
+$gn-a: #7b5cff;
+$gn-b: #2fd4ff;
+$gn-ink: #0b0d12;
+$gn-grad: linear-gradient(100deg, $gn-a, $gn-b);
+
+.btn--genie {
+  background: $gn-grad;
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(123, 92, 255, 0.35);
+  &:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(47, 212, 255, 0.4); }
+}
+
+.gn-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 88px 24px 96px;
+  text-align: center;
+  background: $gn-ink;
+  border-bottom: 1px solid var(--border-color);
+
+  &__glow {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    transform: translate(-50%, -50%);
+    width: min(1100px, 130vw);
+    aspect-ratio: 2 / 1;
+    background: radial-gradient(ellipse at 38% 50%, rgba(123, 92, 255, 0.2), transparent 60%),
+      radial-gradient(ellipse at 66% 50%, rgba(47, 212, 255, 0.14), transparent 60%);
+    pointer-events: none;
+  }
+  &__inner {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  &__logo {
+    display: block;
+    height: 84px;
+    width: auto;
+    margin: 0 auto 18px;
+    filter: drop-shadow(0 0 26px rgba(47, 212, 255, 0.35));
+  }
+  &__eyebrow {
+    display: inline-block;
+    font-size: 12.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $gn-b;
+    border: 1px solid rgba(47, 212, 255, 0.35);
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin-bottom: 22px;
+    background: rgba(123, 92, 255, 0.08);
+  }
+  &__title {
+    font-size: clamp(38px, 6vw, 62px);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    margin: 0 auto;
+    color: #e8ebf4;
+
+    em {
+      font-style: normal;
+      background: $gn-grad;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  &__lead {
+    max-width: 640px;
+    margin: 22px auto 0;
+    color: #8b93a7;
+    font-size: clamp(16px, 2vw, 19px);
+  }
+  &__actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+  &__trust {
+    margin-top: 16px;
+    color: #8b93a7;
+    font-size: 13px;
+  }
+}
+
+// --- Demo video cards ---
+.gn-demos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.gn-demo {
+  margin: 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  &:hover { transform: translateY(-4px); border-color: rgba(47, 212, 255, 0.5); }
+
+  &__stage {
+    // Transparent-alpha demos sit on a soft brand-tinted backdrop.
+    background:
+      radial-gradient(120% 120% at 30% 20%, rgba(123, 92, 255, 0.16), transparent 55%),
+      radial-gradient(120% 120% at 75% 85%, rgba(47, 212, 255, 0.12), transparent 55%),
+      #0b0d12;
+    border-bottom: 1px solid var(--border-color);
+
+    video { display: block; width: 100%; height: auto; }
+  }
+
+  figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 18px 18px;
+  }
+  &__caption { font-weight: 700; font-size: 16px; }
+  &__note { color: var(--text-secondary); font-size: 14px; }
+}
+
+// --- Gradient-accented cards / steps / plans ---
+.gn-card {
+  &:hover { border-color: rgba(123, 92, 255, 0.55); }
+  &__icon {
+    background: $gn-grad;
+    svg { color: #fff; }
+  }
+}
+
+.gn-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+
+  &__item {
+    position: relative;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 26px 20px 20px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    &:hover { transform: translateY(-4px); border-color: rgba(47, 212, 255, 0.5); }
+  }
+  &__num {
+    position: absolute;
+    top: -14px;
+    left: 18px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: $gn-grad;
+    color: #fff;
+    font-weight: 800;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__title { font-size: 16.5px; font-weight: 700; margin-bottom: 6px; }
+  &__body { color: var(--text-secondary); font-size: 14.5px; }
+}
+
+.gn-plans {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.gn-plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 28px 26px;
+
+  &--featured {
+    border-color: rgba(123, 92, 255, 0.55);
+    box-shadow: 0 0 40px rgba(123, 92, 255, 0.1) inset;
+  }
+  &__tier {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  &__price {
+    font-size: 34px;
+    font-weight: 800;
+    margin: 6px 0 14px;
+    small { font-size: 14px; color: var(--text-secondary); font-weight: 500; }
+  }
+  &__perks {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px;
+    flex: 1;
+
+    li {
+      padding: 6px 0;
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      &::before { content: '✓  '; color: $gn-b; font-weight: 700; }
+    }
+  }
+}
+
+.gn-cta__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media #{$medium-down} {
+  .gn-hero { padding: 64px 20px 72px; }
+  .gn-demos { grid-template-columns: 1fr; }
+  .gn-steps { grid-template-columns: 1fr; gap: 22px; }
+  .gn-plans { grid-template-columns: 1fr; }
+}
+
 // --- Footer ----------------------------------------------------------------
 .site-footer {
   background: var(--bg-secondary);
