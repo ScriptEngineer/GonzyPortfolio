@@ -1067,15 +1067,7 @@ $gn-grad: linear-gradient(100deg, $gn-a, $gn-b);
   &__note { color: var(--text-secondary); font-size: 14px; }
 }
 
-// --- Gradient-accented cards / steps / plans ---
-.gn-card {
-  &:hover { border-color: rgba(123, 92, 255, 0.55); }
-  &__icon {
-    background: $gn-grad;
-    svg { color: #fff; }
-  }
-}
-
+// --- Gradient-accented steps / plans ---
 .gn-steps {
   list-style: none;
   padding: 0;

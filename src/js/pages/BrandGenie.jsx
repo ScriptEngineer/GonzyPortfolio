@@ -15,30 +15,6 @@ const DEMOS = [
   { src: demoDrawOn, caption: 'Draw On', note: 'A hand-drawn reveal that traces every stroke.' },
 ];
 
-const FEATURES = [
-  {
-    title: 'Cinematic styles',
-    body: '3D spins, draw-on reveals, spray-paint splatters, and more — every style is crafted to make a flat logo feel alive.',
-    icon: (
-      <path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h9A1.5 1.5 0 0 1 14 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 12.5v-9Zm4.5 2v5l4-2.5-4-2.5Z" />
-    ),
-  },
-  {
-    title: 'Transparent exports',
-    body: 'Videos render with a real alpha channel, so they drop cleanly into any website, edit, stream overlay, or presentation.',
-    icon: (
-      <path d="M3 3h4v4H3V3Zm6 0h4v4H9V3ZM3 9h4v4H3V9Zm7.5 1.5L9 9h5v5l-1.5-1.5L10 15l-2-2 2.5-2.5Z" />
-    ),
-  },
-  {
-    title: 'Instant previews',
-    body: 'Upload a flat logo file and watch styles render as free watermarked previews — pay only when you find the one you love.',
-    icon: (
-      <path d="M8 3c3.5 0 6 2.7 6.9 4.6a1 1 0 0 1 0 .8C14 10.3 11.5 13 8 13S2 10.3 1.1 8.4a1 1 0 0 1 0-.8C2 5.7 4.5 3 8 3Zm0 2.5A2.5 2.5 0 1 0 8 10.5 2.5 2.5 0 0 0 8 5.5Z" />
-    ),
-  },
-];
-
 const STEPS = [
   {
     title: 'Upload your logo',
@@ -130,27 +106,6 @@ export default function BrandGenie() {
                 <span className="gn-demo__note">{d.note}</span>
               </figcaption>
             </figure>
-          ))}
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="home-section gn-features">
-        <div className="home-section__head">
-          <h2 className="section-title">Your brand, in motion</h2>
-          <p className="section-subtitle">
-            Cinematic quality without the studio, the software, or the timeline.
-          </p>
-        </div>
-        <div className="cards">
-          {FEATURES.map((f) => (
-            <div className="card gn-card" key={f.title}>
-              <div className="card__icon gn-card__icon">
-                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">{f.icon}</svg>
-              </div>
-              <h3 className="card__title">{f.title}</h3>
-              <p className="card__body">{f.body}</p>
-            </div>
           ))}
         </div>
       </section>
