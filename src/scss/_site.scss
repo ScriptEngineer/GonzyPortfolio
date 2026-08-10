@@ -75,7 +75,9 @@ body {
   transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
 
   &--primary {
-    background: var(--gradient-primary);
+    // border-box sizes the gradient to include the transparent border, which
+    // otherwise shows a 1px wrap-around stripe of the gradient's far edge color.
+    background: var(--gradient-primary) border-box;
     color: #fff;
     box-shadow: var(--shadow-glow);
     &:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(88,166,255,0.6); }
@@ -598,7 +600,7 @@ $fk-ink: #0b0c0e;
 $fk-surface: #16181c;
 
 .btn--gold {
-  background: linear-gradient(180deg, $fk-gold-light, $fk-gold);
+  background: linear-gradient(180deg, $fk-gold-light, $fk-gold) border-box;
   color: #17130a;
   box-shadow: 0 6px 24px rgba(230, 184, 74, 0.28);
   &:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(230, 184, 74, 0.4); }
@@ -948,7 +950,7 @@ $gn-ink: #0b0d12;
 $gn-grad: linear-gradient(100deg, $gn-a, $gn-b);
 
 .btn--genie {
-  background: $gn-grad;
+  background: $gn-grad border-box;
   color: #fff;
   box-shadow: 0 6px 24px rgba(123, 92, 255, 0.35);
   &:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(47, 212, 255, 0.4); }
