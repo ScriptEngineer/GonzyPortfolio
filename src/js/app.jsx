@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
-  faAws, faCss3, faGit, faGithub, faHtml5, faJava, faJs,
-  faNodeJs, faPython, faReact, faSass, faMailchimp,
+  faAws, faCss3, faGit, faGithub, faGulp, faHtml5, faJava, faJs,
+  faNodeJs, faNpm, faPython, faReact, faSass, faMailchimp,
 } from '@fortawesome/free-brands-svg-icons';
 
 import Layout from './components/Layout';
@@ -16,10 +16,10 @@ import CustomAgents from './pages/CustomAgents';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 
-// Register the brand icons used by the technologies grid on the Custom AI Agents page.
+// Register the brand icons used by the technologies carousel on the home page.
 library.add(
-  faAws, faCss3, faGit, faGithub, faHtml5, faJava, faJs,
-  faNodeJs, faPython, faReact, faSass, faMailchimp,
+  faAws, faCss3, faGit, faGithub, faGulp, faHtml5, faJava, faJs,
+  faNodeJs, faNpm, faPython, faReact, faSass, faMailchimp,
 );
 
 function App() {

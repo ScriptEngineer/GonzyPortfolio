@@ -419,7 +419,6 @@ body {
   &__head { text-align: center; margin-bottom: 40px;
     .section-subtitle { margin: 0 auto; }
   }
-  &__cta { text-align: center; margin-top: 40px; }
 }
 
 .cards {
@@ -432,6 +431,8 @@ body {
   border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 28px;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.2s ease, border-color 0.2s ease;
   &:hover { transform: translateY(-4px); border-color: var(--primary-blue); }
 
@@ -445,6 +446,7 @@ body {
   }
   &__title { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
   &__body { color: var(--text-secondary); font-size: 15.5px; }
+  &__cta { margin-top: auto; padding-top: 20px; }
 }
 
 @media #{$medium-down} {

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import usePageMeta from '../hooks/usePageMeta';
 import Hero from '../components/Hero';
+import TechnologiesCarousel from '../components/TechnologiesCarousel';
 import { COMPANY } from '../siteConfig';
 
 const SERVICES = [
@@ -11,6 +12,7 @@ const SERVICES = [
     icon: (
       <path d="M8 1a2 2 0 0 1 2 2v1h1.5A2.5 2.5 0 0 1 14 7.5V12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7.5A2.5 2.5 0 0 1 4.5 5H6V3a2 2 0 0 1 2-2Zm-2 8a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm4 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" />
     ),
+    cta: { to: '/products/custom-ai-agents', label: 'See our AI agents in action' },
   },
   {
     title: 'Custom App Development',
@@ -62,11 +64,13 @@ export default function Home() {
               </div>
               <h3 className="card__title">{s.title}</h3>
               <p className="card__body">{s.body}</p>
+              {s.cta && (
+                <div className="card__cta">
+                  <Link to={s.cta.to} className="btn btn--primary">{s.cta.label}</Link>
+                </div>
+              )}
             </div>
           ))}
-        </div>
-        <div className="home-section__cta">
-          <Link to="/products/custom-ai-agents" className="btn btn--primary">See our AI agents in action</Link>
         </div>
       </section>
 
@@ -81,6 +85,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Technologies carousel */}
+      <TechnologiesCarousel />
 
       {/* Closing CTA */}
       <section className="home-cta">

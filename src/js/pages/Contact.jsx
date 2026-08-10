@@ -5,7 +5,7 @@ import { COMPANY, formatAddress } from '../siteConfig';
 export default function Contact() {
   usePageMeta(
     'Contact',
-    `Get in touch with ${COMPANY.legalName}. Email ${COMPANY.email} or call ${COMPANY.phoneDisplay}.`
+    `Get in touch with ${COMPANY.legalName}. Email ${COMPANY.email}.`
   );
 
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -42,10 +42,6 @@ export default function Contact() {
           <div className="contact-info__item">
             <span className="contact-info__label">Email</span>
             <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
-          </div>
-          <div className="contact-info__item">
-            <span className="contact-info__label">Phone</span>
-            <a href={`tel:${COMPANY.phoneHref}`}>{COMPANY.phoneDisplay}</a>
           </div>
           {address && (
             <div className="contact-info__item">
