@@ -4,6 +4,9 @@ import { COMPANY } from '../siteConfig';
 import Logo3D from './Logo3D';
 import HeroNetwork from './HeroNetwork';
 
+const frankensteinLogo = new URL('/img/frankenstein-logo.png', import.meta.url);
+const genieLogo = new URL('/img/genie.svg', import.meta.url);
+
 // Real-time 3D logo (Three.js) that rotates toward the mouse.
 function HeroLogo() {
   return (
@@ -38,17 +41,13 @@ export default function Hero() {
             <div className="hero__cta">
               <h3>Smart software, built for your business.</h3>
               <div className="hero__cta__buttons">
-                <Link to="/products/frankenstein-audio" className="hero__cta__btn hero__cta__btn--primary">
+                <Link to="/products/frankenstein-audio" className="hero__cta__btn hero__cta__btn--secondary">
+                  <img src={frankensteinLogo} alt="" className="hero__cta__btn__icon hero__cta__btn__icon--invert" />
                   FRANKENSTEIN AUDIO
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                    <path d="M3 8h10M9 4l4 4-4 4" />
-                  </svg>
                 </Link>
-                <Link to="/products/brandgenie" className="hero__cta__btn hero__cta__btn--primary">
+                <Link to="/products/brandgenie" className="hero__cta__btn hero__cta__btn--secondary">
+                  <img src={genieLogo} alt="" className="hero__cta__btn__icon" />
                   BRANDGENIE
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                    <path d="M3 8h10M9 4l4 4-4 4" />
-                  </svg>
                 </Link>
               </div>
             </div>
