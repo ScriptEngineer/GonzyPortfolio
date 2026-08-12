@@ -394,6 +394,16 @@ p, h1, h2, h3, h4 {
     gap: 12px;
   }
 
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    @media #{$medium-down} {
+      justify-content: center;
+    }
+  }
+
   &__btn {
     display: inline-flex;
     align-items: center;

@@ -9,15 +9,39 @@ export default function Contact() {
   );
 
   const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
   const update = (field) => (e) => setForm({ ...form, [field]: e.target.value });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // Last-resort fallback: open the visitor's mail app pre-addressed to us.
+  const openMailApp = () => {
     const subject = encodeURIComponent(`Website inquiry from ${form.name || 'a visitor'}`);
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
     );
     window.location.href = `mailto:${COMPANY.email}?subject=${subject}&body=${body}`;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await response.json();
+      if (data.success) {
+        setStatus('sent');
+        setForm({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+        openMailApp();
+      }
+    } catch (err) {
+      setStatus('error');
+      openMailApp();
+    }
   };
 
   const address = formatAddress();
@@ -64,10 +88,20 @@ export default function Contact() {
             <span>How can we help?</span>
             <textarea rows="5" value={form.message} onChange={update('message')} required />
           </label>
-          <button type="submit" className="btn btn--primary">Send message</button>
-          <p className="contact-form__note">
-            Submitting opens your email app addressed to {COMPANY.email}.
-          </p>
+          <button type="submit" className="btn btn--primary" disabled={status === 'sending'}>
+            {status === 'sending' ? 'Sending…' : 'Send message'}
+          </button>
+          {status === 'sent' && (
+            <p className="contact-form__note contact-form__note--success">
+              Message sent — we&rsquo;ll get back to you within one business day.
+            </p>
+          )}
+          {status === 'error' && (
+            <p className="contact-form__note">
+              We couldn&rsquo;t send your message directly, so we opened your email app
+              addressed to {COMPANY.email} instead.
+            </p>
+          )}
         </form>
       </section>
     </div>

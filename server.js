@@ -23,6 +23,10 @@ const PENNY_WEBHOOK_URL_DEV = process.env.N8N_WEBHOOK_URL_PENNY_DEV;
 const TERRY_WEBHOOK_URL_PRO = process.env.N8N_WEBHOOK_URL_TERRY_PRO;
 const TERRY_WEBHOOK_URL_DEV = process.env.N8N_WEBHOOK_URL_TERRY_DEV;
 
+// CONTACT FORM WEBHOOK (optional — /api/contact returns 503 until configured)
+const CONTACT_WEBHOOK_URL_PRO = process.env.N8N_WEBHOOK_URL_CONTACT_PRO;
+const CONTACT_WEBHOOK_URL_DEV = process.env.N8N_WEBHOOK_URL_CONTACT_DEV;
+
 // VAPI configuration
 const VAPI_API_KEY = process.env.VAPI_API_KEY;
 const VAPI_AGENT_NUMBER = process.env.VAPI_AGENT_NUMBER_JASON;
@@ -214,6 +218,40 @@ app.post('/api/vapi/call', async (req, res) => {
     }
   } catch (error) {
     console.error('VAPI call error:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// Contact form endpoint - forwards the message to an n8n workflow that emails it
+app.post('/api/contact', async (req, res) => {
+  const { name, email, message } = req.body || {};
+
+  if (!name || !email || !message) {
+    return res.status(400).json({ success: false, error: 'name, email, and message are required' });
+  }
+
+  const webhookUrl = MODE === 'production' ? CONTACT_WEBHOOK_URL_PRO : CONTACT_WEBHOOK_URL_DEV;
+
+  if (!webhookUrl) {
+    console.error('Contact webhook not configured (N8N_WEBHOOK_URL_CONTACT_*)');
+    return res.status(503).json({ success: false, error: 'Contact form is not configured' });
+  }
+
+  try {
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message, timestamp: Date.now() }),
+    });
+
+    if (response.ok) {
+      res.json({ success: true });
+    } else {
+      console.error('Contact webhook failed with status', response.status);
+      res.status(502).json({ success: false, error: 'Contact webhook request failed' });
+    }
+  } catch (error) {
+    console.error('Contact webhook error:', error);
     res.status(500).json({ success: false, error: error.message });
   }
 });

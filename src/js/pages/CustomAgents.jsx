@@ -718,7 +718,7 @@ export default class CustomAgents extends React.Component {
               <div className="page-hero">
                 <div className="page-hero__inner">
                   <span className="page-hero__eyebrow">Custom AI Agents</span>
-                  <h1 className="page-hero__title">AI Agents &amp; Custom Software, Built for Your Business</h1>
+                  <h1 className="page-hero__title">AI Agents Tailored for Your Business</h1>
                   <p className="page-hero__lead">
                     {COMPANY.shortName} designs, builds, and deploys production-grade AI
                     assistants and web &amp; software solutions. Explore our flagship AI

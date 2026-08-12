@@ -37,12 +37,20 @@ export default function Hero() {
             <p>{COMPANY.tagline.toLowerCase()}</p>
             <div className="hero__cta">
               <h3>Smart software, built for your business.</h3>
-              <Link to="/products" className="hero__cta__btn hero__cta__btn--primary">
-                EXPLORE OUR PRODUCTS
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M3 8h10M9 4l4 4-4 4" />
-                </svg>
-              </Link>
+              <div className="hero__cta__buttons">
+                <Link to="/products/frankenstein-audio" className="hero__cta__btn hero__cta__btn--primary">
+                  FRANKENSTEIN AUDIO
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M3 8h10M9 4l4 4-4 4" />
+                  </svg>
+                </Link>
+                <Link to="/products/brandgenie" className="hero__cta__btn hero__cta__btn--primary">
+                  BRANDGENIE
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M3 8h10M9 4l4 4-4 4" />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

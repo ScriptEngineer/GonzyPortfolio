@@ -596,6 +596,7 @@ body {
     }
   }
   &__note { font-size: 13px; color: var(--text-secondary); margin: 0; }
+  &__note--success { color: #3fb950; }
 }
 @media #{$medium-down} {
   .contact-grid { grid-template-columns: 1fr; }
