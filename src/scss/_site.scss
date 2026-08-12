@@ -453,6 +453,10 @@ body {
 
 @media #{$medium-down} {
   .cards { grid-template-columns: 1fr; }
+  .card {
+    align-items: center;
+    text-align: center;
+  }
   .card__icon {
     width: 64px;
     height: 64px;
