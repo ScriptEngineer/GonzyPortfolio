@@ -11,7 +11,7 @@ export const COMPANY = {
   foundedYear: 2013,
 
   // --- Contact ------------------------------------------------------------
-  email: 'gerardogonzalezinzunza@gonzydesigns.com',
+  email: 'gonzydesigns@gmail.com',
   phoneDisplay: '(817) 286-5319',
   phoneHref: '+18172865319',
 
