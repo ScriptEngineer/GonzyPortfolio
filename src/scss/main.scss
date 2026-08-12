@@ -134,7 +134,11 @@ p, h1, h2, h3, h4 {
 
   @media #{$small} {
     align-items: flex-start;
-    height: 700px;
+    // Tall enough for the enlarged 3D logo plus branding, with clearance for
+    // the absolutely-positioned scroll indicator at the bottom.
+    height: auto;
+    min-height: 820px;
+    padding-bottom: 90px;
   }
 
 
@@ -1878,8 +1882,8 @@ p, h1, h2, h3, h4 {
   }
 
   @media #{$medium-down} {
-    width: clamp(200px, 50vw, 300px);
-    height: clamp(236px, 58vw, 350px);
+    width: clamp(260px, 72vw, 360px);
+    height: clamp(300px, 84vw, 420px);
   }
 }
 

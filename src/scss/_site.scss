@@ -453,6 +453,12 @@ body {
 
 @media #{$medium-down} {
   .cards { grid-template-columns: 1fr; }
+  .card__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    svg { width: 34px; height: 34px; }
+  }
 }
 
 // --- Stats band ------------------------------------------------------------
