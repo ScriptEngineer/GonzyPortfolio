@@ -8,11 +8,16 @@ import * as THREE from 'three';
 // 6 stacked shapes, which extrude into overlapping / z-fighting surfaces.
 const svgUrl = new URL('/img/gonzydesigns_logo.svg', import.meta.url).href;
 
-// Real extruded 3D logo built from the SVG paths, rotating toward the mouse.
+// Real extruded 3D logo built from the SVG paths. Desktop: rotates toward the
+// mouse. Touch devices (no hover): slow continuous spin instead.
 function LogoModel() {
   const spin = useRef();
   const target = useRef({ x: 0, y: 0 });
   const svg = useLoader(SVGLoader, svgUrl);
+  const isTouch = useMemo(
+    () => window.matchMedia('(hover: none) and (pointer: coarse)').matches,
+    []
+  );
 
   // Build extruded geometry from each SVG shape, then center everything at origin.
   const geometries = useMemo(() => {
@@ -44,19 +49,25 @@ function LogoModel() {
     return geos;
   }, [svg]);
 
-  // Track the mouse across the whole page.
+  // Track the mouse across the whole page (pointless on touch screens).
   useEffect(() => {
+    if (isTouch) return undefined;
     const onMove = (e) => {
       target.current.x = (e.clientX / window.innerWidth) * 2 - 1;
       target.current.y = (e.clientY / window.innerHeight) * 2 - 1;
     };
     window.addEventListener('pointermove', onMove);
     return () => window.removeEventListener('pointermove', onMove);
-  }, []);
+  }, [isTouch]);
 
-  // Ease the logo toward the mouse direction each frame.
-  useFrame(() => {
+  // Touch: slow continuous spin with a gentle tilt. Desktop: ease toward the mouse.
+  useFrame((state, delta) => {
     if (!spin.current) return;
+    if (isTouch) {
+      spin.current.rotation.y += delta * 0.4;
+      spin.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.6) * 0.12;
+      return;
+    }
     const ry = target.current.x * 0.9;
     const rx = target.current.y * 0.55;
     spin.current.rotation.y += (ry - spin.current.rotation.y) * 0.08;
