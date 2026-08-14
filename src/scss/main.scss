@@ -435,6 +435,13 @@ p, h1, h2, h3, h4 {
       &--invert {
         filter: invert(1);
       }
+
+      // genie.svg's artwork only fills ~46% x 35% of its 2048px canvas, so at
+      // icon size it renders tiny; scale it up (art is centered, slight y nudge)
+      // to match the Frankenstein icon's visual size.
+      &--genie {
+        transform: translateY(1.5px) scale(2.3);
+      }
     }
 
     &--primary {

@@ -46,7 +46,7 @@ export default function Hero() {
                   FRANKENSTEIN AUDIO
                 </Link>
                 <Link to="/products/brandgenie" className="hero__cta__btn hero__cta__btn--secondary">
-                  <img src={genieLogo} alt="" className="hero__cta__btn__icon" />
+                  <img src={genieLogo} alt="" className="hero__cta__btn__icon hero__cta__btn__icon--genie" />
                   BRANDGENIE
                 </Link>
               </div>
