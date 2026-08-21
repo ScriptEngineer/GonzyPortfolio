@@ -3,8 +3,8 @@ import usePageMeta from '../hooks/usePageMeta';
 
 // Hidden test page for n8n workflows. Reachable at /workflow-showcase but
 // intentionally left out of NAV_LINKS so it never appears in site navigation.
-// Paste the n8n webhook URL, fill the form, and the submission is POSTed as
-// JSON so the workflow receives one field per input type.
+// Submissions go to /api/workflow-showcase, which proxies them to the n8n
+// webhook configured in .env (N8N_WEBHOOK_URL_SHOWCASE_PRO/DEV).
 
 const INITIAL_FORM = {
   fullName: '',
@@ -33,7 +33,6 @@ const CHANNEL_OPTIONS = ['Email', 'SMS', 'Slack', 'Discord'];
 export default function WorkflowShowcase() {
   usePageMeta('Workflow Showcase', 'Internal test page for n8n workflows.');
 
-  const [webhookUrl, setWebhookUrl] = useState('');
   const [form, setForm] = useState(INITIAL_FORM);
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
   const [response, setResponse] = useState(null);
@@ -57,7 +56,7 @@ export default function WorkflowShowcase() {
     setStatus('sending');
     setResponse(null);
     try {
-      const res = await fetch(webhookUrl, {
+      const res = await fetch('/api/workflow-showcase', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -87,24 +86,13 @@ export default function WorkflowShowcase() {
           <h1 className="page-hero__title">Workflow showcase</h1>
           <p className="page-hero__lead">
             Test form for n8n workflows. Submissions are sent as JSON to the
-            webhook URL below.
+            configured workflow webhook.
           </p>
         </div>
       </section>
 
       <section className="workflow-showcase">
         <form className="contact-form" onSubmit={handleSubmit}>
-          <label className="contact-form__field">
-            <span>n8n webhook URL</span>
-            <input
-              type="url"
-              placeholder="https://your-n8n-instance/webhook/..."
-              value={webhookUrl}
-              onChange={(e) => setWebhookUrl(e.target.value)}
-              required
-            />
-          </label>
-
           <div className="workflow-showcase__grid">
             <label className="contact-form__field">
               <span>Full name (text)</span>

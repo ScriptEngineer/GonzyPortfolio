@@ -1,0 +1,215 @@
+{
+  "name": "Showcase-05",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "workflow-showcase",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "id": "a1f0c9d2-0001-4c8e-9b1a-workflow0001",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "workflow-showcase"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f-submittedAt",
+              "name": "submittedAt",
+              "type": "string",
+              "value": "={{ $json.body.submittedAt }}"
+            },
+            {
+              "id": "f-fullName",
+              "name": "fullName",
+              "type": "string",
+              "value": "={{ $json.body.fullName }}"
+            },
+            {
+              "id": "f-email",
+              "name": "email",
+              "type": "string",
+              "value": "={{ $json.body.email }}"
+            },
+            {
+              "id": "f-phone",
+              "name": "phone",
+              "type": "string",
+              "value": "={{ $json.body.phone }}"
+            },
+            {
+              "id": "f-quantity",
+              "name": "quantity",
+              "type": "number",
+              "value": "={{ $json.body.quantity }}"
+            },
+            {
+              "id": "f-eventDate",
+              "name": "eventDate",
+              "type": "string",
+              "value": "={{ $json.body.eventDate }}"
+            },
+            {
+              "id": "f-category",
+              "name": "category",
+              "type": "string",
+              "value": "={{ $json.body.category }}"
+            },
+            {
+              "id": "f-priority",
+              "name": "priority",
+              "type": "string",
+              "value": "={{ $json.body.priority }}"
+            },
+            {
+              "id": "f-channels",
+              "name": "channels",
+              "type": "string",
+              "value": "={{ ($json.body.channels || []).join(', ') }}"
+            },
+            {
+              "id": "f-budget",
+              "name": "budget",
+              "type": "number",
+              "value": "={{ $json.body.budget }}"
+            },
+            {
+              "id": "f-subscribe",
+              "name": "subscribe",
+              "type": "boolean",
+              "value": "={{ $json.body.subscribe }}"
+            },
+            {
+              "id": "f-notes",
+              "name": "notes",
+              "type": "string",
+              "value": "={{ $json.body.notes }}"
+            },
+            {
+              "id": "f-source",
+              "name": "source",
+              "type": "string",
+              "value": "={{ $json.body.source }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1f0c9d2-0002-4c8e-9b1a-workflow0002",
+      "name": "Format Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        224,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1-LWDTOagyNl7rwcsuA_oG-v_T6W09BwfkKHzbidnCfE",
+          "mode": "list",
+          "cachedResultName": "Showcase-05",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1-LWDTOagyNl7rwcsuA_oG-v_T6W09BwfkKHzbidnCfE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1-LWDTOagyNl7rwcsuA_oG-v_T6W09BwfkKHzbidnCfE/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "a1f0c9d2-0003-4c8e-9b1a-workflow0003",
+      "name": "Append to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        448,
+        0
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "sqC4erJkyw7F7WqH",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"success\": true,\n  \"message\": \"Row added to Google Sheets\"\n}",
+        "options": {}
+      },
+      "id": "a1f0c9d2-0004-4c8e-9b1a-workflow0004",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        672,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Format Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Fields": {
+      "main": [
+        [
+          {
+            "node": "Append to Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append to Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

@@ -24,6 +24,10 @@ const PENNY_WEBHOOK_URL_DEV = process.env.N8N_WEBHOOK_URL_PENNY_DEV;
 const TERRY_WEBHOOK_URL_PRO = process.env.N8N_WEBHOOK_URL_TERRY_PRO;
 const TERRY_WEBHOOK_URL_DEV = process.env.N8N_WEBHOOK_URL_TERRY_DEV;
 
+// WORKFLOW SHOWCASE WEBHOOKS (hidden n8n test page at /workflow-showcase)
+const SHOWCASE_WEBHOOK_URL_PRO = process.env.N8N_WEBHOOK_URL_SHOWCASE_PRO;
+const SHOWCASE_WEBHOOK_URL_DEV = process.env.N8N_WEBHOOK_URL_SHOWCASE_DEV;
+
 // CONTACT FORM EMAIL (Gmail SMTP via app password — /api/contact returns 503 until configured)
 const GMAIL_USER = process.env.GMAIL_USER;
 const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
@@ -256,6 +260,35 @@ app.post('/api/contact', async (req, res) => {
   } catch (error) {
     console.error('Contact email error:', error);
     res.status(500).json({ success: false, error: 'Failed to send message' });
+  }
+});
+
+// Workflow showcase form - proxies the submission to the n8n webhook so the
+// page never needs the webhook URL (also sidesteps CORS/mixed-content limits).
+app.post('/api/workflow-showcase', async (req, res) => {
+  const webhookUrl = MODE === 'production' ? SHOWCASE_WEBHOOK_URL_PRO : SHOWCASE_WEBHOOK_URL_DEV;
+
+  if (!webhookUrl) {
+    console.error('Showcase webhook not configured (N8N_WEBHOOK_URL_SHOWCASE_PRO/DEV)');
+    return res.status(503).json({ success: false, error: 'Workflow webhook is not configured' });
+  }
+
+  try {
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(req.body || {}),
+    });
+    const text = await response.text();
+    res.status(response.status);
+    try {
+      res.json(JSON.parse(text));
+    } catch {
+      res.send(text);
+    }
+  } catch (error) {
+    console.error('Showcase webhook error:', error);
+    res.status(502).json({ success: false, error: 'Failed to reach the workflow webhook' });
   }
 });
 
