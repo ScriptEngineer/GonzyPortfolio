@@ -15,6 +15,7 @@ import BrandGenie from './pages/BrandGenie';
 import CustomAgents from './pages/CustomAgents';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
+import WorkflowShowcase from './pages/WorkflowShowcase';
 
 // Register the brand icons used by the technologies carousel on the home page.
 library.add(
@@ -35,6 +36,8 @@ function App() {
           <Route path="/products" element={<Navigate to="/products/custom-ai-agents" replace />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
+          {/* Hidden n8n test page — deliberately absent from NAV_LINKS. */}
+          <Route path="/workflow-showcase" element={<WorkflowShowcase />} />
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>
